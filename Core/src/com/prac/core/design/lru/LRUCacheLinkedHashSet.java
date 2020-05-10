@@ -1,4 +1,4 @@
-package com.prac.core.desgin.lru;
+package com.prac.core.design.lru;
 
 import java.util.Iterator;
 import java.util.LinkedHashSet;
