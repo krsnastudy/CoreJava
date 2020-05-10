@@ -106,7 +106,7 @@ class LRUCache {
     }
 } //LRUCache
 
-class LRUCacheExample {
+class LRUCacheStack {
     public static void main(String[] args) {
     	
     	LRUCache cache = new LRUCache(3);
