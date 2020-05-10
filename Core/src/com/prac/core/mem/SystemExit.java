@@ -14,10 +14,14 @@ public class SystemExit {
 		} finally {
 			System.out.println("I am in finally block!!!");
 		}
+	
 	}
+	
 }
 
 /*
+exit(0) : Generally used to indicate successful termination.
+exit(1) or exit(-1) or any other non-zero value – Generally indicates unsuccessful termination.
 
 Terminates the currently running Java Virtual Machine. 
 The argument serves as a status code; by convention, a nonzero status code indicates abnormal termination. 
