@@ -1,4 +1,4 @@
-package com.prac.core.algo;
+package com.prac.core.design.lru;
 
 import java.util.HashMap;
 import java.util.Map;

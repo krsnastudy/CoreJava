@@ -1,4 +1,4 @@
-package com.prac.core.algo;
+package com.prac.core.desgin.lru;
 
 import java.util.Iterator;
 import java.util.LinkedHashSet;
