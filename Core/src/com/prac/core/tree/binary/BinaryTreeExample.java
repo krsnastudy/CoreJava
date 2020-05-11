@@ -1,6 +1,6 @@
 package com.prac.core.tree.binary;
 
-public class NinaryTreeExample {
+public class BinaryTreeExample {
 
 	Node root;
 
