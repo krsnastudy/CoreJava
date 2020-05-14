@@ -51,6 +51,9 @@ public class String1 {
 		System.out.println("s11 hashCode: "+s11.hashCode()+" - identityHashCode: "+System.identityHashCode(s11));
 		
 		System.out.println("Map size " + map.size());
+		
+		map.forEach((x,y)->System.identityHashCode(x));
+		
 	}
 
 }
