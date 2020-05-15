@@ -1,16 +1,12 @@
 package com.prac.core.problem;
 
 import java.util.Collection;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.OptionalInt;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class LongestPallindrome {
@@ -21,7 +17,7 @@ public class LongestPallindrome {
 	public static TreeSet<String> hSet = new TreeSet<>();
 	
    public static void main(String[] args){
-     String inputString = "week";
+     String inputString = "madam";
      
      Combinations combobj= new Combinations(inputString);
      combobj.combine();
@@ -49,7 +45,7 @@ public class LongestPallindrome {
 	    	            e -> e.getValue().size()
 	    	        ));
 	    
-	    System.out.println("\nPallindromes Result{(Set), (Set.size)}: \n"+res);
+	    System.out.println("\nPallindromes Result{(key=Set), (value=Set.size)}: \n"+res);
 	    		
 	    OptionalInt max = res.entrySet()
 	    	      .stream()
