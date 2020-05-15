@@ -1,10 +1,16 @@
 package com.prac.core.problem;
 
+import java.util.Collection;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.OptionalInt;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class LongestPallindrome {
@@ -15,7 +21,7 @@ public class LongestPallindrome {
 	public static TreeSet<String> hSet = new TreeSet<>();
 	
    public static void main(String[] args){
-     String inputString = "moonoom";
+     String inputString = "week";
      
      Combinations combobj= new Combinations(inputString);
      combobj.combine();
@@ -26,10 +32,10 @@ public class LongestPallindrome {
 //     System.out.println("combinationsMap: "+combinationsMap);
      
      processData();
-     System.out.println("Permutation Data: "+finalRes);
+//     System.out.println("Permutation Data: "+finalRes);
      
      palindromeData();
-     System.out.println("Pallindrome Data: "+pallinRes);
+//     System.out.println("Pallindromes Data: "+pallinRes);
      
      printDecision();
      
@@ -43,9 +49,26 @@ public class LongestPallindrome {
 	    	            e -> e.getValue().size()
 	    	        ));
 	    
-	    System.out.println("Result: "+res);
+	    System.out.println("\nPallindromes Result{(Set), (Set.size)}: \n"+res);
+	    		
+	    OptionalInt max = res.entrySet()
+	    	      .stream()
+	    	      .mapToInt(v -> (int)v.getValue())
+	    	      .max();
+
+//	    System.out.println(max);
+
+		Collection<Object> lMax = res.entrySet()
+	    		.stream()
+	    		.filter(entry -> (int)entry.getValue()==max.getAsInt())
+	    		.map(Map.Entry::getKey)
+	    		.collect(Collectors.toList());
+	    
+		System.out.println("\nMax size of Pallindrome is: "+max.getAsInt());
+		System.out.print("Pallindromes are: ");
+		lMax.forEach(a->System.out.print(a+" "));
    }
-   
+      
    public static void palindromeData () {
 	     for(Map.Entry<Integer, HashSet<String>> entry : finalRes.entrySet()) {
 				  HashSet<String> eSet = new HashSet<String>();
