@@ -6,7 +6,7 @@ import java.util.Map;
 public class StudentMap {
 
 	public static void main(String[] args) {
-/*
+
 		Map<String, Student> sMap = new HashMap<>();
 		Student s1 = new Student("Student1", 1, "School1", "First", "A");
 		Student s2 = new Student("Student2", 2, "School1", "First", "A");
@@ -25,7 +25,6 @@ public class StudentMap {
 		sMap.forEach((x, y)->System.out.println(x+": "+y.hashCode()));
 		System.out.println();
 		System.out.println(sMap);
-*/		
 		
 		System.out.println("\n/*********************/");
 		Map<Student, String> cMap = new HashMap<>();

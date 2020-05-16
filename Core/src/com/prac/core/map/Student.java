@@ -76,7 +76,7 @@ public class Student {
 		result = prime * result + ((studentsection == null) ? 0 : studentsection.hashCode());
 		return result;
 	}
-
+	
 	@Override
 	public boolean equals(Object obj) {
 		System.out.print("Student equals(): ");
