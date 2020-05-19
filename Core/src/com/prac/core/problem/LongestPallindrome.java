@@ -19,7 +19,7 @@ public class LongestPallindrome {
    public static void main(String[] args){
      String inputString = "madam";
      
-     Combinations combobj= new Combinations(inputString);
+     com.prac.core.problem.Combinations combobj= new Combinations(inputString);
      combobj.combine();
      hSet = combobj.getData();
 //     System.out.println("Combinations: "+hSet);
