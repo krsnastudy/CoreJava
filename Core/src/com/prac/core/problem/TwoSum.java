@@ -1,7 +1,5 @@
 package com.prac.core.problem;
 
-import java.util.stream.Stream;
-
 public class TwoSum {
 
 	public static void main(String[] args) {

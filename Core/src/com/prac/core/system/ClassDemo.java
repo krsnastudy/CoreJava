@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 public class ClassDemo {
 	@SuppressWarnings("rawtypes")
 	public static void main(String[] args) {
-String javaClassName = "java.util.Arrays";
+String javaClassName = "java.time.LocalDate";
 	      try {
 	         Class cls = Class.forName(javaClassName);
 	         System.out.println("Java Class["+javaClassName+"] Methods are: ");

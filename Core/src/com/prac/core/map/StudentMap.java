@@ -10,7 +10,7 @@ public class StudentMap {
 		Map<String, Student> sMap = new HashMap<>();
 		Student s1 = new Student("Student1", 1, "School1", "First", "A");
 		Student s2 = new Student("Student2", 2, "School1", "First", "A");
-		Student s6 = new Student("Student1", 1, "School1", "First", "B");
+		Student s6 = new Student("Student1", 1, "School1", "First", "A");
 		
 		System.out.println(s1.hashCode()+" s1 "+System.identityHashCode(s1));
 		System.out.println(s6.hashCode()+" s6 "+System.identityHashCode(s6));
