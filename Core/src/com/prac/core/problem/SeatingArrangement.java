@@ -19,9 +19,11 @@ public class SeatingArrangement {
 	public static void main(String[] args) {
 		
 		List<Integer> list = new ArrayList<>();
-		list.add(104);
+		list.add(12);
 		list.add(99);
 		list.add(34);
+		list.add(44);
+		list.add(41);
 		
 		for (Integer integer : list) {
 			getOppSeat(integer);
@@ -70,3 +72,5 @@ public class SeatingArrangement {
 		System.out.println("SeatNumber: "+seatNumber+" Opposite: "+map.get(seatNumber)+" "+SEAT_TYPE);
 	}
 }
+
+// https://www.hackerearth.com/practice/basic-programming/input-output/basics-of-input-output/practice-problems/algorithm/seating-arrangement-1/
