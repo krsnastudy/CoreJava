@@ -81,7 +81,7 @@ public class Java8Tester {
 		      System.out.println("Next week: " + nextWeek);
 				
 		      //add 1 month to the current date
-		      LocalDate nextMonth = today.plus(1, ChronoUnit.MONTHS);
+		      LocalDate nextMonth = today.plus(-1, ChronoUnit.MONTHS);
 		      System.out.println("Next month: " + nextMonth);
 				
 		      //add 1 year to the current date

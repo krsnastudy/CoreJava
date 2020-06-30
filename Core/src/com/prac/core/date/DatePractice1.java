@@ -12,7 +12,7 @@ public class DatePractice1 {
 
 	public static void main(String[] args) {
 
-		LocalDate localDate = LocalDate.now().plusDays(1);
+		LocalDate localDate = LocalDate.now();
 		System.out.println("Local Date: "+localDate);
 		System.out.println(LocalDate.of(2015, 02, 20));
 		System.out.println(LocalDate.parse("2018-04-20"));
@@ -47,7 +47,7 @@ public class DatePractice1 {
 		//allZoneIds.forEach(System.out::println);
 		
 		LocalDate localDateTime = LocalDate.now();
-		localDateTime.format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
+//		localDateTime.format(DateTimeFormatter.ofPattern("dd-Mon-yyyy"));
 		System.out.println("localDateTime: "+localDateTime);
 	}
 
