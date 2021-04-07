@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class ArrayListDuplicates {
     public static void main(String[] args) {
@@ -30,7 +33,7 @@ public class ArrayListDuplicates {
     	
     	res = org.stream().distinct()
     			.filter(e->Collections.frequency(org, e)==1)
-    			.collect(Collectors.toList());    	
+    			.collect(Collectors.toList());
     	System.out.println("List with Only occurance Once: "+res);
     	
     	res = org.stream().distinct().collect(Collectors.toList());
@@ -50,5 +53,17 @@ public class ArrayListDuplicates {
     	   String string = "M11";
     	   boolean match = list.stream().anyMatch(string::contains);
     	   System.out.println("match: "+match);
+    	   
+    	String a = "String";
+    	String b = "String";
+    	String c = new String("String");
+    	System.out.println(a==b);
+    	System.out.println(a.equals(c));
+    	
+    	String str = "This is a test string to pring duplicate values in it";
+    	IntStream intStream = str.chars();
+    	Stream<Character> charsStream = intStream.mapToObj(ch -> (char) ch);
+    	Map<Character, Long> output = charsStream.collect(Collectors.groupingBy(ch -> ch, Collectors.counting()));
+    	System.out.println(output);
   }
 }
