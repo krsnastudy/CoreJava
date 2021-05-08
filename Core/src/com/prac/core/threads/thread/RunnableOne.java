@@ -1,4 +1,4 @@
-package com.prac.core.thread;
+package com.prac.core.threads.thread;
 
 public class RunnableOne implements Runnable{
 

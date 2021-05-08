@@ -1,9 +1,8 @@
-package com.prac.core.thread;
+package com.prac.core.threads.thread;
 
 public class OddEvenExample implements Runnable {
     @Override
     public void run() {
-        // TODO Auto-generated method stub
 
         for (int i = 1; i <= 10; i++) {
             synchronized (this) {
@@ -13,7 +12,6 @@ public class OddEvenExample implements Runnable {
                         System.out.println("Even Thread : " + i);
                         wait();
                     } catch (InterruptedException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
                 } else if (i % 2 != 0
@@ -23,7 +21,6 @@ public class OddEvenExample implements Runnable {
                         System.out.println("Odd Thread : " + i);
                         wait();
                     } catch (InterruptedException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
                 }
