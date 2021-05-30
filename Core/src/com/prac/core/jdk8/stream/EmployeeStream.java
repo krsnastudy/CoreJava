@@ -51,20 +51,46 @@ public class EmployeeStream {
 		 */
 		
 		// Sorting By fName, lName, Dept
+		
+		Comparator<Employee> empComparator = 
+			Comparator
+				.comparing(Employee::getfName)
+				.thenComparing(Employee::getlName)
+				//.thenComparing(Employee::getDepartment)
+				;
+		
+		ArrayList<Employee> sorted = (ArrayList<Employee>)
+				empDistinct.stream()
+					.sorted(empComparator)
+					.collect(Collectors.toList());
+		sorted.forEach(System.out::println);
+//		ArrayList<Employee> deptSal = (ArrayList<Employee>); 
+
+	}
+}
+
+
+
+/*
+
+// Sorting By fName, lName, Dept
 		ArrayList<Employee> sorted = (ArrayList<Employee>)
 				empDistinct.stream()
 					.sorted(new Comparator<Employee>() {
 
 						@Override
 						public int compare(Employee o1, Employee o2) {
-							return o1.getfName().compareTo(o2.getlName());
+							if((o1.getfName().compareTo(o2.getlName())>1)) {
+								return o1.getfName().compareTo(o2.getfName());
+							}else {
+								return o1.getlName().compareTo(o2.getlName());
+							}
 						}
 						
-					});
-		
-//		ArrayList<Employee> deptSal = (ArrayList<Employee>); 
+					}).collect(Collectors.toList());
 
-	}
 
-}
+
+
+ * */
  
