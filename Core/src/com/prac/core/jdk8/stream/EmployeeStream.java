@@ -20,25 +20,25 @@ public class EmployeeStream {
 		emp = exec.populateEmpData(noOfRecords);
 
 	//Original Data contains duplicates
-//		System.out.println("Original Data");
+//		System.out.println("<<< Original Data >>>");
 //		emp.forEach(System.out::println);
 		
-		System.out.println("\nDistinct Employees Data");
+		System.out.println("\n<<< Distinct Employees Data >>>");
 		ArrayList<Employee> empDistinct = (ArrayList<Employee>)
 		emp.stream()
 		   .distinct()
 		   .collect(Collectors.toList());
 //		   .forEach(System.out::println);
 		
-		empDistinct.forEach(e->System.out.println(e.geteNumber()+" - "+e.getfName()+", "+e.getlName()));
+		empDistinct.forEach(e->System.out.println(e.geteNumber()+" - "+e.getfName()+", "+e.getlName()+", "+e.geteSal()+", "+e.getDepartment()));
 		
-		System.out.println("\nEmployees FirstName with s");
+		System.out.println("\n<<< Employees FirstName with S >>>");
 		empDistinct.stream()
-			.filter(x->x.getfName().startsWith("s"))
+			.filter(x->x.getfName().startsWith("S"))
 			.collect(Collectors.toList())
 			.forEach(x->System.out.println(x.geteNumber()+" - "+x.getfName()));
 		
-		System.out.println("\nEmployees Salary > 50000");
+		System.out.println("\n<<< Employees Salary > 50000 >>>");
 		ArrayList<Employee> eList = (ArrayList<Employee>) 
 		empDistinct.stream()
 		   .filter(x->x.geteSal()>50000)
@@ -48,7 +48,7 @@ public class EmployeeStream {
 		Optional<ArrayList<Employee>> opt = Optional.ofNullable(eList);
 //		opt.ifPresent(System.out::println);
 //		opt.ifPresent(x-> {x.forEach((y)->{System.out.println();});});
-		opt.ifPresent(x->{x.forEach((y)->{System.out.println("EmpNo: "+y.geteNumber());});});
+		opt.ifPresent(x->{x.forEach((y)->{System.out.println("EmpNo: "+y.geteNumber()+" - "+y.geteSal());});});
 		
 		//If a value is present, performs the given action with the value,otherwise performs the given empty-based action.
 		/*
@@ -57,7 +57,7 @@ public class EmployeeStream {
 		 */
 		
 	// Sorting By firstName, lastName, Department
-		System.out.println("\nSorting Employees by firstName, lastName");
+		System.out.println("\n<<< Sorting Employees by firstName, lastName >>>");
 		Comparator<Employee> empComparator = 
 			Comparator
 //				.comparing(Employee::geteNumber).reversed()
@@ -73,7 +73,7 @@ public class EmployeeStream {
 		
 		sorted.forEach(e->System.out.println(e.geteNumber()+" - "+e.getfName()+", "+e.getlName()));
 		
-	System.out.println("\nEmployees By Department");		
+	System.out.println("\n<<< Employees By Department >>>");		
 			Map<DepartmentCode, List<Employee>> dept =
 			empDistinct.stream()
 				.collect(Collectors.groupingBy(Employee::getDepartment));
@@ -85,6 +85,15 @@ public class EmployeeStream {
 						.map(m->m.getfName()+"["+m.geteNumber()+"]")
 						.collect(Collectors.joining(", "))
 					));
+			
+		System.out.println("\n<<< Departmentwise Salary Summation >>>");		
+			dept.forEach((k,v) -> System.out.println(k +" Department"+" --> "
+					+ 
+					//v
+					((List<Employee>)v).stream()
+//						.map(m->m.geteSal())
+						.collect(Collectors.summingDouble(Employee::geteSal))
+					));			
 	}
 }
 
