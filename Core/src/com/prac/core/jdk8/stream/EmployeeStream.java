@@ -1,22 +1,22 @@
 package com.prac.core.jdk8.stream;
 
-import java.time.Year;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.prac.core.jdk8.stream.employee.data.Department.DepartmentCode;
 import com.prac.core.jdk8.stream.employee.data.Employee;
 import com.prac.core.jdk8.stream.employee.data.PopulateEmpData;
 
 public class EmployeeStream {
 
 	public static void main(String[] args) {
-		int noOfRecords = 10; // How many records you want
+		int noOfRecords = 5; // How many records you want
 		List<Employee> emp = new ArrayList<Employee>();
 		PopulateEmpData exec = new PopulateEmpData();
-		
 		emp = exec.populateEmpData(noOfRecords);
 
 	//Original Data contains duplicates
@@ -31,6 +31,12 @@ public class EmployeeStream {
 //		   .forEach(System.out::println);
 		
 		empDistinct.forEach(e->System.out.println(e.geteNumber()+" - "+e.getfName()+", "+e.getlName()));
+		
+		System.out.println("\nEmployees FirstName with s");
+		empDistinct.stream()
+			.filter(x->x.getfName().startsWith("s"))
+			.collect(Collectors.toList())
+			.forEach(x->System.out.println(x.geteNumber()+" - "+x.getfName()));
 		
 		System.out.println("\nEmployees Salary > 50000");
 		ArrayList<Employee> eList = (ArrayList<Employee>) 
@@ -50,22 +56,35 @@ public class EmployeeStream {
 		 * ()->{System.out.println("Not Present");} );
 		 */
 		
-		// Sorting By fName, lName, Dept
-		
+	// Sorting By firstName, lastName, Department
+		System.out.println("\nSorting Employees by firstName, lastName");
 		Comparator<Employee> empComparator = 
 			Comparator
+//				.comparing(Employee::geteNumber).reversed()
 				.comparing(Employee::getfName)
 				.thenComparing(Employee::getlName)
-				//.thenComparing(Employee::getDepartment)
-				;
+				.thenComparing(Employee::getDepartment)
+				.thenComparing(Employee::geteNumber);
 		
 		ArrayList<Employee> sorted = (ArrayList<Employee>)
 				empDistinct.stream()
 					.sorted(empComparator)
 					.collect(Collectors.toList());
-		sorted.forEach(System.out::println);
-//		ArrayList<Employee> deptSal = (ArrayList<Employee>); 
-
+		
+		sorted.forEach(e->System.out.println(e.geteNumber()+" - "+e.getfName()+", "+e.getlName()));
+		
+	System.out.println("\nEmployees By Department");		
+			Map<DepartmentCode, List<Employee>> dept =
+			empDistinct.stream()
+				.collect(Collectors.groupingBy(Employee::getDepartment));
+			
+			dept.forEach((k,v) -> System.out.println(k +" Department"+" --> "
+					+ 
+					//v
+					((List<Employee>)v).stream()
+						.map(m->m.getfName()+"["+m.geteNumber()+"]")
+						.collect(Collectors.joining(", "))
+					));
 	}
 }
 
