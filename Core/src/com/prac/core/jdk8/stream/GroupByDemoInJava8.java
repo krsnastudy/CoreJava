@@ -11,11 +11,6 @@ public class GroupByDemoInJava8 {
 		
 		Set<String> distinctWords = Arrays.asList(args1).stream()
 				.collect(Collectors.toSet());
-		/*
-		List<String> list = people.stream()
-				.map(Person::getName)
-				.collect(Collectors.toList());		
-				*/
 	}
 
 }

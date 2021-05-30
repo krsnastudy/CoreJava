@@ -1,13 +1,5 @@
 package com.prac.core.jdk8.fi;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
-@ToString
-@Data
-
 public class Person {
 
 	private String firstName;
