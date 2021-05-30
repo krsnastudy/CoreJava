@@ -1,4 +1,4 @@
-package com.prac.core.jdk5.arrlist;
+package com.prac.core.jdk8.arrlist;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,6 +24,8 @@ public class ArrayListDuplicates {
     	org.add("D");
     	org.add("E");
     
+    	Collections.unmodifiableList(org);
+    	
     	System.out.print("Original List: "+org);
     	
     	res = org.stream().distinct()
