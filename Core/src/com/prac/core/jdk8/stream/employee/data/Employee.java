@@ -42,8 +42,10 @@ public class Employee {
 	}
 
 	public String toStringSpecific() {
-		return "Employee [EmpNo=" + eNumber + ", EmpSal=" + eSal
-				+ ", EmpPincode=" + ePincode + "]";
+		return "{EmpNo: "+ eNumber 
+				+ ", EmpName: " + (fName +", "+ lName) 
+				+ ", EmpSal: " + eSal
+				+  "}";
 	}
 	
 	/**

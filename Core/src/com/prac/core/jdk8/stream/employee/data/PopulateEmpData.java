@@ -17,7 +17,7 @@ public class PopulateEmpData {
 		Random rPC = new Random();
 		Random rEno = new Random();
 		int minEno=100000; int maxEno=9999999;
-		int minPin=500000; int maxPin=999999;
+		int minPin=500000; int maxPin=599999;
 		
 		List<Employee> eList = new ArrayList<Employee>();
 

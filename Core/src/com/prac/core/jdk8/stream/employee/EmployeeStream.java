@@ -91,9 +91,40 @@ public class EmployeeStream {
 					+ 
 					//v
 					((List<Employee>)v).stream()
-//						.map(m->m.geteSal())
 						.collect(Collectors.summingDouble(Employee::geteSal))
-					));			
+					));		
+			
+		System.out.println("\n<<< Highest Salary Paid >>>");
+			Optional<Employee> empHighSal = 
+				empDistinct.stream()
+				.collect(Collectors.maxBy(Comparator.comparing(Employee::geteSal)));
+
+//		System.out.println(empHighSal.isPresent()? (empHighSal.get().geteNumber()+" "+empHighSal.get().geteSal()):"Not Available");
+		System.out.println(empHighSal.isPresent()? empHighSal.get():"Not Available");
+			
+		System.out.println("\n<<< Lowest Salary Paid >>>");
+			Optional<Employee> empMinSal = 
+				empDistinct.stream()
+				.collect(Collectors.minBy(Comparator.comparing(Employee::geteSal)));
+			
+			System.out.println(empMinSal.isPresent()? empMinSal.get():"Not Available");
+			
+		
+			Map<DepartmentCode, List<Employee>> deptSal =
+				empDistinct.stream()
+					.collect(Collectors.groupingBy(Employee::getDepartment));
+
+			System.out.println("\n<<< Departmentwise Highest Salary Paid >>>");			
+			dept.forEach(
+				(k, v)-> {
+					System.out.println(k+" Department: " +	
+						//v
+						v.stream()
+						 .collect(Collectors.maxBy(Comparator.comparing(Employee::geteSal)))
+						 .get().toStringSpecific()
+					);
+				});
+					
 	}
 }
 
