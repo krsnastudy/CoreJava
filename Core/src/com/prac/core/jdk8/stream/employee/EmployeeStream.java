@@ -1,4 +1,4 @@
-package com.prac.core.jdk8.stream;
+package com.prac.core.jdk8.stream.employee;
 
 import java.util.ArrayList;
 import java.util.Comparator;

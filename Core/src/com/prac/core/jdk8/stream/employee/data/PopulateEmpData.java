@@ -16,15 +16,19 @@ public class PopulateEmpData {
 		Random rSal = new Random();
 		Random rPC = new Random();
 		Random rEno = new Random();
-
+		int minEno=100000; int maxEno=9999999;
+		int minPin=500000; int maxPin=999999;
+		
 		List<Employee> eList = new ArrayList<Employee>();
 
 		for (int i = 0; i < recordsCount; i++) {
 			Employee e = new Employee(randomString(10), 
 									  randomString(5), 
-									  rEno.nextInt(999999),//i, 
+									  //rEno.nextInt(999999),//i, 
+									  rEno.ints(minEno, maxEno).findFirst().getAsInt(),
 									  (rSal.nextFloat() * 100000),
-									  rPC.nextInt(999999),
+//									  rPC.nextInt(999999),
+									  rPC.ints(minPin, maxPin).findFirst().getAsInt(),
 									  Department.getRandomDepartment());
 			eList.add(e);
 
