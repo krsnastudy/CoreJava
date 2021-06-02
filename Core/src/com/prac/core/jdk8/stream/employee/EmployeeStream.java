@@ -2,9 +2,14 @@ package com.prac.core.jdk8.stream.employee;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.TreeMap;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import com.prac.core.jdk8.stream.employee.data.Department.DepartmentCode;
@@ -14,7 +19,7 @@ import com.prac.core.jdk8.stream.employee.data.PopulateEmpData;
 public class EmployeeStream {
 
 	public static void main(String[] args) {
-		int noOfRecords = 5; // How many records you want
+		int noOfRecords = 10; // How many records you want
 		List<Employee> emp = new ArrayList<Employee>();
 		PopulateEmpData exec = new PopulateEmpData();
 		emp = exec.populateEmpData(noOfRecords);
@@ -22,6 +27,30 @@ public class EmployeeStream {
 	//Original Data contains duplicates
 //		System.out.println("<<< Original Data >>>");
 //		emp.forEach(System.out::println);
+		
+		HashSet hSet = new HashSet<>(emp);
+		
+		/* Adding List to TreeMap */
+		Map<Object, Object> hMap = 
+					emp.stream().distinct()
+//					.collect(Collectors.toMap(Employee::geteNumber, v->v))
+					.collect(Collectors.toMap(Employee::geteNumber, Function.identity(), (x,y)->x, HashMap::new))
+					;
+//		System.out.println(hMap);
+		
+		System.out.println("Orig Data Size: "+emp.size()+" && HashSet Size: "+hSet.size()+" && TreeMap Size: ");
+		
+		/* Adding List to TreeMap */
+		Map<Integer, Employee> tMap =
+			emp.stream()//.distinct()
+				.collect(Collectors.toMap(Employee::geteNumber, Function.identity(), (e1, e2)->e1, TreeMap::new));
+		
+		System.out.println(tMap);
+		
+		/* Adding List to TreeMap */
+		Map<Integer, Object> linkedMap = 
+					emp.stream()
+						.collect(Collectors.toMap(Employee::geteNumber, Function.identity(), (e1, e2)->e1, LinkedHashMap::new));
 		
 		System.out.println("\n<<< Distinct Employees Data >>>");
 		ArrayList<Employee> empDistinct = (ArrayList<Employee>)
@@ -31,6 +60,7 @@ public class EmployeeStream {
 //		   .forEach(System.out::println);
 		
 		empDistinct.forEach(e->System.out.println(e.geteNumber()+" - "+e.getfName()+", "+e.getlName()+", "+e.geteSal()+", "+e.getDepartment()));
+//		empDistinct.forEach(e->System.out.println(e.toStringSpecific()));
 		
 		System.out.println("\n<<< Employees FirstName with S >>>");
 		empDistinct.stream()
@@ -62,9 +92,11 @@ public class EmployeeStream {
 			Comparator
 //				.comparing(Employee::geteNumber).reversed()
 				.comparing(Employee::getfName)
-				.thenComparing(Employee::getlName)
-				.thenComparing(Employee::getDepartment)
-				.thenComparing(Employee::geteNumber);
+//				.thenComparing(Employee::getlName)
+//				.thenComparing(Employee::getDepartment)
+//				.thenComparing(Employee::geteNumber)
+				.reversed()
+				;
 		
 		ArrayList<Employee> sorted = (ArrayList<Employee>)
 				empDistinct.stream()

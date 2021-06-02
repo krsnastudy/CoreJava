@@ -54,6 +54,10 @@ public class String1 {
 		
 		map.forEach((x,y)->System.identityHashCode(x));
 		
+		String a = "RK";
+		a="Developer";
+		System.out.println(a);
+
 	}
 
 }

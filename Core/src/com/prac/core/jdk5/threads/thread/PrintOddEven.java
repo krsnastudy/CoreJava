@@ -7,6 +7,8 @@ public class PrintOddEven {
 		Thread t1 = new Thread(r, "first");
 		Thread t2 = new Thread(r, "second");
 		
+		Thread t3 = new Thread(new OddEvenThread(), "third");
+		
 		t1.start();
 		t2.start();
 		
