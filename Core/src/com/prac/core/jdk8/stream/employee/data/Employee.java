@@ -117,17 +117,13 @@ public class Employee {
 		this.department = department;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + eNumber;
-		result = prime * result + ePincode;
-		result = prime * result + Float.floatToIntBits(eSal);
-		result = prime * result + ((fName == null) ? 0 : fName.hashCode());
-		result = prime * result + ((lName == null) ? 0 : lName.hashCode());
-		return result;
-	}
+	/*
+	 * @Override public int hashCode() { final int prime = 31; int result = 1;
+	 * result = prime * result + eNumber; result = prime * result + ePincode; result
+	 * = prime * result + Float.floatToIntBits(eSal); result = prime * result +
+	 * ((fName == null) ? 0 : fName.hashCode()); result = prime * result + ((lName
+	 * == null) ? 0 : lName.hashCode()); return result; }
+	 */
 
 	/*
 	 * @Override public boolean equals(Object obj) { if (this == obj) return true;

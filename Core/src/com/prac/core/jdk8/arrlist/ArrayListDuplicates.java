@@ -52,8 +52,8 @@ public class ArrayListDuplicates {
     	System.out.println("flag: "+flag);
     	
     	List<String> list = Arrays.asList("M1", "M2", "M3", "M4");
-    	   String string = "M11";
-    	   boolean match = list.stream().anyMatch(string::contains);
+    	   String strMatcher = "M11";
+    	   boolean match = list.stream().anyMatch(strMatcher::contains);
     	   System.out.println("match: "+match);
     	   
     	String a = "String";
