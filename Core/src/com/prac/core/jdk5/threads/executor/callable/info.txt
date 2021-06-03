@@ -1,0 +1,23 @@
+Callable and Runnable both is similar to each other and can use in implementing thread. 
+In case of implementing Runnable you must implement run() method 
+but in case of callable you must need to implement call() method, 
+both method works in similar ways but callable call() method have more flexibility.
+There is some differences between them.
+
+Difference between Runnable and callable as below--
+
+1) The run() method of runnable returns void, means if you want your thread return something 
+which you can use further then you have no choice with Runnable run() method. 
+
+There is a solution 'Callable', If you want to return any thing in form of object 
+then you should use Callable instead of Runnable. Callable interface have method 'call()' which returns Object.
+
+There are a few different ways to delegate tasks for execution to an ExecutorService.
+
+execute(Runnable task):void 
+creates new thread but not blocks main thread or caller thread as this method return void.
+
+submit(Callable<?>):Future<?>, submit(Runnable):Future<?> 
+creates new thread and blocks main thread when you are using future.get().
+
+https://stackoverflow.com/questions/141284/the-difference-between-the-runnable-and-callable-interfaces-in-java#:~:text=Difference%20between%20Callable%20and%20Runnable%20are%20following%3A&text=Callable%20has%20call%20method%20which,doesn't%20return%20any%20value.&text=Callable%20use%20submit()%20method,put%20in%20the%20task%20queue.
