@@ -8,6 +8,8 @@ public class TestFactory {
 		
 		Computer server = ComputerFactory.getComputer("server", "16 GB", "1 TB", "2.9 GHz");
 		System.out.println("Factory Server Config::" + server);
+		
+		// ResourceBundle r = null; Uses factory-design-pattern
 	}
 }
 
