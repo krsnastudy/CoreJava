@@ -59,13 +59,30 @@ public class ArrayListDuplicates {
     	String a = "String";
     	String b = "String";
     	String c = new String("String");
-    	System.out.println(a==b);
-    	System.out.println(a.equals(c));
+    	System.out.println("(a==b): "+(a==b));
+    	System.out.println("(a==c): "+(a==c));
+    	System.out.println("a.equals(c): "+a.equals(c));
     	
     	String str = "This is a test string to pring duplicate values in it";
     	IntStream intStream = str.chars();
     	Stream<Character> charsStream = intStream.mapToObj(ch -> (char) ch);
     	Map<Character, Long> output = charsStream.collect(Collectors.groupingBy(ch -> ch, Collectors.counting()));
     	System.out.println(output);
+    	
+    	List<Integer> aList = new ArrayList<>();
+    	aList.add(1);
+    	aList.add(2);
+    	aList.add(3);
+    	aList.add(4);
+    	aList.add(5);
+    	aList.add(6);
+    	aList.add(6);
+    	aList.add(6);
+    	aList.add(5);
+    	
+    	int res1 = aList.stream()
+    				   .max(Integer::max).get();
+    	System.out.println(res1);		
+    	
   }
 }
