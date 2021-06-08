@@ -14,6 +14,12 @@ public class SyncThreadImpl {
 		t1.start();
 		t1.join();
 		t2.start();
+		
+	/* ExecutorService */	
+//		ExecutorService es = Executors.newFixedThreadPool(4);
+//		for(int i=0; i<2; i++) { es.execute(t1); }
+//		es.shutdown();
+
 	}
 
 }

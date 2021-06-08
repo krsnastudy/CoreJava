@@ -13,16 +13,15 @@ public class EmployeeMap {
 	    employee1.setId(1);    
 	    employee1.setName("Sachin");    
 	       
-
 	    employeeMap.put(employee1,"India");
 	    employeeMap.forEach((x,y)-> System.out.println(x.hashCode()+" - "+x.toString()+" MapValue: "+y));
-	    System.out.println(employeeMap.get(employee1));
+//	    System.out.println(employeeMap.get(employee1));
 	    
 //	    employee1.setName("RK");
 	    employee1.setId(2);
 	    employeeMap.forEach((x,y)-> System.out.println(x.hashCode()+" - "+x.toString()+" MapValue: "+y));
-	    System.out.println(employeeMap.get(employee1));
-//	    employeeMap.put(employee1,"India");
+//	    System.out.println(employeeMap.get(employee1));
+	    employeeMap.put(employee1,"India");
 
 	    // Some Business logic    
 	    // In the second Operation I am updating the same employee with the newly initailized Employee Object
@@ -35,7 +34,7 @@ public class EmployeeMap {
 	    employeeMap.put(employee2,"Japan");    
 
 	    System.out.println(employeeMap); 	    
-	    System.out.println(employeeMap.get(employee1));
+//	    System.out.println(employeeMap.get(employee1));
 	    
 	    employeeMap.forEach((x,y)-> System.out.println(x.hashCode()+" MapValue: "+y));
 	}

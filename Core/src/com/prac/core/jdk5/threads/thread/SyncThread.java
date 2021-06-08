@@ -11,8 +11,9 @@ public class SyncThread implements Runnable{
 	public void run() {
 		try {
 			
-			System.out.println("In Runnable: "+Thread.currentThread().getName());
+			System.out.println("Runnable Thread: "+Thread.currentThread().getName());
 			property.m1();
+			System.out.println();
 			
 		} catch (InterruptedException e) {
 			e.printStackTrace();
