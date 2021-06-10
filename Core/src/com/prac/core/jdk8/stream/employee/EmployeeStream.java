@@ -86,6 +86,15 @@ public class EmployeeStream {
 		 * ()->{System.out.println("Not Present");} );
 		 */
 		
+		ArrayList<String> eNamesList =  
+		(ArrayList<String>) empDistinct.stream()
+		   .filter(x->x.geteSal()>50000)
+		   .map(x->x.getfName())
+		   .collect(Collectors.toList())
+		;
+		
+		System.out.println("\nNamesList: "+eNamesList);
+		
 	// Sorting By firstName, lastName, Department
 		System.out.println("\n<<< Sorting Employees by firstName, lastName >>>");
 		Comparator<Employee> empComparator = 
