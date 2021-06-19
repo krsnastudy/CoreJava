@@ -5,15 +5,13 @@ public class ConstructorChaining {
 	public static void main(String[] args) {
 		System.out.println("Creating ClassA Object");
 		ClassA objA = new ClassA();
-		
+
 		System.out.println("\nCreating ClassB Object");
 		ClassB objB = new ClassB();
 		
 		System.out.println("\nCreating ClassA ClassB Object");
-		ClassA objAB = new ClassB();		
-		
+		ClassA objAB = new ClassB();
 	}
-
 }
 
 /*
