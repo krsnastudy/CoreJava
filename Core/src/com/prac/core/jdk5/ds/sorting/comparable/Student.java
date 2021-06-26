@@ -19,4 +19,9 @@ class Student implements Comparable<Student> {
 //		return age-st.age;
 		return name.compareTo(st.name);
 	}
+
+	@Override
+	public String toString() {
+		return "Student [Roll# " + rollno + ", Name: " + name + ", Age: " + age + "]";
+	}
 }

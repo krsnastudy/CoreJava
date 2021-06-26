@@ -18,8 +18,9 @@ class RemoveDuplicates {
 		}
 	}
 
-	/* Function to remove duplicates from an
-	unsorted linked list */
+	/*
+	 * Function to remove duplicates from an unsorted linked list
+	 */
 	void remove_duplicates() {
 		Node ptr1 = null, ptr2 = null, dup = null;
 		ptr1 = head;
@@ -28,8 +29,9 @@ class RemoveDuplicates {
 		while (ptr1 != null && ptr1.next != null) {
 			ptr2 = ptr1;
 
-			/* Compare the picked element with rest
-				of the elements */
+			/*
+			 * Compare the picked element with rest of the elements
+			 */
 			while (ptr2.next != null) {
 
 				/* If duplicate then delete it */
@@ -68,10 +70,9 @@ class RemoveDuplicates {
 		list.printList(head);
 
 		list.remove_duplicates();
-		
+
 		System.out.println("");
 		System.out.println("\nLinked List after removing duplicates :");
 		list.printList(head);
 	}
 }
-//This code has been contributed by Mayank Jaiswal
