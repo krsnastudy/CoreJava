@@ -60,16 +60,23 @@ public class LinkedListExample {
 	}
 	public static void main(String[] args) {
 
-		LinkedListExample list = new LinkedListExample();
+		LinkedListExample list1 = new LinkedListExample();
+		LinkedListExample list2 = new LinkedListExample();
 
-		list.addItem(list, 1);
-		list.addItem(list, 2);
-		list.addItem(list, 3);
-		list.addItem(list, 4);
-		list.addItem(list, 5);
-		list.addItem(list, 6);
-		System.out.println("Size of the List: "+list.size(list));
-		list.printList(list);
+		list1.addItem(list1, 1);
+		list1.addItem(list1, 2);
+		list1.addItem(list1, 3);
+		list1.addItem(list1, 4);
+		list1.addItem(list1, 5);
+		list1.addItem(list1, 6);
+		
+		System.out.println("\nSize of the List1 & List2: "+list1.size(list1)+" & "+list2.size(list2));
+		
+		list1.printList(list1);
+		
+		
+		
+		
 	}
 
 }
