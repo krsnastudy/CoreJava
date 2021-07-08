@@ -1,4 +1,4 @@
-package com.prac.core.jdk5.arrays;
+package com.prac.core.jdk5.arrlist;
 
 import java.util.ArrayList;
 import java.util.List;

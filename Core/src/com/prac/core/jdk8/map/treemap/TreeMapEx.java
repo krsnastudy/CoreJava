@@ -8,7 +8,7 @@ import com.prac.core.jdk8.stream.employee.data.Employee;
 public class TreeMapEx {
 
 	public static void main(String[] args) throws Exception{
-		TreeMap<Person, Integer> tMap = new TreeMap<>();
+		TreeMap<Person, Integer> tMap = new TreeMap<>((a,b)->b.getNumber()-a.getNumber());
 		TreeMap<Employee, Integer> eMap = new TreeMap<>();
 		
 		Employee e1= new Employee("fName", "lName", 1, 15436, 560037, DepartmentCode.Admin);

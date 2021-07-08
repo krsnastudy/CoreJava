@@ -1,11 +1,15 @@
 package com.prac.core.jdk8.fi;
 
 @FunctionalInterface
-public interface InterfaceTwo extends InterfaceOne{
+public interface InterfaceTwo //extends InterfaceOne
+{
 
-	default void print() {}
 	abstract void Method();
 	
+	default void print() {
+		System.out.println("InterfaceTwo Default print()");
+	}
+		
 	default void m1() {
 		System.out.println("InterfaceTwo Default m1");
 	}
