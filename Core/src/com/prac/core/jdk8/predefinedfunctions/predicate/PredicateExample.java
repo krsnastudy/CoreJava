@@ -1,4 +1,4 @@
-package com.prac.core.jdk8.predefinedfunctions;
+package com.prac.core.jdk8.predefinedfunctions.predicate;
 
 import java.util.ArrayList;
 import java.util.List;
