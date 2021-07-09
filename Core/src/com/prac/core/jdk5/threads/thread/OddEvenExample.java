@@ -9,7 +9,8 @@ public class OddEvenExample implements Runnable {
                 if (i % 2 == 0 && Thread.currentThread().getName().equals("t2")) {
                     try {
                         notifyAll();
-                        System.out.println("Even Thread : " + i);
+//                        System.out.println("Even Thread : " + i);
+                        System.out.println(i);
                         wait();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
@@ -17,8 +18,10 @@ public class OddEvenExample implements Runnable {
                 } else if (i % 2 != 0
                         && Thread.currentThread().getName().equals("t1")) {
                     try {
-                        notifyAll();
-                        System.out.println("Odd Thread : " + i);
+//                        notifyAll();
+                    	notify();
+//                        System.out.println("Odd Thread : " + i);
+                        System.out.println(i);
                         wait();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
