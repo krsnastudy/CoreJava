@@ -28,3 +28,22 @@ public class FunctionExample {
 		System.out.println("Function.identity: "+f3.apply("CVRK"));
 	}
 }
+
+/*
+The Function Interface is a part of the java.util.function package which has been introduced since Java 8, 
+to implement functional programming in Java. 
+It represents a function which takes in one argument and produces a result.
+
+apply(T t) – Applies this function to the given argument.
+
+default Function<T,V> andThen(Function<? super R,? extends V> after) –-> 
+Returns a composed function that first applies this function to its input, 
+and then applies the after function to the result.
+
+default Function<V,R> compose(Function<? super V,? extends T> before) --> 
+Returns a composed function that first applies the before function to its input, 
+and then applies this function to the result.
+
+static Function<T,T> identity() –-> Returns a function that always returns its input argument.
+
+*/
