@@ -14,7 +14,7 @@ import com.prac.core.jdk8.stream.employee.data.PopulateEmpData;
 public class EmployeeParallelStream {
 
 	public static void main(String[] args) {
-		int noOfRecords = 100000; // How many records you want
+		int noOfRecords = 1000000; // How many records you want
 		List<Employee> emp = new ArrayList<Employee>();
 		PopulateEmpData exec = new PopulateEmpData();
 		emp = exec.populateEmpData(noOfRecords);
@@ -53,7 +53,6 @@ start = ZonedDateTime.now().toInstant().toEpochMilli();
 end = ZonedDateTime.now().toInstant().toEpochMilli();
 System.out.println("For "+noOfRecords+" records Parallel Stream Took: "+(end-start)+" MilliSeconds\n");
 		
-
 /*
 		dept1.forEach((x,y)->System.out.println(x+" Departement has "
 					+
