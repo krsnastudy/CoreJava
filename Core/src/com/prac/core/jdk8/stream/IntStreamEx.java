@@ -9,25 +9,25 @@ import java.util.stream.IntStream;
 public class IntStreamEx {
 
 	public static void main(String[] args) {
-		
-		Consumer<Integer> consumer = i -> System.out.print(i+" ");
-		
+
+		Consumer<Integer> consumer = i -> System.out.print(i + " ");
+
 		System.out.print("IntStream.of : ");
 //		IntStream.of(2).forEach(System.out::print);\
-		IntStream.of(2).forEach(i->consumer.accept(i));
+		IntStream.of(2).forEach(i -> consumer.accept(i));
 
 		// Range
 		System.out.print("\nIntStream.range : ");
 		IntStream stream = IntStream.range(5, 10);
 //		stream.forEach(System.out::print); // 5,6,7,8,9
-		stream.forEach(i->consumer.accept(i));
+		stream.forEach(i -> consumer.accept(i));
 //        IntStream.range(5, 10).forEach( System.out::print ); 
 
 		// Closed Range
 		System.out.print("\nIntStream.rangeClosed : ");
 		IntStream closedRangeStream = IntStream.rangeClosed(11, 15);
 //		closedRangeStream.forEach(System.out::print); // 11,12,13,14,15
-		closedRangeStream.forEach(i->consumer.accept(i));
+		closedRangeStream.forEach(i -> consumer.accept(i));
 //        IntStream.rangeClosed(11, 15).forEach( System.out::print );
 
 		System.out.print("\nIntStream.generate : ");
@@ -37,13 +37,13 @@ public class IntStreamEx {
 
 //		generate.limit(10).forEach(System.out::println);
 //		generate.limit(10).forEach(i -> System.out.print(i + " "));
-		generate.limit(10).forEach(i->consumer.accept(i));
-		
+		generate.limit(10).forEach(i -> consumer.accept(i));
+
 		System.out.print("\nPrint Primes: ");
-		IntStream primeStream = IntStream.range(1, 15);
+		IntStream primeStream = IntStream.range(1, 25);
 		List<Integer> primes = primeStream.filter(IntStreamEx::isPrime).boxed().collect(Collectors.toList());
 //		System.out.println(primes);
-		primes.forEach(i->consumer.accept(i));
+		primes.forEach(i -> consumer.accept(i));
 	}
 
 	public static boolean isPrime(int i) {
