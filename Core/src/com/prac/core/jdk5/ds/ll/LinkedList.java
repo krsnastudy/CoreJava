@@ -75,10 +75,7 @@ public class LinkedList {
 		// Store head node
 		Node currNode = list.head, prev = null;
 
-		//
-		// CASE 1:
-		// If head node itself holds the key to be deleted
-
+		// CASE 1: If head node itself holds the key to be deleted
 		if (currNode != null && currNode.data == key) {
 			list.head = currNode.next; // Changed head
 
@@ -89,17 +86,12 @@ public class LinkedList {
 			return list;
 		}
 
-		//
-		// CASE 2:
-		// If the key is somewhere other than at head
-		//
+		// CASE 2: If the key is somewhere other than at head
 
-		// Search for the key to be deleted,
-		// keep track of the previous node
+		// Search for the key to be deleted, keep track of the previous node
 		// as it is needed to change currNode.next
 		while (currNode != null && currNode.data != key) {
-			// If currNode does not hold key
-			// continue to next node
+			// If currNode does not hold key continue to next node
 			prev = currNode;
 			currNode = currNode.next;
 		}
@@ -115,12 +107,9 @@ public class LinkedList {
 			System.out.println(key + " found and deleted");
 		}
 
-		//
 		// CASE 3: The key is not present
-		//
 
-		// If key was not present in linked list
-		// currNode should be null
+		// If key was not present in linked list currNode should be null
 		if (currNode == null) {
 			// Display the message
 			System.out.println(key + " not found");
