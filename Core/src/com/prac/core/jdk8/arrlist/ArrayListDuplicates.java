@@ -63,7 +63,7 @@ public class ArrayListDuplicates {
     	System.out.println("(a==c): "+(a==c));
     	System.out.println("a.equals(c): "+a.equals(c));
     	
-    	String str = "This is a test string to pring duplicate values in it";
+    	String str = "This is a test string to print duplicate values in it";
     	IntStream intStream = str.chars();
     	Stream<Character> charsStream = intStream.mapToObj(ch -> (char) ch);
     	Map<Character, Long> output = charsStream.collect(Collectors.groupingBy(ch -> ch, Collectors.counting()));

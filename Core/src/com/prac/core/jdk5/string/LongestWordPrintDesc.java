@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 
 public class LongestWordPrintDesc {
 	static Set<String> set = new HashSet<>();
+
 	public static void main(String[] args) throws FileNotFoundException {
 		File file = new File("D:\\Coding\\files\\sample1.txt");
 		Scanner sc = new Scanner(file);
@@ -21,20 +22,17 @@ public class LongestWordPrintDesc {
 			}
 		}
 
-		Map<String, Integer> map = set.stream().collect(Collectors.toMap(x->x, y->y.length()));
-		
-		System.out.println("Given Data: "+set);
+		Map<String, Integer> map = set.stream().collect(Collectors.toMap(x -> x, y -> y.length()));
+
+		System.out.println("Given Data: " + set);
 //		Set<String> sortSet = set.stream().sorted((a,b)->b.length()-a.length()).collect(Collectors.toSet());
 //		System.out.println(sortSet);
-		
-		map.entrySet().stream()
-					  .sorted((x,y)->y.getValue()-x.getValue())
-					  .limit(5)
-					  .forEach(System.out::println);
-	}//pvsm
+
+		map.entrySet().stream().sorted((x, y) -> y.getValue() - x.getValue()).limit(5).forEach(System.out::println);
+	}// pvsm
 
 	private static void addWordsToSet(String line) {
-		String[] sArray=line.split(" ");
-		Arrays.stream(sArray).forEach(x->set.add(x));
+		String[] sArray = line.split(" ");
+		Arrays.stream(sArray).forEach(x -> set.add(x));
 	}
 }

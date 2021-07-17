@@ -30,7 +30,7 @@ public class EmployeeStream {
 
 		HashSet hSet = new HashSet<>(emp);
 
-		/* Adding List to TreeMap */
+		/* Adding List to HashMap */
 		Map<Object, Object> hMap = emp.stream().distinct()
 //					.collect(Collectors.toMap(Employee::geteNumber, v->v))
 				.collect(Collectors.toMap(Employee::geteNumber, Function.identity(), (x, y) -> x, HashMap::new));
@@ -45,7 +45,7 @@ public class EmployeeStream {
 		System.out.println(tMap);
 
 		/* Adding List to TreeMap */
-		Map<Integer, Object> linkedMap = emp.stream().collect(
+		Map<Integer, Object> LinkedHashMap = emp.stream().collect(
 				Collectors.toMap(Employee::geteNumber, Function.identity(), (e1, e2) -> e1, LinkedHashMap::new));
 
 		System.out.println("\n<<< Distinct Employees Data >>>");
