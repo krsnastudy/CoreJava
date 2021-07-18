@@ -1,5 +1,7 @@
 package com.prac.core.jdk5.ds.linkedlist;
 
+import java.util.HashSet;
+
 public class LinkedList {
 	Node head;
 	public static final String LINKEDLIST_EMPTY = "Linked List is Empty";
@@ -179,33 +181,33 @@ public class LinkedList {
 	public LinkedList reverse(LinkedList list) {
 		LinkedList tempList = new LinkedList();
 		tempList = copyList(list);
-		
+
 		Node current = tempList.head;
 		Node prev = null, next = null;
-		
+
 		while (current != null) {
 			next = current.next;
 			current.next = prev;
 			prev = current;
 			current = next;
 		}
-		
+
 		tempList.head = prev;
-		
+
 		return tempList;
 	}
 
 	public LinkedList copyList(LinkedList list) {
 		LinkedList copyList = new LinkedList();
 		Node firstList = list.head;
-		
+
 		while (firstList != null) {
 			copyList.insert(copyList, firstList.data);
 			firstList = firstList.next;
 		}
 		return copyList;
 	}
-	
+
 	public boolean isPresent(LinkedList list, int data) {
 		boolean present = false;
 
@@ -278,5 +280,19 @@ public class LinkedList {
 			} // out loop
 		} // else
 	}// bubbleSort
+
+	public boolean detectLoopUsingHashing(Node h) {
+		HashSet<Node> s = new HashSet<Node>();
+		
+		while (h != null){
+			if (s.contains(h))
+				return true;
+
+			s.add(h);
+			h = h.next;
+		}
+
+		return false;
+	}
 
 }// LinkedList
