@@ -12,11 +12,20 @@ public class StringReverse {
 			System.out.print(str.charAt(i));
 		}
 		
-		System.out.print("\nString Reverse by String.toCharArray()  : ");
+		System.out.print("\n           String Reverse by While Loop : ");
+		int l=str.length();
+		while(l>0){
+			System.out.print(str.charAt(l-1));
+			l--;
+		}
+		
+		System.out.println();
+		System.out.print("String Reverse by String.toCharArray()  : ");
 		char[] c = str.toCharArray();
 		for(int i=c.length-1; i>=0; i--) {
 			System.out.print(c[i]);
 		}
+		
 		System.out.println();
 		System.out.print("String Reverse by StringBuffer.reverse(): ");
 		StringBuffer sb = new StringBuffer(str);
