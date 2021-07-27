@@ -19,7 +19,7 @@ import java.util.TimeZone;
 
 public class Date_Java6_Vs_Java8 {
 
-	public static void main(String[] args) throws ParseException {
+	public static void main(String[] args) throws ParseException, InterruptedException {
 
 //		Getting current time
 
@@ -150,6 +150,39 @@ public class Date_Java6_Vs_Java8 {
 		int daysInMonth_Jdk8 = YearMonth.of(1990, 2).lengthOfMonth();
 
 		System.out.println(daysInMonth_Jdk6 + " {Number of days in a month} " + daysInMonth_Jdk8);
+		
+		System.out.println();
+		LocalDateTime start = LocalDateTime.now();
+		Thread.sleep(25000);
+		LocalDateTime end = LocalDateTime.now();
+		
+		long duration = ChronoUnit.SECONDS.between(end, start);
+		System.out.println("start: "+start+"  "+"end: "+end);
+		System.out.println(duration + " Seconds");
+		
+		LocalDateTime from = LocalDateTime.of(2020, 10, 4, 10, 20, 55);
+        LocalDateTime to = LocalDateTime.of(2020, 11, 10, 10, 21, 1);
+		System.out.println("start: "+from+"  "+"end: "+to);
+		
+		long years = ChronoUnit.YEARS.between(from, to);
+        long months = ChronoUnit.MONTHS.between(from, to);
+        long weeks = ChronoUnit.WEEKS.between(from, to);
+        long days = ChronoUnit.DAYS.between(from, to);
+        long hours = ChronoUnit.HOURS.between(from, to);
+        long minutes = ChronoUnit.MINUTES.between(from, to);
+        long seconds = ChronoUnit.SECONDS.between(from, to);
+        long milliseconds = ChronoUnit.MILLIS.between(from, to);
+        long nano = ChronoUnit.NANOS.between(from, to);
+
+        System.out.println(years + " years");
+        System.out.println(months + " months");
+        System.out.println(weeks + " weeks");
+        System.out.println(days + " days");
+        System.out.println(hours + " hours");
+        System.out.println(minutes + " minutes");
+        System.out.println(seconds + " seconds");
+        System.out.println(milliseconds + " milliseconds");
+        System.out.println(nano + " nano");
 	}
 }
 
@@ -167,15 +200,19 @@ public class Date_Java6_Vs_Java8 {
  * The new API has many different time representations, each suitable for
  * different use cases:
  * 
- * Instant – represents a point in time (timestamp) LocalDate – represents a
- * date (year, month, day) LocalDateTime – same as LocalDate, but includes time
- * with nanosecond precision OffsetDateTime – same as LocalDateTime, but with
- * time zone offset LocalTime – time with nanosecond precision and without date
- * information ZonedDateTime – same as OffsetDateTime, but includes a time zone
- * ID OffsetLocalTime – same as LocalTime, but with time zone offset MonthDay –
- * month and day, without year or time YearMonth – month and year, without day
- * or time Duration – amount of time represented in seconds, minutes and hours.
- * Has nanosecond precision Period – amount of time represented in days, months
- * and years
- * 
+ 
+Instant – represents a point in time (timestamp)
+LocalDate – represents a date (year, month, day)
+LocalDateTime – same as LocalDate, but includes time with nanosecond precision
+OffsetDateTime – same as LocalDateTime, but with time zone offset
+LocalTime – time with nanosecond precision and without date information
+ZonedDateTime – same as OffsetDateTime, but includes a time zone ID
+OffsetLocalTime – same as LocalTime, but with time zone offset
+MonthDay – month and day, without year or time
+YearMonth – month and year, without day or time
+Duration – amount of time represented in seconds, minutes and hours. Has nanosecond precision
+Period – amount of time represented in days, months and years 
+ 
+ 
+https://mkyong.com/java8/java-8-difference-between-two-localdate-or-localdatetime/ 
  */
