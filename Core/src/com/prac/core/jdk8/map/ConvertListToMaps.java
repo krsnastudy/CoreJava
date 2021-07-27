@@ -6,6 +6,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -47,5 +48,10 @@ public class ConvertListToMaps {
 		System.out.println("\nLinkedHashMap: ");
 		lMap.forEach((x,y)->System.out.println(y.toStringSpecific()));
 		
+		ConcurrentHashMap<Integer, Employee> cMap = emp.stream().distinct().collect(
+				Collectors.toMap(Employee::geteNumber, Function.identity(), (a, b) -> a, ConcurrentHashMap::new));		
+		
+		System.out.println("\nConcurrentHashMap: ");
+		cMap.forEach((x,y)->System.out.println(y.toStringSpecific()));
 	}
 }

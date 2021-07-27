@@ -23,11 +23,12 @@ public class LongestWordPrintDesc {
 		}
 
 		Map<String, Integer> map = set.stream().collect(Collectors.toMap(x -> x, y -> y.length()));
-
 		System.out.println("Given Data: " + set);
+		
 //		Set<String> sortSet = set.stream().sorted((a,b)->b.length()-a.length()).collect(Collectors.toSet());
 //		System.out.println(sortSet);
-
+		System.out.println();
+		
 		map.entrySet().stream().sorted((x, y) -> y.getValue() - x.getValue()).limit(5).forEach(System.out::println);
 	}// pvsm
 

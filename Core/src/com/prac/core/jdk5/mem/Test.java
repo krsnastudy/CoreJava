@@ -9,6 +9,9 @@ public class Test {
 		
 		Memory.getJVMAvailableMemory();
 		
+		Test s = new Test();
+		s=null;
+
 		for (int i = 0; i < 10; i++) {
 			m1();
 //			System.gc();
@@ -26,6 +29,6 @@ public class Test {
 
 	@Override
 	protected void finalize() throws Throwable {
-		System.out.println("Successfully Garbage Collected ");
+		System.out.println("Successfully Garbage Collected\n");
 	}
 }
