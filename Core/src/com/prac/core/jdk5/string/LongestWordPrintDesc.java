@@ -24,6 +24,7 @@ public class LongestWordPrintDesc {
 
 		Map<String, Integer> map = set.stream().collect(Collectors.toMap(x -> x, y -> y.length()));
 		System.out.println("Given Data: " + set);
+		System.out.println("Given Data In Map: " + map);
 		
 //		Set<String> sortSet = set.stream().sorted((a,b)->b.length()-a.length()).collect(Collectors.toSet());
 //		System.out.println(sortSet);
