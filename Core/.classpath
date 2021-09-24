@@ -20,5 +20,6 @@
 	<classpathentry kind="lib" path="D:/Softwares/Jars/activation.jar"/>
 	<classpathentry kind="lib" path="D:/Softwares/Jars/mail.jar"/>
 	<classpathentry kind="lib" path="D:/Softwares/Jars/lombok.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
