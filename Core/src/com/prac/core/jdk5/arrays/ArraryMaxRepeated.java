@@ -10,8 +10,8 @@ public class ArraryMaxRepeated {
 		// intial array
 		int arr[] = { 12, 27, 41, 61, 41, 27, 41, 58, 27, 83, 2, 2, 2 };
 
-		System.out.println("Initial Array: "+Arrays.toString(arr));
-		
+		System.out.println("Initial Array: " + Arrays.toString(arr));
+
 		// sort array in the ascending Order
 		Arrays.sort(arr);
 

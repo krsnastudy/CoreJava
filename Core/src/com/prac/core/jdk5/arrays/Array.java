@@ -37,13 +37,13 @@ public class Array {
 
 	public void removeAt(int idx) {
 
-		int index=idx-1;
-		
+		int index = idx - 1;
+
 		if (index < 0 || index >= count) {
 			throw new IllegalArgumentException();
 		}
 
-		for (int i = index; i < count-1; i++) {
+		for (int i = index; i < count - 1; i++) {
 			items[i] = items[i + 1];
 		}
 

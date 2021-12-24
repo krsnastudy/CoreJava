@@ -22,7 +22,7 @@ public final class ImmutableExample {
 	public static void main(String[] args) {
 		ImmutableExample im = new ImmutableExample();
 		System.out.println(im.getStrings());
-		
+
 		im.getStrings().add("string 3");
 		System.out.println(im.getStrings());
 

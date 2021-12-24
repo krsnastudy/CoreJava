@@ -7,32 +7,32 @@ public class InterfaceTest {
 		new InterfaceParam().doImplementation(iOne);
 	}
 }
-	
-	 interface InterfaceOne{
-		public void calculate();
-		public void display();
+
+interface InterfaceOne {
+	public void calculate();
+
+	public void display();
+}
+
+class InterfaceParam {
+
+	public void doImplementation(InterfaceOne iOne) {
+		iOne.calculate();
+		iOne.display();
+	}
+}
+
+class InterfaceImpl implements InterfaceOne {
+
+	@Override
+	public void calculate() {
+		System.out.println("InterfaceImpl calculate()");
+
 	}
 
-	 class InterfaceParam{
-		
-		public void doImplementation(InterfaceOne iOne){
-			iOne.calculate();
-			iOne.display();
-		}
+	@Override
+	public void display() {
+		System.out.println("InterfaceImpl display()");
 	}
-	
-	 class InterfaceImpl implements InterfaceOne{
 
-		@Override
-		public void calculate() {
-			System.out.println("InterfaceImpl calculate()");
-			
-		}
-
-		@Override
-		public void display() {
-			System.out.println("InterfaceImpl display()");			
-		}
-		
-	}
-	
+}

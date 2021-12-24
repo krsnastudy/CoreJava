@@ -7,10 +7,15 @@ public class String1 {
 	public static void main(String[] args) {
 		String str1 = "ABC";
 		String str2 = new String("ABC");
+		String str3 = "ABC";
 		
 		System.out.println("str1 hashCode: "+str1.hashCode()+" - identityHashCode: "+System.identityHashCode(str1));
 		System.out.println("str2 hashCode: "+str2.hashCode()+" - identityHashCode: "+System.identityHashCode(str2));
 		System.out.println("ABC hashCode: "+str1.hashCode()+" - identityHashCode: "+System.identityHashCode("ABC"));
+		
+		System.out.println(Integer.toHexString(str1.hashCode()));
+		System.out.println(Integer.toHexString(str2.hashCode()));
+		System.out.println(Integer.toHexString(str3.hashCode()));
 		
 		String s1 = "XYZ";
 		String s2 = "XYZ";

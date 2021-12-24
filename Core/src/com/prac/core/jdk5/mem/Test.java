@@ -6,18 +6,18 @@ import java.util.Map;
 public class Test {
 
 	public static void main(String[] args) {
-		
+
 		Memory.getJVMAvailableMemory();
-		
+
 		Test s = new Test();
-		s=null;
+		s = null;
 
 		for (int i = 0; i < 10; i++) {
 			m1();
 //			System.gc();
 			Memory.requestGCExecute();
 		}
-		
+
 		Memory.getJVMAvailableMemory();
 	}
 

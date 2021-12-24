@@ -21,7 +21,7 @@ public class InsertionSorting {
 
 			int key = arr[i];
 			int j = i - 1;
-			System.out.println("i: "+i+"; Key: "+key+"; j: "+j);
+			System.out.println("i: " + i + "; Key: " + key + "; j: " + j);
 			/*
 			 * Move elements of arr[0..i-1], that are greater than key, to one position
 			 * ahead of their current position

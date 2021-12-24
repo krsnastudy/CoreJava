@@ -14,25 +14,22 @@ public class RemoveDupEmp {
 
 		// System.out.println("\nFiltered Data Java8:"+fData.size());
 		fData.forEach(x -> System.out.println(x.toString()));
-		
-/*		
-		// Salary Group By
-		fData = changeData(fData, "sal");
-		fData.forEach(x -> System.out.println(x.toString()));
-		
-		Map<Float, Long> sData = fData.stream().collect(
-				Collectors.groupingBy(Employee::geteSal, Collectors.counting()));
-		sData.forEach((k,v)->System.out.println("Salary: "+k+" & Count: "+v));
-		
-		// Pin Group By
-		fData = changeData(fData, "pin");
-		fData.forEach(x -> System.out.println(x.toString()));
-		
-		Map<Integer, Long> pData = fData.stream().collect(
-				Collectors.groupingBy(Employee::getePincode, Collectors.counting())
-				);
-		pData.forEach((k,v)->System.out.println("Pincode: "+k+" & Count: "+v));
-*/		
+
+		/*
+		 * // Salary Group By fData = changeData(fData, "sal"); fData.forEach(x ->
+		 * System.out.println(x.toString()));
+		 * 
+		 * Map<Float, Long> sData = fData.stream().collect(
+		 * Collectors.groupingBy(Employee::geteSal, Collectors.counting()));
+		 * sData.forEach((k,v)->System.out.println("Salary: "+k+" & Count: "+v));
+		 * 
+		 * // Pin Group By fData = changeData(fData, "pin"); fData.forEach(x ->
+		 * System.out.println(x.toString()));
+		 * 
+		 * Map<Integer, Long> pData = fData.stream().collect(
+		 * Collectors.groupingBy(Employee::getePincode, Collectors.counting()) );
+		 * pData.forEach((k,v)->System.out.println("Pincode: "+k+" & Count: "+v));
+		 */
 		// Removing Duplicates; legacy code
 		/*
 		 * Set<Employee> s= new HashSet<Employee>(); ArrayList<Employee> list = new
@@ -72,9 +69,11 @@ public class RemoveDupEmp {
 			Employee e = new Employee(randomString(10), randomString(5), i, (rSal.nextFloat() * 100000),
 					rPC.nextInt(999999));
 			eList.add(e);
-			
-			if(i%2==0){ eList.add(eList.get(i)); }
-			 
+
+			if (i % 2 == 0) {
+				eList.add(eList.get(i));
+			}
+
 		}
 
 		// System.out.println("Raw Data :"+eList.size());
@@ -96,34 +95,36 @@ public class RemoveDupEmp {
 		return generatedString;
 	}
 
-	public static ArrayList<Employee> changeData(List<Employee> eData, String type){
-	
-		for(int i=0; i<eData.size();i++) {
+	public static ArrayList<Employee> changeData(List<Employee> eData, String type) {
+
+		for (int i = 0; i < eData.size(); i++) {
 			Employee e = new Employee();
 			e = eData.get(i);
-			
-			if(type.equalsIgnoreCase("sal")) {
-				int diff = 100000; float amt = 0;
-				if(i%2==0) {
-					amt = e.geteSal()+(diff-e.geteSal());	
-				}else {
-					amt = e.geteSal()+((2*diff)-e.geteSal());
+
+			if (type.equalsIgnoreCase("sal")) {
+				int diff = 100000;
+				float amt = 0;
+				if (i % 2 == 0) {
+					amt = e.geteSal() + (diff - e.geteSal());
+				} else {
+					amt = e.geteSal() + ((2 * diff) - e.geteSal());
 				}
 				e.seteSal(amt);
 			}
-			
-			if(type.equalsIgnoreCase("pin")) {
-				int diff = 999999; int set = 0;
-				if(i%2==0) {
-					set = e.getePincode()+(diff-e.getePincode());	
-				}else {
-					set = e.getePincode()+((2*diff)-e.getePincode());
+
+			if (type.equalsIgnoreCase("pin")) {
+				int diff = 999999;
+				int set = 0;
+				if (i % 2 == 0) {
+					set = e.getePincode() + (diff - e.getePincode());
+				} else {
+					set = e.getePincode() + ((2 * diff) - e.getePincode());
 				}
 				e.setePincode(set);
 			}
 		}
-		
+
 		return (ArrayList<Employee>) eData;
 	}
-	
+
 }

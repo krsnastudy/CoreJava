@@ -17,7 +17,7 @@ public class MemoryUtil {
 		System.out.println("JVM TotalMemory also equals to Initial Heap size of JVM : " + totalMemory);
 		System.out.println("JVM MaxMemory also equals to Maximum Heap size of JVM: " + maxMemory);
 
-		for (int i = 1; i <=10; i++) {
+		for (int i = 1; i <= 10; i++) {
 			Thread t = new Thread(new Runnable() {
 
 				@Override
@@ -25,7 +25,7 @@ public class MemoryUtil {
 					System.out.println(Thread.currentThread().getName());
 					try {
 						List<String> a = new ArrayList<>();
-						a=null;
+						a = null;
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
@@ -52,10 +52,10 @@ public class MemoryUtil {
 		System.out.println("freeMemory in JVM: " + freeMemory);
 		System.out.println("TotalMemory in JVM Shows current size of Java Heap : " + totalMemory);
 		System.out.println("MaxMemory in JVM: " + maxMemory);
-		
+
 		Runtime.getRuntime().gc();
 	}
-	
+
 	@Override
 	protected void finalize() throws Throwable {
 		System.out.println("Finalize method called");

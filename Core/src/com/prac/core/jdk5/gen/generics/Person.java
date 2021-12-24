@@ -5,7 +5,7 @@ public class Person {
 	private int personId;
 	private String personName;
 	private int personAge;
-	
+
 	public Person(int personId, String personName, int personAge) {
 		super();
 		this.personId = personId;
@@ -29,5 +29,5 @@ public class Person {
 	public String toString() {
 		return "Person [personId=" + personId + ", personName=" + personName + ", personAge=" + personAge + "]";
 	}
-	
+
 }

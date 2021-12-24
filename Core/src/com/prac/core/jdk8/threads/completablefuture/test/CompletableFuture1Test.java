@@ -14,35 +14,35 @@ class CompletableFuture1Test {
 
 	@Test
 	void test() {
-			int count=2;
+		int count = 2;
 
-			Runnable rOne = new TaskOne(count);
-			Runnable rTwo = new TaskTwo(count);
-			Runnable rThree = new TaskThree(count);
+		Runnable rOne = new TaskOne(count);
+		Runnable rTwo = new TaskTwo(count);
+		Runnable rThree = new TaskThree(count);
 
-			Thread t1 = new Thread(rOne, "ThreadOne");
-			Thread t2 = new Thread(rTwo, "ThreadTwo");
-			Thread t3 = new Thread(rThree, "ThreadThree");
+		Thread t1 = new Thread(rOne, "ThreadOne");
+		Thread t2 = new Thread(rTwo, "ThreadTwo");
+		Thread t3 = new Thread(rThree, "ThreadThree");
 
-			t1.start();
+		t1.start();
 //			CompletableFuture<Void> future = CompletableFuture.runAsync(rTwo);
-			CompletableFuture.runAsync(rTwo);
-			t3.start();
+		CompletableFuture.runAsync(rTwo);
+		t3.start();
 //			CompletableFuture.runAsync(rOne);
 //			CompletableFuture.runAsync(rOne);
 
-			// Using Lambda Expression
+		// Using Lambda Expression
 //			CompletableFuture<Void> future = CompletableFuture.runAsync(() -> {
-			CompletableFuture.runAsync(() -> {
-				try {
-					// Call the Save Method
-					System.out.println("Individual Task CompletableFuture.runAsync() -- " + LocalDateTime.now());
-					TimeUnit.SECONDS.sleep(1);
+		CompletableFuture.runAsync(() -> {
+			try {
+				// Call the Save Method
+				System.out.println("Individual Task CompletableFuture.runAsync() -- " + LocalDateTime.now());
+				TimeUnit.SECONDS.sleep(1);
 
-				} catch (InterruptedException e) {
-					throw new IllegalStateException(e);
-				}
-			});
+			} catch (InterruptedException e) {
+				throw new IllegalStateException(e);
+			}
+		});
 
 	}
 

@@ -25,16 +25,13 @@ public class StringPredicate {
 
 		System.out.println("\nPrinting words length>" + len + " :");
 //		s.stream()
-		Arrays.stream(sArr)
-				.distinct()
-				.filter(x -> !x.isEmpty())
-				.filter(y -> y.charAt(0) == 'i')
+		Arrays.stream(sArr).distinct().filter(x -> !x.isEmpty()).filter(y -> y.charAt(0) == 'i')
 				.filter(l -> l.length() > len)
 //				.filter(n->n!=null)
-				//.sorted() // Natural Sorting
+				// .sorted() // Natural Sorting
 				.sorted((a, b) -> b.compareTo(a)) // Descending
-				//.sorted((a,b)->(b.length()-a.length())) // Descending
-				//.forEach(System.out::println);
+				// .sorted((a,b)->(b.length()-a.length())) // Descending
+				// .forEach(System.out::println);
 				.forEach(x -> System.out.println(x + " - " + x.length()));
 
 		System.out.println("\nPredicate By Normal Function: ");

@@ -29,14 +29,9 @@ class TestComparator {
 			System.out.println(st.rollno + " " + st.name + " " + st.age);
 		}
 
-		
 		System.out.println("\nSorting by RollNo");
-		Comparator<Student> ageComparator = 
-				Comparator.comparing(Student::getRollno); //.reversed();
-		
-		al.stream()
-			.sorted(ageComparator)
-			.collect(Collectors.toList())
-			.forEach(System.out::println);
+		Comparator<Student> ageComparator = Comparator.comparing(Student::getRollno); // .reversed();
+
+		al.stream().sorted(ageComparator).collect(Collectors.toList()).forEach(System.out::println);
 	}
 }

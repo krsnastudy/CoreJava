@@ -26,8 +26,8 @@ public class RandomPassword {
 		};
 
 //		System.out.println("Random Password: "+s.get());
-		for(int i=0; i<10; i++){
-			System.out.println("Random Password("+i+"): "+s.get());
+		for (int i = 0; i < 10; i++) {
+			System.out.println("Random Password(" + i + "): " + s.get());
 		}
 	}
 

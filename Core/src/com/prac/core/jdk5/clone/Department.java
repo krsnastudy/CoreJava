@@ -1,20 +1,20 @@
 package com.prac.core.jdk5.clone;
 
-public class Department implements Cloneable{
+public class Department implements Cloneable {
 	private int id;
-    private String name;
- 
-    public Department(int id, String name){
-        this.id = id;
-        this.name = name;
-    }
+	private String name;
 
-    // Deep Copy
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return super.clone();
-    }
-    
+	public Department(int id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+
+	// Deep Copy
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -35,5 +35,5 @@ public class Department implements Cloneable{
 	public String toString() {
 		return "Department [id=" + id + ", name=" + name + "]";
 	}
-	
+
 }

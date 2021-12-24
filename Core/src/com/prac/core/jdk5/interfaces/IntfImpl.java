@@ -1,6 +1,6 @@
 package com.prac.core.jdk5.interfaces;
 
-public class IntfImpl implements IntfOne,IntfTwo{
+public class IntfImpl implements IntfOne, IntfTwo {
 
 	public static void main(String[] args) {
 
@@ -10,25 +10,25 @@ public class IntfImpl implements IntfOne,IntfTwo{
 	@Override
 	public void M1() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void M2() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void M3() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void M4() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

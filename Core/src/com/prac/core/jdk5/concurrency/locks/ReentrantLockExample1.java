@@ -6,9 +6,9 @@ public class ReentrantLockExample1 {
 
 	public static void main(String[] args) {
 
-		System.out.println("ThreadName: "+Thread.currentThread().getThreadGroup().getName());
-		System.out.println("ParentThreadName: "+Thread.currentThread().getThreadGroup().getParent().getName()+"\n");
-		
+		System.out.println("ThreadName: " + Thread.currentThread().getThreadGroup().getName());
+		System.out.println("ParentThreadName: " + Thread.currentThread().getThreadGroup().getParent().getName() + "\n");
+
 		ReentrantLock l = new ReentrantLock();
 		l.lock();
 		l.lock();

@@ -13,7 +13,7 @@ class StackUsingLinkedList {
 		this.top = null;
 	}
 
-	public void push(int x){
+	public void push(int x) {
 		Node node = new Node();
 
 		// check if stack (heap) is full. Then inserting an element would
@@ -51,7 +51,7 @@ class StackUsingLinkedList {
 		}
 	}
 
-	public void pop(){
+	public void pop() {
 		// check for stack underflow
 		if (top == null) {
 			System.out.print("\nStack Underflow");
@@ -59,7 +59,7 @@ class StackUsingLinkedList {
 		}
 
 		System.out.println("Removing " + peek());
-		
+
 		// update the top pointer to point to the next node
 		top = top.next;
 	}

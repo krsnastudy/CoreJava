@@ -195,7 +195,7 @@ public class LinkedList {
 		/* Start with the empty list. */
 		LinkedList list = new LinkedList();
 
-	// ******INSERTION******
+		// ******INSERTION******
 		list = insert(list, 1);
 		list = insert(list, 2);
 		list = insert(list, 3);

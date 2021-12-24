@@ -16,7 +16,9 @@ public class HashMapEx {
 		map.put("Radha", "Four");
 		
 		map.entrySet().stream().forEach(x->System.out.println(x.getKey()+" -- "+x.getValue()));
-		System.out.println();
+		
+		System.out.println("");
+		
 		Map<String, String> tMap = new TreeMap<>(map);
 		tMap.entrySet().stream().forEach(x->System.out.println(x.getKey()+" -- "+x.getValue()));
 	}

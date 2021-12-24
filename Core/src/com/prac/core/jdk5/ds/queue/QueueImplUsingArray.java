@@ -52,7 +52,7 @@ class Queue {
 public class QueueImplUsingArray {
 
 	public static void main(String[] args) {
-		System.out.println("Loaded By: "+QueueImplUsingArray.class.getClassLoader());
+		System.out.println("Loaded By: " + QueueImplUsingArray.class.getClassLoader());
 		Queue q = new Queue(5);
 
 		q.printQueue();

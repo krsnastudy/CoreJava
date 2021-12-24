@@ -7,17 +7,17 @@ public class FibonacciEvenAdd {
 
 	public static void main(String[] args) {
 
-		int fibonacci=1;
+		int fibonacci = 1;
 		int limit = 8;
-		int prev=fibonacci;
+		int prev = fibonacci;
 		List<Integer> fList = new ArrayList<>();
-		
-		while(fibonacci<limit) {
-			fibonacci = fibonacci+prev;
+
+		while (fibonacci < limit) {
+			fibonacci = fibonacci + prev;
 			prev = fibonacci;
 			fList.add(fibonacci);
 		}
-		
+
 		System.out.println(fList);
 	}
 

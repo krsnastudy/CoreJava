@@ -1,11 +1,11 @@
 package com.prac.core.jdk8.interfaces;
 
-public abstract class AbstractInt implements Interface1{
+public abstract class AbstractInt implements Interface1 {
 
 	public abstract void m3();
-	
+
 	@Override
-	public void m2(){
+	public void m2() {
 		System.out.println("m2");
 	}
 }

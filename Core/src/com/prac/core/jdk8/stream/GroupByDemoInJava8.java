@@ -7,11 +7,9 @@ import java.util.stream.Collectors;
 public class GroupByDemoInJava8 {
 
 	public static void main(String[] args) {
-		String[] args1 = {"A", "B"};
-		
-		Set<String> distinctWords = Arrays.asList(args1).stream()
-				.collect(Collectors.toSet());
+		String[] args1 = { "A", "B" };
+
+		Set<String> distinctWords = Arrays.asList(args1).stream().collect(Collectors.toSet());
 	}
 
 }
-

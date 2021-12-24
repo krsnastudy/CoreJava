@@ -17,9 +17,9 @@ public class BinaryTreeDemo {
 		binaryTree.add(154);
 		binaryTree.add(58);
 		binaryTree.add(14);
-		System.out.println("BinaryTree Size: "+binaryTree.getSize());
+		System.out.println("BinaryTree Size: " + binaryTree.getSize());
 		binaryTree.printAllTraversal();
-		
+
 	}
 
 }

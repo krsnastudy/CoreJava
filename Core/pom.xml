@@ -3,6 +3,14 @@
   <groupId>Core</groupId>
   <artifactId>Core</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  	<dependencies>
+  	<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+		<dependency>
+		    <groupId>javax.mail</groupId>
+		    <artifactId>mail</artifactId>
+		    <version>1.4</version>
+		</dependency>
+  	</dependencies>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>

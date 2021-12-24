@@ -12,12 +12,12 @@ public class ComparableExample {
 
 		System.out.println("Before Sorting:");
 		al.forEach(System.out::println);
-		
+
 		Collections.sort(al);
-		
+
 		System.out.println("\nAfter Sorting:");
 		al.forEach(System.out::println);
-		
+
 		/*
 		 * for (Student st : al) { System.out.println(st.rollno + " " + st.name + " " +
 		 * st.age); }

@@ -3,7 +3,7 @@ package com.prac.core.problem.concentrix;
 import java.math.BigDecimal;
 
 public interface Calculator {
-	
+
 	static Number sum(Number... elems) {
 		Number total = 0;
 		if (elems.length > 0) {

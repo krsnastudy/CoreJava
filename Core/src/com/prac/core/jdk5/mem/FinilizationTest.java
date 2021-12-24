@@ -14,33 +14,30 @@ public class FinilizationTest {
 		FinilizationTest t = new FinilizationTest(5);
 
 //		t.finalize(); /* java.lang.ArithmeticException: / by zero Error */
-		System.out.println("First: "+t.hashCode());
-		
-		t=null;
+		System.out.println("First: " + t.hashCode());
+
+		t = null;
 		System.gc();
 
 //		System.out.println("Second: "+s.hashCode());
-		
-		s=null;
+
+		s = null;
 		System.gc();
 		System.out.println("FinilizationTest Ended");
 	}
 
 	@Override
 	protected void finalize() {
-		System.out.println("classVariable: "+classVariable);
-		
-		//System.out.println(10 / 0);
-		s=this;
-		
+		System.out.println("classVariable: " + classVariable);
+
+		// System.out.println(10 / 0);
+		s = this;
+
 		System.out.println("In Finalize() ");
-		
+
 		/*
-		try {
-			System.out.println(10 / 0);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-  	   */
+		 * try { System.out.println(10 / 0); } catch (Exception e) {
+		 * e.printStackTrace(); }
+		 */
 	}
 }

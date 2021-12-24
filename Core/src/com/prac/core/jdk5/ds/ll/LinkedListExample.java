@@ -47,7 +47,7 @@ public class LinkedListExample {
 	}
 
 	public int size(LinkedListExample list) {
-		int len=0;
+		int len = 0;
 		Node currNode = list.head;
 
 		if (currNode != null) {
@@ -58,6 +58,7 @@ public class LinkedListExample {
 		}
 		return len;
 	}
+
 	public static void main(String[] args) {
 
 		LinkedListExample list1 = new LinkedListExample();
@@ -69,14 +70,11 @@ public class LinkedListExample {
 		list1.addItem(list1, 4);
 		list1.addItem(list1, 5);
 		list1.addItem(list1, 6);
-		
-		System.out.println("\nSize of the List1 & List2: "+list1.size(list1)+" & "+list2.size(list2));
-		
+
+		System.out.println("\nSize of the List1 & List2: " + list1.size(list1) + " & " + list2.size(list2));
+
 		list1.printList(list1);
-		
-		
-		
-		
+
 	}
 
 }

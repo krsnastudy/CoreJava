@@ -21,13 +21,16 @@ public class ObserverPatternDemo {
 }
 
 /*
-Observer pattern is used when there is one-to-many relationship between objects such as if one object is modified, 
-its depenedent objects are to be notified automatically. Observer pattern falls under behavioral pattern category.
-
-In observer pattern, there are many observers (subscriber objects) 
-that are observing a particular subject (publisher object). 
-Observers register themselves to a subject to get a notification when there is a change made inside that subject.
-
-A observer object can register or unregister from subject at any point of time. 
-It helps is making the objects objects loosely coupled
-*/
+ * Observer pattern is used when there is one-to-many relationship between
+ * objects such as if one object is modified, its depenedent objects are to be
+ * notified automatically. Observer pattern falls under behavioral pattern
+ * category.
+ * 
+ * In observer pattern, there are many observers (subscriber objects) that are
+ * observing a particular subject (publisher object). Observers register
+ * themselves to a subject to get a notification when there is a change made
+ * inside that subject.
+ * 
+ * A observer object can register or unregister from subject at any point of
+ * time. It helps is making the objects objects loosely coupled
+ */

@@ -22,7 +22,7 @@ public class OptionalBasicExample {
 		System.out.println("Optional.isPresent() " + checknull.isPresent());
 
 		System.out.println();
-		
+
 		if (checknull.isPresent()) { // It Checks, value is present or not
 			String lowercaseString = str[5].toLowerCase();
 //            System.out.print(lowercaseString); 

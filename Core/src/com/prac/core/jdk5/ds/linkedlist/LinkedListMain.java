@@ -9,7 +9,7 @@ public class LinkedListMain {
 		LinkedList intersectionList = new LinkedList();
 		LinkedList reverseList1 = new LinkedList();
 		LinkedList reverseList2 = new LinkedList();
-		
+
 		list1.insert(list1, 275);
 		list1.insert(list1, 87);
 		list1.insert(list1, 06);
@@ -27,7 +27,7 @@ public class LinkedListMain {
 		list1.print(list1, "Sorted First List");
 
 		System.out.println();
-		
+
 		list2.insert(list2, 99);
 		list2.insert(list2, 26);
 		list2.insert(list2, 135);
@@ -39,38 +39,37 @@ public class LinkedListMain {
 		list2.bubbleSort(list2);
 //		list2.print(list2);
 		list2.print(list2, "Sorted Second List");
-		
+
 		System.out.println();
-		
+
 		unionList = unionList.getUnion(list1, list2);
 		unionList.bubbleSort(unionList);
 		unionList.print(unionList, "Union List");
-		
+
 		intersectionList = intersectionList.getIntersection(list1, list2);
 		intersectionList.print(intersectionList, "Intersection List");
-		
+
 		reverseList1 = list1.reverse(list1);
 		reverseList1.print(reverseList1, "\nReverse List1");
-		
+
 		reverseList2 = list2.reverse(list2);
 		reverseList2.print(reverseList2, "Reverse List2");
 
 		LinkedList llist = new LinkedList();
-		 
-        llist.insert(llist, 20);
-        llist.insert(llist, 4);
-        llist.insert(llist, 99);
-        llist.insert(llist, 652);
-        llist.insert(llist, 999);
- 
-        /*Create loop for testing */
-        llist.head.next.next.next.next = llist.head;
- 
-        if (llist.detectLoopUsingHashing(llist.head))
-            System.out.println("Loop Found");
-        else
-            System.out.println("No Loop Found");		
-		
+
+		llist.insert(llist, 20);
+		llist.insert(llist, 4);
+		llist.insert(llist, 99);
+		llist.insert(llist, 652);
+		llist.insert(llist, 999);
+
+		/* Create loop for testing */
+		llist.head.next.next.next.next = llist.head;
+
+		if (llist.detectLoopUsingHashing(llist.head))
+			System.out.println("Loop Found");
+		else
+			System.out.println("No Loop Found");
 
 		/*
 		 * for (int i = 0; i < 10; i++) { list1.insert(list1,
@@ -85,11 +84,10 @@ public class LinkedListMain {
 
 }
 
-
 /*
-https://www.geeksforgeeks.org/detect-loop-in-a-linked-list/
-Solution 1: Hashing Approach:
-
-
-
-*/
+ * https://www.geeksforgeeks.org/detect-loop-in-a-linked-list/ Solution 1:
+ * Hashing Approach:
+ * 
+ * 
+ * 
+ */

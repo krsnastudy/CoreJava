@@ -13,18 +13,18 @@ public class TaskThree implements Runnable {
 	@Override
 	public void run() {
 		LocalDateTime localDateTime = LocalDateTime.now();
-		System.out.println("Task Three: "+Thread.currentThread().getName()+" -- "+localDateTime);		
+		System.out.println("Task Three: " + Thread.currentThread().getName() + " -- " + localDateTime);
 		for (int i = 0; i < count; i++) {
 			System.out.println("Loop# " + i);
 		}
-		
+
 		try {
 			System.out.println("Task#3 Sleeping For Five Seconds Start");
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
-		}		
-		
+		}
+
 		System.out.println("Task#3 Sleeping For Five Seconds Over");
 	}
 }

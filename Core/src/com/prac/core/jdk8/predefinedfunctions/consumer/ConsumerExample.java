@@ -33,13 +33,11 @@ public class ConsumerExample {
 
 		Consumer<List<Employee>> chained1 = chain -> chain.stream().distinct()
 //				.filter(s -> s.getDepartment().equals("IT"))
-				.filter(s -> s.geteSal() > 90000)
-				.forEach(x -> System.out.println(x.toString()));
+				.filter(s -> s.geteSal() > 90000).forEach(x -> System.out.println(x.toString()));
 
 		Consumer<List<Employee>> chained2 = chain -> chain.stream().distinct()
 //				.filter(s -> s.getDepartment().equals("Admin"))
-				.filter(y->y.getfName().contains("s"))
-				.forEach(x -> System.out.println(x.toString()));
+				.filter(y -> y.getfName().contains("s")).forEach(x -> System.out.println(x.toString()));
 
 		Consumer<List<Employee>> chainedCosumer = chained1.andThen(chained2);
 
@@ -51,16 +49,17 @@ public class ConsumerExample {
 }
 
 /*
-It is a functional interface defined in java.util.function package.
-It contains an abstract accept() and a default andThen() method. 
-It can be used as the assignment target for a lambda expression or method reference.
-The Consumer Interface accepts a single argument and does not return any result.
-
-void accept(T t) --> It performs this operation on the given argument.
-
-default Consumer<T> andThen(Consumer<? super T> after) --> 
-It returns a composed Consumer that performs, in sequence, this operation followed by the after operation. 
-If performing either operation throws an exception, it is relayed to the caller of the composed operation. 
-If performing this operation throws an exception, the after operation will not be performed.
-
-*/
+ * It is a functional interface defined in java.util.function package. It
+ * contains an abstract accept() and a default andThen() method. It can be used
+ * as the assignment target for a lambda expression or method reference. The
+ * Consumer Interface accepts a single argument and does not return any result.
+ * 
+ * void accept(T t) --> It performs this operation on the given argument.
+ * 
+ * default Consumer<T> andThen(Consumer<? super T> after) --> It returns a
+ * composed Consumer that performs, in sequence, this operation followed by the
+ * after operation. If performing either operation throws an exception, it is
+ * relayed to the caller of the composed operation. If performing this operation
+ * throws an exception, the after operation will not be performed.
+ * 
+ */

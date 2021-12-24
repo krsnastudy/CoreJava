@@ -283,8 +283,8 @@ public class LinkedList {
 
 	public boolean detectLoopUsingHashing(Node h) {
 		HashSet<Node> s = new HashSet<Node>();
-		
-		while (h != null){
+
+		while (h != null) {
 			if (s.contains(h))
 				return true;
 

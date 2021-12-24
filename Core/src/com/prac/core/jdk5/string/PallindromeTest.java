@@ -12,7 +12,7 @@ public class PallindromeTest {
 		set.add("Hare Rama");
 		set.add("Rama Rama");
 		set.add("Hare Hare");
-		
+
 		System.out.println(set);
 	}
 

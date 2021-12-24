@@ -6,7 +6,7 @@ public class Person {
 	private String lastName;
 	private int age;
 	private String location;
-	
+
 	public Person(String firstName, String lastName, int age, String location) {
 		super();
 		this.firstName = firstName;
@@ -14,8 +14,9 @@ public class Person {
 		this.age = age;
 		this.location = location;
 	}
-	
-	public Person() {}
+
+	public Person() {
+	}
 
 	public String getFirstName() {
 		return firstName;

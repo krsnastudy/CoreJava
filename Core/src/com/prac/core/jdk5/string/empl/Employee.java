@@ -7,11 +7,11 @@ public class Employee {
 	private int eNumber;
 	private float eSal;
 	private int ePincode;
-	
+
 	public Employee() {
-		
+
 	}
-	
+
 	public Employee(String fName, String lName, int eNumber, float eSal, int ePincode) {
 		super();
 		this.fName = fName;
@@ -20,7 +20,7 @@ public class Employee {
 		this.eSal = eSal;
 		this.ePincode = ePincode;
 	}
-	
+
 	public Employee(Employee e) {
 		super();
 		this.fName = e.fName;
@@ -29,7 +29,7 @@ public class Employee {
 		this.eSal = e.eSal;
 		this.ePincode = e.ePincode;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Employee [FirstName=" + fName + ", LastName=" + lName + ", EmpNo=" + eNumber + ", EmpSal=" + eSal
@@ -37,64 +37,72 @@ public class Employee {
 	}
 
 	public String toStringSpecific() {
-		return "Employee [EmpNo=" + eNumber + ", EmpSal=" + eSal
-				+ ", EmpPincode=" + ePincode + "]";
+		return "Employee [EmpNo=" + eNumber + ", EmpSal=" + eSal + ", EmpPincode=" + ePincode + "]";
 	}
-	
+
 	/**
 	 * @return the fName
 	 */
 	public String getfName() {
 		return fName;
 	}
+
 	/**
 	 * @param fName the fName to set
 	 */
 	public void setfName(String fName) {
 		this.fName = fName;
 	}
+
 	/**
 	 * @return the lName
 	 */
 	public String getlName() {
 		return lName;
 	}
+
 	/**
 	 * @param lName the lName to set
 	 */
 	public void setlName(String lName) {
 		this.lName = lName;
 	}
+
 	/**
 	 * @return the eNumber
 	 */
 	public int geteNumber() {
 		return eNumber;
 	}
+
 	/**
 	 * @param eNumber the eNumber to set
 	 */
 	public void seteNumber(int eNumber) {
 		this.eNumber = eNumber;
 	}
+
 	/**
 	 * @return the eSal
 	 */
 	public float geteSal() {
 		return eSal;
 	}
+
 	/**
 	 * @param eSal the eSal to set
 	 */
 	public void seteSal(float eSal) {
 		this.eSal = eSal;
 	}
+
 	/**
 	 * @return the ePincode
 	 */
 	public int getePincode() {
 		return ePincode;
 	}
+
 	/**
 	 * @param ePincode the ePincode to set
 	 */
@@ -125,20 +133,12 @@ public class Employee {
 	 * (other.lName != null) return false; } else if (!lName.equals(other.lName))
 	 * return false; return true; }
 	 */
-	
-	/*
-	 @Override
-    public boolean equals(Object obj) {
-        if (obj instanceof Employee) {
-            return ((Employee) obj).eNumber == eNumber;
-        }
-        return false;
-    }
 
-    @Override
-    public int hashCode() {
-        return this.eNumber;
-    }
+	/*
+	 * @Override public boolean equals(Object obj) { if (obj instanceof Employee) {
+	 * return ((Employee) obj).eNumber == eNumber; } return false; }
+	 * 
+	 * @Override public int hashCode() { return this.eNumber; }
 	 */
-	
+
 }

@@ -11,7 +11,7 @@ public class ClassB extends ClassA {
 		super.work();
 		System.out.println("ClassB work()");
 	}
-	
+
 	public void run() {
 		super.run();
 		System.out.println("ClassB run()");

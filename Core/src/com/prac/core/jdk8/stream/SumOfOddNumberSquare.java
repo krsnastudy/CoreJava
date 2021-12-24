@@ -7,34 +7,31 @@ public class SumOfOddNumberSquare {
 
 	public static void main(String[] args) {
 		List<Integer> aList = new ArrayList<>();
-		int k=49;
-		
-		for(int i=1; i<1500; i++) {
+		int k = 49;
+
+		for (int i = 1; i < 1500; i++) {
 			aList.add(i);
 		}
-		
+
 //		List<Integer> oddList =
-		int res = aList.stream()
-					 .filter(i->i%2 ==1)
-					 .map(x->x*x)
-					 .reduce(0, Integer::sum)
-					 //.collect(Collectors.toList())
-					 //.stream()
-				   ;
-		
+		int res = aList.stream().filter(i -> i % 2 == 1).map(x -> x * x).reduce(0, Integer::sum)
+		// .collect(Collectors.toList())
+		// .stream()
+		;
+
 //		oddList.forEach(x->System.out.print(x+" "));
-		
-		System.out.println("Square: "+res);
+
+		System.out.println("Square: " + res);
 //		System.out.println(aList);
-		
+
 		check(aList, k);
 	}
-	
+
 	public static void check(List<Integer> aList, int diff) {
-		for(int i=0; i<aList.size();i++) {
-			for(int j=i+1; j<aList.size(); j++) {
-				if((((aList.get(j)-aList.get(i))==diff))||(((aList.get(i)-aList.get(j))==diff))) {
-					System.out.print ("("+i+","+j+"), ");
+		for (int i = 0; i < aList.size(); i++) {
+			for (int j = i + 1; j < aList.size(); j++) {
+				if ((((aList.get(j) - aList.get(i)) == diff)) || (((aList.get(i) - aList.get(j)) == diff))) {
+					System.out.print("(" + i + "," + j + "), ");
 				}
 			}
 		}
