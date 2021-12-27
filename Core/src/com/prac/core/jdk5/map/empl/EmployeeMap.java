@@ -1,7 +1,5 @@
 package com.prac.core.jdk5.map.empl;
 
-import java.math.BigDecimal;
-import java.util.Date;
 import java.util.HashMap;
 
 public class EmployeeMap {

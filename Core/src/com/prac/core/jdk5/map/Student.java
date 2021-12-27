@@ -7,7 +7,7 @@ public class Student {
 	private String schoolname;
 	private String studentclass;
 	private String studentsection;
-	
+
 	public Student(String studentname, long studentno, String schoolname, String studentclass, String studentsection) {
 		super();
 		this.studentname = studentname;
@@ -59,11 +59,10 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "[Number=" + studentno + ", School=" + schoolname
-				+ ", Class=" + studentclass + ", Section=" + studentsection + "]";
+		return "[Number=" + studentno + ", School=" + schoolname + ", Class=" + studentclass + ", Section="
+				+ studentsection + "]";
 	}
 
-	
 	@Override
 	public int hashCode() {
 		System.out.print("Student hashCode(): ");
@@ -76,11 +75,11 @@ public class Student {
 		result = prime * result + ((studentsection == null) ? 0 : studentsection.hashCode());
 		return result;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		System.out.print("Student equals(): ");
-		
+
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -112,5 +111,5 @@ public class Student {
 			return false;
 		return true;
 	}
-	
+
 }
