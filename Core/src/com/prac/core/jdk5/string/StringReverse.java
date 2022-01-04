@@ -56,15 +56,13 @@ public class StringReverse {
 	}
 
 	public static String usingJava8LambdaStream(final String string) {
-		return IntStream.range(0, string.length())
-				        .map(i -> string.charAt(string.length() - i - 1))
-				        .collect(StringBuilder::new, (s, c) -> s.append((char) c), StringBuilder::append)
-				        .toString();
+		return IntStream.range(0, string.length()).map(i -> string.charAt(string.length() - i - 1))
+				.collect(StringBuilder::new, (s, c) -> s.append((char) c), StringBuilder::append)
+				.toString();
 	}
 
 	public static String usingAnotherJava8LambdaStream(final String string) {
-		return Stream.of(string)
-				     .map(word -> new StringBuilder(word).reverse())
-				     .collect(Collectors.joining(" "));
+		return Stream.of(string).map(word -> new StringBuilder(word).reverse())
+				                .collect(Collectors.joining(" "));
 	}
 }

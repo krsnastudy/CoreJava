@@ -12,7 +12,7 @@ public class HighestWordCount {
 
 	public static void main(String[] args) throws FileNotFoundException {
 
-		File file = new File("D:\\Coding\\files\\sample.txt");
+		File file = new File("D:\\Study\\Coding\\files\\sample.txt");
 		Scanner sc = new Scanner(file);
 		int topCount = 5;
 
@@ -25,14 +25,19 @@ public class HighestWordCount {
 
 		/** Sorting Using Map Values **/
 		System.out.println("Sorted In Map<String, Integer> byValue ");
-		word.entrySet().stream().sorted((a, b) -> b.getValue().compareTo(a.getValue())).limit(topCount)
-				.forEach(System.out::println);
+		word.entrySet().stream()
+		               .sorted((a, b) -> b.getValue().compareTo(a.getValue()))
+		               .limit(topCount)
+		               .forEach(System.out::println);
 
 		/* Take to a new List All Entries and sorting **/
 		System.out.println("\nSorted In List<Entry<String, Integer>> by Entry.Value ");
 //		List<Entry<String, Integer>> sortedList = 
-		word.entrySet().stream().sorted((a, b) -> b.getValue().compareTo(a.getValue())).limit(topCount)
-				.collect(Collectors.toList()).forEach(System.out::println);
+		word.entrySet().stream()
+		        .sorted((a, b) -> b.getValue().compareTo(a.getValue()))
+		        .limit(topCount)
+				.collect(Collectors.toList())
+				.forEach(System.out::println);
 
 //		sortedList.sort((a,b)->b.getValue().compareTo(a.getValue()));
 //		sortedList = sortedList.stream().limit(topCount).collect(Collectors.toList());

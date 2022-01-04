@@ -6,9 +6,7 @@ import java.util.Iterator;
 public final class FinalClassExample {
 
 	private final int id;
-
 	private final String name;
-
 	private final HashMap<String, String> testMap;
 
 	public int getId() {
