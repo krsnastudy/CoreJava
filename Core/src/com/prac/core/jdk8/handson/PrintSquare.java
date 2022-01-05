@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.IntPredicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -30,16 +31,23 @@ public class PrintSquare {
 
 		System.out.print("\nPrime Numbers: ");
 		// List<Integer> primes =
-		IntStream.rangeClosed(1, maxRange).filter(CoreUtil::isPrime).boxed().collect(Collectors.toList())
+		IntStream.rangeClosed(1, maxRange).filter(PrintSquare::isPrime).boxed().collect(Collectors.toList())
 				.forEach(x -> print.accept(x));
 
+		/*
 		List<Integer> list = CoreUtil.getRandomNumbers(15);
 //		Collections.sort(list); // Natural Sort
-		list.sort((a,b)->b-a); // Desc Sort
+		list.sort((a,b)->b-a);
 		System.out.println("\n"+list);
 		
 		Integer max = list.stream().distinct().max(Comparator.comparing(Integer::valueOf)).get();
 		Integer min = list.stream().distinct().min(Comparator.comparing(Integer::valueOf)).get();
-		System.out.println("Max : "+max+" && Min : "+min);
+		System.out.println("Max : "+max+" && Min : "+min); */
 	}
+	
+	
+	public static boolean isPrime(int i) {
+		IntPredicate isDivisible = index -> i % index == 0;
+		return i > 1 && IntStream.range(2, i).noneMatch(isDivisible);
+	}	
 } // PrintSquare
