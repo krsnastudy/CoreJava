@@ -19,7 +19,7 @@ import com.prac.core.jdk8.stream.employee.data.PopulateEmpData;
 public class EmployeeStream {
 
 	public static void main(String[] args) {
-		int noOfRecords = 10; // How many records you want
+		int noOfRecords = 20; // How many records you want
 		List<Employee> emp = new ArrayList<Employee>();
 		PopulateEmpData exec = new PopulateEmpData();
 		emp = exec.populateEmpData(noOfRecords);
@@ -91,13 +91,15 @@ public class EmployeeStream {
 		Comparator<Employee> empComparator = Comparator
 //				.comparing(Employee::geteNumber).reversed()
 				.comparing(Employee::getfName)
-//				.thenComparing(Employee::getlName)
+				.thenComparing(Employee::getlName)
 //				.thenComparing(Employee::getDepartment)
 //				.thenComparing(Employee::geteNumber)
 				.reversed();
 
-		ArrayList<Employee> sorted = (ArrayList<Employee>) empDistinct.stream().sorted(empComparator)
-				.collect(Collectors.toList());
+		ArrayList<Employee> sorted = 
+				(ArrayList<Employee>) empDistinct.stream()
+												 .sorted(empComparator)
+												 .collect(Collectors.toList());
 
 		sorted.forEach(e -> System.out.println(e.geteNumber() + " - " + e.getfName() + ", " + e.getlName()));
 

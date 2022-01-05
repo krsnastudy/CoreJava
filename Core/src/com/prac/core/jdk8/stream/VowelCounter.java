@@ -1,8 +1,6 @@
 package com.prac.core.jdk8.stream;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,7 +11,7 @@ import java.util.stream.Stream;
 public class VowelCounter {
 	public static void main(String[] args) {
 
-		LinkedHashMap<Character, Integer> hMap = new LinkedHashMap();
+		LinkedHashMap<Character, Integer> hMap = new LinkedHashMap<>();
 		hMap.put('a', 0);
 		hMap.put('e', 0);
 		hMap.put('i', 0);

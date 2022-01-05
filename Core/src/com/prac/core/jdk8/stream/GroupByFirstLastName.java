@@ -5,6 +5,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.prac.core.jdk8.stream.Employee;
+
 public class GroupByFirstLastName {
 
 	public static void main(String[] args) {
@@ -15,8 +17,10 @@ public class GroupByFirstLastName {
 		employees.forEach(e -> System.out.println("Name: " + e.getfName() + " " + e.getlName()));
 
 		// Compare by first name and then last name
-		Comparator<Employee> compareByName = Comparator.comparing(Employee::getfName).thenComparing(Employee::getlName)
-				.thenComparing(Employee::getAge);
+		Comparator<Employee> compareByName = 
+				Comparator.comparing(Employee::getfName)
+						  .thenComparing(Employee::getlName)
+						  .thenComparing(Employee::getAge);
 
 		List<Employee> sortedEmployees = employees.stream().sorted(compareByName).collect(Collectors.toList());
 

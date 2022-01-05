@@ -19,24 +19,30 @@ public class PopulateEmpData {
 		int minEno = 100000;
 		int maxEno = 9999999;
 		int minPin = 500000;
-		int maxPin = 599999;
+		int maxPin = 999999;
 
 		List<Employee> eList = new ArrayList<Employee>();
 
 		for (int i = 0; i < recordsCount; i++) {
-			Employee e = new Employee(randomString(10), randomString(5),
+			
+			Employee e = new Employee(
+					randomString(10), 
+					randomString(5),
 					// rEno.nextInt(999999),//i,
-					rEno.ints(minEno, maxEno).findFirst().getAsInt(), (rSal.nextFloat() * 100000),
-//									  rPC.nextInt(999999),
-					rPC.ints(minPin, maxPin).findFirst().getAsInt(), Department.getRandomDepartment());
+					rEno.ints(minEno, maxEno).findFirst().getAsInt(), 
+					(rSal.nextFloat() * 100000),
+//					rPC.nextInt(999999),
+					rPC.ints(minPin, maxPin).findFirst().getAsInt(), 
+					Department.getRandomDepartment()
+				);
+
 			eList.add(e);
 
 			// Duplicating Records
 			if (i % 2 == 0) {
 				eList.add(eList.get(i));
 			}
-
-		}
+		}//for Loop
 
 		// System.out.println("Raw Data :"+eList.size());
 //		 eList.stream().forEach(x->System.out.println(x.toString()));

@@ -24,8 +24,10 @@ public class StringToCharArray {
 		}
 
 		System.out.println("\nStringTokenizer Stream");
-		Collections.list(new StringTokenizer(str, " ")).stream().map(x -> (String) x).collect(Collectors.toList())
-				.forEach(System.out::println);
+		Collections.list(new StringTokenizer(str, " "))
+					.stream().map(x -> (String) x)
+					.collect(Collectors.toList())
+				    .forEach(System.out::println);
 		;
 	}
 

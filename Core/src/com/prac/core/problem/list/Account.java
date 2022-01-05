@@ -3,6 +3,7 @@ package com.prac.core.problem.list;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class Account {
@@ -37,8 +38,14 @@ public class Account {
 		Map<String, List<AccountDetails>> map = list.stream()
 				.collect(Collectors.groupingBy(AccountDetails::getCustomerId));
 
+		
 		map.forEach((x, y) -> System.out.println("CustomerId: " + x + " --> "
 				+ y.stream().map(a -> a.getAcountType()).collect(Collectors.joining(", "))));
+		
+		Map<Object, Long> nMap = list.stream().collect(Collectors.groupingBy(x->x.getCustomerId(), Collectors.counting()));
+		System.out.println(nMap);
+		
+		//list.stream().collect(Collectors.toMap(x->x.getCustomerId(), x->x.getAcountType())).forEach((x,y)->System.out.println(x.toString()+" "+y.toString()));
 	}
 }
 
@@ -71,5 +78,22 @@ class AccountDetails {
 	@Override
 	public String toString() {
 		return "AccountDetails [customerId=" + customerId + ", acountType=" + acountType + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(acountType, customerId);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		AccountDetails other = (AccountDetails) obj;
+		return Objects.equals(acountType, other.acountType) && Objects.equals(customerId, other.customerId);
 	}
 }
