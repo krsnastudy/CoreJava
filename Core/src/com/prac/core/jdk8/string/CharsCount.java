@@ -28,7 +28,7 @@ public class CharsCount {
 		System.out.println(count);
 		
 		Map<Character, Integer> freqs = new HashMap<>();
-		for (char c : str.toCharArray()) {
+		for (char c : str.toLowerCase().toCharArray()) {
 		    freqs.merge(c,                  // key = char
 		                1,                  // value to merge
 		                Integer::sum);      // counting
