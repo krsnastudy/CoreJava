@@ -1,11 +1,18 @@
 package com.prac.core.jdk5.threads.thread;
 
 public class OddEvenThread implements Runnable{
+	int count;
+	
+	public OddEvenThread(int count) {
+		super();
+		this.count = count;
+	}
+
 
 	@Override
 	public void run() {
 		synchronized(this) {
-		 for(int i=1; i<=10; i++) {
+		 for(int i=1; i<=count; i++) {
 		  try {
 				if(i%2==0 && Thread.currentThread().getName().equalsIgnoreCase("second")) {
 					notify();

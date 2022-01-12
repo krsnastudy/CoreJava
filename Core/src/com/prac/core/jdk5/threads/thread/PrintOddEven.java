@@ -3,11 +3,11 @@ package com.prac.core.jdk5.threads.thread;
 public class PrintOddEven {
 
 	public static void main(String[] args) throws InterruptedException{
-		Runnable r = new OddEvenThread();
+		Runnable r = new OddEvenThread(10);
 		Thread t1 = new Thread(r, "first");
 		Thread t2 = new Thread(r, "second");
 		
-		Thread t3 = new Thread(new OddEvenThread(), "third");
+		Thread t3 = new Thread(new OddEvenThread(10), "third");
 		
 		t1.start();
 		t2.start();

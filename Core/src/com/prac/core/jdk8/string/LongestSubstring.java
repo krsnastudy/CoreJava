@@ -50,9 +50,7 @@ public class LongestSubstring {
 		}
 
 		System.out.println("Input String : " + inputString);
-
 		System.out.println("The longest substring : " + longestSubstring);
-
 		System.out.println("The longest Substring Length : " + longestSubstringLength);
 	}
 
@@ -64,3 +62,10 @@ public class LongestSubstring {
 		longestSubstring("thelongestsubstring");
 	}
 }
+
+/*
+ * 
+ * https://javaconceptoftheday.com/find-longest-substring-without-repeating-
+ * characters-java/
+ * 
+ */
