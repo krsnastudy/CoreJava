@@ -24,7 +24,7 @@ public class OddEvenThread implements Runnable{
 //					System.out.println("OddNumber:"+i);
 					System.out.println(i);
 					wait();
-				}			  
+				}
 			  
 			} catch (Exception e) {
 				e.printStackTrace();
