@@ -44,8 +44,8 @@ public class EmployeeStream {
 
 		System.out.println(tMap);
 
-		/* Adding List to TreeMap */
-		Map<Integer, Object> LinkedHashMap = emp.stream().collect(
+		/* Adding List to LinkedHashMap */
+		Map<Integer, Object> linkedHashMap = emp.stream().collect(
 				Collectors.toMap(Employee::geteNumber, Function.identity(), (e1, e2) -> e1, LinkedHashMap::new));
 
 		System.out.println("\n<<< Distinct Employees Data >>>");
