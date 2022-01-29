@@ -49,13 +49,14 @@ public class HighestWordCount {
 		sc = sc.replace("\t", "");
 		sc = sc.replace("  ", "");
 		String[] strArray = sc.split(" ");
-		for (String s : strArray) {
-			String key = s.trim();
-			if (word.containsKey(key)) {
-				word.put(key, word.get(key) + 1);
-			} else {
-				word.put(key, 1);
-			}
+		
+		/*
+		 * for (String s : strArray) { String key = s.trim(); if (word.containsKey(key))
+		 * { word.put(key, word.get(key) + 1); } else { word.put(key, 1); } }
+		 */
+		
+		for(String str : strArray) {
+			word.merge(str, 1, Integer::sum);
 		}
 	}
 }

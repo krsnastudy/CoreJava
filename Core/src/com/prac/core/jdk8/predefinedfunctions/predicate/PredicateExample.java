@@ -31,8 +31,10 @@ public class PredicateExample {
 		l.add(-15);
 
 		System.out.print("Printing (x>5): ");
-		l.stream().filter(i -> (i > 0) && (i % 2 == 0) && (i < 100)).sorted((a, b) -> (b - a)) // Descending Order
-				.forEach(x -> System.out.print(x + " "));
+		l.stream()
+			.filter(i -> (i > 0) && (i % 2 == 0) && (i < 100))
+			.sorted((a, b) -> (b - a)) // Descending Order
+			.forEach(x -> System.out.print(x + " "));
 	}
 }
 
