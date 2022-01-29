@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.OptionalInt;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -76,8 +77,10 @@ public class ArrayListDuplicates {
 		aList.add(6);
 		aList.add(5);
 
-		int res1 = aList.stream().max(Integer::max).get();
+		int res1 = aList.stream().mapToInt(Integer::intValue).max().orElse(0);
 		System.out.println(res1);
 
+		int max = aList.stream().mapToInt(Integer::intValue).max().getAsInt();
+		System.out.println(max);
 	}
 }
