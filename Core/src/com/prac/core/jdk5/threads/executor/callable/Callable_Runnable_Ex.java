@@ -57,6 +57,7 @@ public class Callable_Runnable_Ex {
 		executor.shutdown();
 	}
 
+	@SuppressWarnings("static-access")
 	public static void sleep(int i) {
 		try {
 			Thread.currentThread().sleep(i);

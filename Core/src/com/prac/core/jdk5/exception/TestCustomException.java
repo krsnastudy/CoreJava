@@ -20,6 +20,7 @@ public class TestCustomException {
 	}
 }
 
+@SuppressWarnings("serial")
 class InvalidAgeException extends Exception {
 	InvalidAgeException(String s) {
 		super(s);
