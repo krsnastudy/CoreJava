@@ -3,9 +3,8 @@ package com.prac.core.jdk8.stream;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
-
-import com.prac.core.jdk8.stream.Employee;
 
 public class GroupByFirstLastName {
 
@@ -27,7 +26,10 @@ public class GroupByFirstLastName {
 //        System.out.println(sortedEmployees);
 		System.out.println("\nAfterSorting");
 		sortedEmployees.forEach(e -> System.out.println("Name: " + e.getfName() + " " + e.getlName()));
-	}
+		
+		Map<String, List<Employee>> map = employees.stream().collect(Collectors.groupingBy(Employee::getfName));
+		
+	}//psvm
 
 	private static ArrayList<Employee> getUnsortedEmployeeList() {
 		ArrayList<Employee> list = new ArrayList<>();
