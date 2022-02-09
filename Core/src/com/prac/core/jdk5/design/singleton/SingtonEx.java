@@ -5,7 +5,6 @@ import java.io.Serializable;
 public class SingtonEx implements Serializable, Cloneable {
 	private static final long serialVersionUID = -7921604620670225986L;
 	private static SingtonEx _instance = null;
-	private static Object obj = new Object();
 
 	private SingtonEx() {
 		if (_instance != null) {
@@ -27,7 +26,7 @@ public class SingtonEx implements Serializable, Cloneable {
 		if (_instance != null)
 			return _instance;
 
-		synchronized (obj) {
+		synchronized (SingtonEx.class) {
 			if (_instance == null) {
 				_instance = new SingtonEx();
 			}

@@ -12,7 +12,7 @@ import com.prac.core.jdk8.stream.employee.data.PopulateEmpData;
 public class ConcurrentMap {
 
 	public static void main(String[] args) {
-		int noOfRecords = 5; // How many records you want
+		int noOfRecords = 50000; // How many records you want
 		List<Employee> emp = new ArrayList<Employee>();
 		PopulateEmpData exec = new PopulateEmpData();
 		emp = exec.populateEmpData(noOfRecords);
