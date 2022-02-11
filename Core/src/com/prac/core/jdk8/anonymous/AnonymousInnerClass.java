@@ -18,7 +18,7 @@ public class AnonymousInnerClass {
 		};
 
 		a.m1();
-	}
+	}//  m2() 
 
 	public void m3() {
 		// Lambda Expression

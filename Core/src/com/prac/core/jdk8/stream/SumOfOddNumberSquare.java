@@ -14,13 +14,15 @@ public class SumOfOddNumberSquare {
 		}
 
 //		List<Integer> oddList =
-		int res = aList.stream().filter(i -> i % 2 == 1).map(x -> x * x).reduce(0, Integer::sum)
+		int res = aList.stream()
+				.filter(i -> i % 2 == 1)
+				.map(x -> x * x)
+				.reduce(0, Integer::sum)
 		// .collect(Collectors.toList())
 		// .stream()
 		;
 
 //		oddList.forEach(x->System.out.print(x+" "));
-
 		System.out.println("Square: " + res);
 //		System.out.println(aList);
 
@@ -36,5 +38,4 @@ public class SumOfOddNumberSquare {
 			}
 		}
 	}
-
 }

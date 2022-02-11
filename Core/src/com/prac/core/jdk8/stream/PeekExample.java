@@ -13,11 +13,11 @@ public class PeekExample {
 		List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
 		         
 		List<Integer> newList = list.stream()
-		            .peek(System.out::println)
+//		            .peek(System.out::println)
+		            .peek(x->System.out.print(x+" "))
 		            .collect(Collectors.toList());
 		
-		System.out.println(newList);
-		
+		System.out.println("\n"+newList);
 		System.out.println();
 		
 		List<Integer> li = IntStream.rangeClosed(1, 100)
@@ -29,7 +29,7 @@ public class PeekExample {
 							.collect(Collectors.toList());
 		
 		System.out.println();
-		System.out.println(li);
+		System.out.println("List: "+li);
 		
 	}
 
