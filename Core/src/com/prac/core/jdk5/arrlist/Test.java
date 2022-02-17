@@ -16,7 +16,6 @@ public class Test {
 		aList.add("5");
 		
 		System.out.println("Before Modification: "+aList);
-		
 		getArrList((ArrayList) aList);
 	}
 
@@ -24,7 +23,8 @@ public class Test {
 
 		if(aList.size()>4) {
 			aList.add("6"); 	
-		}		
+		}
+		
 		System.out.println("After Modification: "+aList);
 		
 		for(int i=0; i<aList.size();i++) {
@@ -32,6 +32,7 @@ public class Test {
 				aList.add("7"); 
 			}
 		}
+		
 		System.out.println("After Modification: "+aList);
 		
 		/*
@@ -41,6 +42,5 @@ public class Test {
 		 * System.out.println("After Modification: "+aList); }catch(Exception e){
 		 * System.out.println("In Catch Block"); e.printStackTrace(); }
 		 */
-
 	}
 }

@@ -25,6 +25,7 @@ public class RemoveFromArrayList {
 		aList.add("good");
 
 		aList.removeIf(e -> e.equalsIgnoreCase(str));
+		System.out.println("After Removal: "+aList);
 
 		Collection<String> filteredCollection = aList.stream().filter(e -> !e.equalsIgnoreCase(str))
 				.collect(Collectors.toList());
