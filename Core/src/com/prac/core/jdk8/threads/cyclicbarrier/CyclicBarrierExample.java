@@ -1,4 +1,4 @@
-package com.prac.core.jdk8.threads;
+package com.prac.core.jdk8.threads.cyclicbarrier;
 
 import java.time.LocalDateTime;
 import java.util.concurrent.BrokenBarrierException;
