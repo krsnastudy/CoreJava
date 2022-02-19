@@ -13,7 +13,6 @@ public class ArrayProgram {
 		.sorted(Comparator.reverseOrder())
 		.mapToInt(i -> i)
 		.forEach(x->System.out.print(x+" "));
-		
 	}
 }
 

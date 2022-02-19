@@ -10,7 +10,5 @@ public class SingleTonTest {
 		System.out.println("SingleTon s1: " + s1.hashCode());
 		System.out.println("SingleTon s2: " + s2.hashCode());
 		System.out.println("SingleTon s3: " + s3.hashCode());
-
 	}
-
 }
