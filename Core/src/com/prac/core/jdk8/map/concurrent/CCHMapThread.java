@@ -23,9 +23,7 @@ public class CCHMapThread implements Runnable{
 		HashMap<Integer, Employee> hMap =
 				emp.stream()
 				   .collect(Collectors.toMap(Employee::geteNumber, Function.identity(), (o, n)->n, HashMap::new))
-				   
 				   ;
-		
 		
 		ConcurrentHashMap<Integer, Employee> cMap =
 				emp.parallelStream()
