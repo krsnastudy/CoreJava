@@ -81,8 +81,10 @@ public class EmployeeStream {
 		 * ()->{System.out.println("Not Present");} );
 		 */
 
-		ArrayList<String> eNamesList = (ArrayList<String>) empDistinct.stream().filter(x -> x.geteSal() > 50000)
-				.map(x -> x.getfName()).collect(Collectors.toList());
+		ArrayList<String> eNamesList = (ArrayList<String>) empDistinct.stream()
+							.filter(x -> x.geteSal() > 50000)
+							.map(x -> x.getfName())
+							.collect(Collectors.toList());
 
 		System.out.println("\nNamesList: " + eNamesList);
 
@@ -92,8 +94,8 @@ public class EmployeeStream {
 //				.comparing(Employee::geteNumber).reversed()
 				.comparing(Employee::getfName)
 				.thenComparing(Employee::getlName)
-//				.thenComparing(Employee::getDepartment)
-//				.thenComparing(Employee::geteNumber)
+				.thenComparing(Employee::getDepartment)
+				.thenComparing(Employee::geteNumber)
 				.reversed();
 
 		ArrayList<Employee> sorted = 

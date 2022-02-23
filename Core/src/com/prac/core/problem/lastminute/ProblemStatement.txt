@@ -1,0 +1,15 @@
+Given an array A[] of n elements filled with several integers, some of them being zeros, you need to move all the zeros to the end.
+Example :
+  Input: A[] = {1, 8, 3, 0, 2, 0, 1, 10, 13, 0}
+  Output: {1, 8, 3, 2, 1, 10, 13, 0, 0, 0}
+
+  Input: A[] = {0, 3, 5, 9, 0, 0, 23, 2}
+  Output: {3, 5, 9, 23, 2, 0, 0, 0}
+
+Write a program to check whether there is a pair of elements in the given array that sums to exactly the given target
+Example:
+  Input: A[] = {-5, 1, -40, 20, 6, 8, 7} Target: 15
+  Output: true ( 7, 8 and -5, 20 are the pairs with sum 15)
+
+  Input: A[] = {-5, 4, -2, 16, 8, 9} Target: 15
+  Output: false (There is no pair of elements whose sum is equal to 15)
