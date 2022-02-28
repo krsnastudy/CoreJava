@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 import com.prac.core.jdk8.stream.employee.data.Employee;
 
 public class ProcessEmployeeData {
-	static final int noOfRec = 1000;
+	static final int noOfRec = 100;
 	static ExecutorService executor = Executors.newFixedThreadPool(10);
 
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
@@ -39,7 +39,7 @@ public class ProcessEmployeeData {
 			return empList.stream().filter(emp -> emp.geteNumber() > 1000).collect(Collectors.toList());
 		}, executor).thenApplyAsync((empList) -> {
 			biCon.accept("In Name Contains S : ", Thread.currentThread().getName());
-			return empList.stream().filter(i -> i.getfName().contains("S")).collect(Collectors.toList());
+			return empList.stream().filter(i -> i.getfName().contains("s")).collect(Collectors.toList());
 		}, executor).thenApplyAsync((emp) -> {
 			biCon.accept("In PinCode : ", Thread.currentThread().getName());
 			return emp.stream().filter(i -> i.getePincode() > 500000).collect(Collectors.toList());
@@ -59,3 +59,23 @@ public class ProcessEmployeeData {
 		System.out.println(emp.toString());
 	}
 }
+
+
+/*
+
+	static ExecutorService executor = Executors.newFixedThreadPool(10);
+	
+	static ExecutorService executor1 = Executors.newFixedThreadPool(10);
+	static ExecutorService executor2 = Executors.newFixedThreadPool(10);
+	static ExecutorService executor3 = Executors.newFixedThreadPool(10);
+	static ExecutorService executor4 = Executors.newFixedThreadPool(10);
+
+Stage: In fetchEmployees:  & ThreadName: pool-1-thread-1
+Stage: In Salary:  & ThreadName: pool-2-thread-1
+Stage: In EmployeeNumber:  & ThreadName: pool-3-thread-1
+Stage: In Name Contains S :  & ThreadName: pool-4-thread-1
+Stage: In PinCode :  & ThreadName: pool-5-thread-1
+Stage: In Print:  & ThreadName: pool-1-thread-2
+Final Records 27 out of 1000 Records
+
+*/
