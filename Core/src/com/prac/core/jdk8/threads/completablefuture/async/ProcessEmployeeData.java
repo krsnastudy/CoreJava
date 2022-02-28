@@ -33,8 +33,14 @@ public class ProcessEmployeeData {
 			return employeeList;
 		}, executor).thenApplyAsync((empList) -> {
 			biCon.accept("In Salary: ", Thread.currentThread().getName());
+//			System.out.println(1/0);
 			return empList.stream().filter(emp -> emp.geteSal() > 25000).collect(Collectors.toList());
-		}, executor).thenApplyAsync((empList) -> {
+		}, executor).exceptionallyAsync(exception -> {
+            System.out.println("in Exceptionally Block");
+            exception.printStackTrace();
+//            System.err.println(exception);
+            return null;
+        }, executor).thenApplyAsync((empList) -> {
 			biCon.accept("In EmployeeNumber: ", Thread.currentThread().getName());
 			return empList.stream().filter(emp -> emp.geteNumber() > 1000).collect(Collectors.toList());
 		}, executor).thenApplyAsync((empList) -> {
