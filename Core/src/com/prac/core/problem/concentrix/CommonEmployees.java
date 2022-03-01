@@ -10,7 +10,7 @@ public class CommonEmployees {
 	public static void main(String[] args) {
 
 		List<Employee> list1 = Arrays.asList(new Employee("RK1", 1), new Employee("RK2", 2), new Employee("RK3", 3));
-		List<Employee> list2 = Arrays.asList(new Employee("RK1", 4), new Employee("RK3", 5), new Employee("RK4", 6));
+		List<Employee> list2 = Arrays.asList(new Employee("RK1", 4), new Employee("RK3", 5), new Employee("RK2", 6));
 		List<Employee> list3 = Arrays.asList(new Employee("RK5", 7), new Employee("RK6", 8), new Employee("RK3", 9));
 
 		list1.stream().forEach(System.out::println);

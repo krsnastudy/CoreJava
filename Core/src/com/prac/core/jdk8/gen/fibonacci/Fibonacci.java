@@ -8,7 +8,8 @@ import java.util.stream.Stream;
 public class Fibonacci {
 
 	public static void main(String[] args) {
-		System.out.println("Fibonacci: "+generateFibonacci(15));
+		int series=15;
+		System.out.println("Fibonacci["+series+"]: "+generateFibonacci(series));
 	}
 
 	
