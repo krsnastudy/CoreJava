@@ -29,6 +29,7 @@ public class TestException {
 			// some statement
 			return 99;
 		} finally {
+//			System.out.println(1/0);
 			// finally block statements
 			return 999;
 		}
