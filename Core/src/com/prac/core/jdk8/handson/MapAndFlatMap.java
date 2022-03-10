@@ -10,26 +10,26 @@ import com.prac.core.jdk8.util.CoreUtil;
 public class MapAndFlatMap {
 
 	public static void main(String[] args) {
-
-//		List<String> namesMap = Arrays.asList("Saket", "Trevor", "Franklin", "Michael");
 		List<String> namesMap = CoreUtil.getRandomNames(5, 10);
-		List<String> namesMapUpper = namesMap.stream().map(String::toUpperCase).collect(Collectors.toList());
+		List<String> namesMapUpper = namesMap.stream().map(String::toUpperCase).sorted().collect(Collectors.toList());
 		
-//		System.out.println("Map Example: " + namesMapUpper);
 		System.out.print("Map Example: ");
 		namesMapUpper.forEach(i -> System.out.print(i + " "));
 
-		List<List<String>> namesFlat = Arrays.asList(Arrays.asList("Saket", "Trevor"), Arrays.asList("John", "Michael"),
-				Arrays.asList("Shawn", "Franklin"), Arrays.asList("Johnty", "Sean"));
+		List<List<String>> namesFlat = Arrays.asList(
+											Arrays.asList("Saket", "Trevor", "Zian"), 
+											Arrays.asList("John", "Michael", "Adrian"),
+											Arrays.asList("Shawn", "Franklin", "Scarsbrook"), 
+											Arrays.asList("Johnty", "Sean"));
 
 		List<String> namesFlatMap = namesFlat.stream()
-				.flatMap(x -> x.stream().map(y -> y.toUpperCase()).filter(z->z.startsWith("S")))
+				.flatMap(x -> x.stream().map(y -> y.toUpperCase())
+				.filter(z->z.startsWith("S")))
+				.sorted()
 				.collect(Collectors.toList());
 		
-//		System.out.println("FlatMap Example: " + namesFlatMap);
 		System.out.print("\nFlatMap Example: ");
 		namesFlatMap.forEach(i -> System.out.print(i + " "));
-		
 		
 		List<List<String>> namesFlat1 = new ArrayList<List<String>>();
 			namesFlat1.add(CoreUtil.getRandomNames(5, 15));
@@ -40,8 +40,12 @@ public class MapAndFlatMap {
 			namesFlat1.add(CoreUtil.getRandomNames(14, 3));
 			namesFlat1.add(CoreUtil.getRandomNames(9, 7));
 		
-		List<String> namesFlatMap1 = namesFlat1.stream().flatMap(fMap -> fMap.stream()).collect(Collectors.toList());
+		List<String> namesFlatMap1 = namesFlat1.stream()
+				.flatMap(fMap -> fMap.stream())
+				.sorted() //Alphabetical Order Sorting
+//				.sorted(Collections.reverseOrder()) // Reverse Order Sorting
+				.collect(Collectors.toList())
+				;
 		System.out.println("\nFlatMap Example: " + namesFlatMap1);
 	}
-
 }

@@ -37,7 +37,6 @@ public class Account {
 
 		Map<String, List<AccountDetails>> map = list.stream()
 				.collect(Collectors.groupingBy(AccountDetails::getCustomerId));
-
 		
 		map.forEach((x, y) -> System.out.println("CustomerId: " + x + " --> "
 				+ y.stream().map(a -> a.getAcountType()).collect(Collectors.joining(", "))));

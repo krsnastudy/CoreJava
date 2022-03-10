@@ -41,8 +41,7 @@ public class FirstNonRepeatedCharacter {
 		}
 
 		/* Way 3 */
-
-		Map<Character, Integer> lMap = new LinkedHashMap();
+		Map<Character, Integer> lMap = new LinkedHashMap<>();
 		for (Character ch : str.toCharArray()) {
 			lMap.put(ch, lMap.containsKey(ch) ? map.get(ch) + 1 : 1);
 		}

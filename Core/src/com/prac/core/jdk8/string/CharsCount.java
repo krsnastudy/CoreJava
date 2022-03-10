@@ -16,8 +16,9 @@ public class CharsCount {
 		Map<Character, Integer> count = new HashMap<>();
 
 		str = str.replaceAll(" ", "").toLowerCase();
-		System.out.println(str);
+		System.out.println("Given String: "+str);
 
+		/* Method 1*/
 		for (int i = 0; i < str.length(); i++) {
 			Character c = str.charAt(i);
 
@@ -29,7 +30,14 @@ public class CharsCount {
 			}
 		}
 
-		System.out.println(count);
+		System.out.println("Method1: "+count);
+
+		/* Method 2*/
+		count = new HashMap<Character, Integer>();
+		for(Character c : str.toCharArray()) {
+			count.put(c, count.containsKey(c)?count.get(c)+1:1);
+		}
+		System.out.println("Method2: "+count);
 		
 		Map<Character, Integer> freqs = new HashMap<>();
 		for (char c : str.toLowerCase().toCharArray()) {
@@ -38,7 +46,7 @@ public class CharsCount {
 		                Integer::sum);      // counting
 		}
 		
-		System.out.println(freqs);
+		System.out.println("Map.merge() : "+freqs);
 		
 		Map<Character, Integer> frequencies = str.chars().boxed()
 		        .collect(Collectors.toMap(
@@ -46,7 +54,7 @@ public class CharsCount {
 		                k -> Character.valueOf((char) k.intValue()),
 		                v -> 1,         // 1 occurence
 		                Integer::sum)); // counting
-		System.out.println("Frequencies:\n");
+		System.out.println("\nFrequencies: ");
 		
 		//Print Alphabetically
 //		frequencies.entrySet().stream().sorted((i1, i2)->i1.getKey().compareTo(i2.getKey())).forEach(i->System.out.print(i+" "));

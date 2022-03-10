@@ -18,8 +18,7 @@ public class StreamsPractice {
 		myList.stream().map(s -> s + "").filter(x -> x.startsWith("1")).forEach(System.out::println);
 
 		System.out.println();
-		// find duplicate elements in a given integers list in java using Stream
-		// functions
+		// find duplicate elements in a given integers list in java using Stream functions
 		Set<Integer> set = new HashSet<>();
 		myList.stream().filter(s -> !set.add(s)).forEach(System.out::println);
 //		System.out.println(set);

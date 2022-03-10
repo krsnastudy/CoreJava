@@ -1,14 +1,9 @@
 package com.prac.core.jdk8.handson;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.IntPredicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-
-import com.prac.core.jdk8.util.CoreUtil;
 
 public class PrintSquare {
 
