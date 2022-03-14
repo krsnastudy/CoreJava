@@ -30,7 +30,7 @@ public class StreamExamples {
 				empData.stream().collect(Collectors.maxBy(Comparator.comparing(Employee::getSalary)));
 		System.out.println("\nhighestPaidEmployeeWrapper: "+highestPaidEmployeeWrapper.get());
 		
-		//Get the details of highest paid employee in the organization Dept wise?
+		//Get the details of highest paid employee in the organization each Department wise
 		System.out.println("\n<<< Departmentwise Highest Salary Paid >>>");
 				empData.stream()
 				.collect(Collectors.groupingBy(Employee::getDepartment))

@@ -15,8 +15,10 @@ public class HashMapEx {
 		map.put("Cheetirala", "Two");
 		map.put("Radha", "Four");
 
-		map.entrySet().stream().forEach(x -> System.out.println(x.getKey() + " -- " + x.getValue()));
-
+//		map.entrySet().stream().forEach(x -> System.out.println(x.getKey() + " -- " + x.getValue()));
+//		map.entrySet().stream().sorted((x,y)->x.getValue().compareTo(y.getValue())).forEach(System.out::println); // Sort by Value
+		map.entrySet().stream().sorted((x,y)->x.getKey().compareTo(y.getKey())).forEach(System.out::println); // Sort by Key
+		
 		System.out.println("");
 
 		Map<String, String> tMap = new TreeMap<>(map);
