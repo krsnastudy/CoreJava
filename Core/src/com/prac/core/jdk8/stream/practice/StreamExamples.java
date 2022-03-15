@@ -1,10 +1,12 @@
 package com.prac.core.jdk8.stream.practice;
 
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.DoubleSummaryStatistics;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class StreamExamples {
@@ -39,6 +41,17 @@ public class StreamExamples {
 								+v.stream().collect(Collectors.maxBy(Comparator.comparing(Employee::getSalary))).get());
 				});
 	
+		//Get the details of Nth highest paid employee in the organization each Department wise				
+		System.out.println("\n<<< Departmentwise Nth Highest Salary Paid >>>");	
+			empData.stream()
+				.collect(Collectors.groupingBy(Employee::getDepartment))
+				.forEach((k,v)->{
+					System.out.println(
+						k+" Department Nth Highest Salary : "
+						+v.stream().sorted(Comparator.comparingDouble(Employee::getSalary).reversed()).collect(Collectors.toList()).get(1).getSalary()
+					);
+				});
+		
 		//Count the number of employees in each department?
 		System.out.println("\n<<< Departmentwise Employees Count >>>");
 				empData.stream()

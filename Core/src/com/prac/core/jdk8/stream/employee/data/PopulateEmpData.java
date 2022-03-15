@@ -3,6 +3,7 @@ package com.prac.core.jdk8.stream.employee.data;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class PopulateEmpData {
 
@@ -24,7 +25,6 @@ public class PopulateEmpData {
 		List<Employee> eList = new ArrayList<Employee>();
 
 		for (int i = 0; i < recordsCount; i++) {
-			
 			Employee e = new Employee(
 					randomString(10), 
 					randomString(5),
@@ -106,4 +106,22 @@ public class PopulateEmpData {
 
 		return (ArrayList<Employee>) eData;
 	}
-}
+
+	public static ArrayList<EmployeeExt> populateEmployeeMoreDetails(int noOfRecords){
+		
+		List<Employee> employeeList = new ArrayList<Employee>();
+		List<EmployeeExt> employeeExtraList = new ArrayList<EmployeeExt>();
+		int minAge = 18, maxAge = 100;
+		Random rAge = new Random();
+		
+		employeeList = populateEmpData(noOfRecords);
+		
+		for(Employee e : employeeList.stream().distinct().collect(Collectors.toList())) {
+			EmployeeExt ext = new EmployeeExt(e, rAge.ints(minAge, maxAge).findFirst().getAsInt(), Gender.getRandomGender());
+			employeeExtraList.add(ext);
+		}
+		
+		return (ArrayList<EmployeeExt>) employeeExtraList.stream().distinct().collect(Collectors.toList());
+	}
+
+}//main
