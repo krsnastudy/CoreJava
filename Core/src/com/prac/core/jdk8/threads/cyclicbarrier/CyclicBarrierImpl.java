@@ -38,6 +38,9 @@ p4.join();
 CyclicBarrier is that different threads hang tight for one another(wait for each other) and 
 when all have finished their execution, the result needs to be combined in the parent thread.
 
+CyclicBarrier is a synchronization aid that allows a set of threads 
+to all wait for each other to reach a common barrier point.
+
 https://www.youtube.com/watch?v=tTNrG7gAxks&ab_channel=KKJavaTutorials
 https://github.com/kishanjavatrainer/CyclicBarrierExample
 

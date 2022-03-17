@@ -18,7 +18,7 @@ public class OptionalExample {
 		Optional<String> nonEmptyOptional = Optional.of("Vishwa Ratna");
 		String value = nonEmptyOptional.orElse(iAmStillExecuted());
 
-		String mayBeNull = "null"; // "Test"
+		String mayBeNull = "null"; // "null" // "Test"
 		Optional<String> optOrElse = Optional.of(Optional.ofNullable(mayBeNull).orElse("orElse"));
 		System.out.println("orElse() : " + optOrElse.get());
 

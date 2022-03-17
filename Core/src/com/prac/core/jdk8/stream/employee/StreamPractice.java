@@ -13,7 +13,7 @@ import com.prac.core.jdk8.stream.employee.data.PopulateEmpData;
 
 public class StreamPractice {
 
-	@SuppressWarnings("static-access")
+	@SuppressWarnings({ "static-access", "unused" })
 	public static void main(String[] args) {
 		int noOfRecords = 200; // How many records you want
 		List<Employee> employeeList = new ArrayList<Employee>();
@@ -40,7 +40,7 @@ public class StreamPractice {
 			.collect(Collectors.groupingBy(Employee::getDepartment))
 			.forEach((x,y)->{
 				System.out.println("Department: "+x);
-				System.out.println(y.stream().sorted(Comparator.comparing(Employee::geteSal).reversed()).collect(Collectors.toList()).get(rank).toString());
+				System.out.println(y.stream().sorted(Comparator.comparing(Employee::geteSal).reversed()).collect(Collectors.toList()).get(rank-1).toString());
 			});
 		System.out.println();
 		
@@ -49,6 +49,10 @@ public class StreamPractice {
 		List<EmployeeExt> empDet = new ArrayList<EmployeeExt>();
 		empDet = populate.populateEmployeeMoreDetails(30);
 		empDet.stream().forEach(i->System.out.print(i.geteNumber()+"["+i.geteSal()+"], "));
+		
+		/**** Sum of Salary *****/
+		Double sal = empDet.stream().filter(i->i.getEmpAge()<30).collect(Collectors.summingDouble(EmployeeExt::geteSal));
+		System.out.println("\nTotal Salary: "+sal);
 		
 		Map<GenderCode, List<EmployeeExt>> genderMap =
 				empDet.stream().collect(Collectors.groupingBy(EmployeeExt::getEmpGender));
@@ -99,6 +103,15 @@ public class StreamPractice {
 		 	});
 		 System.out.println();
 		 System.out.println("/******** "+deptWiseSalGrt10K+" *********/");
+		 
+		 empDet.stream()
+		 	.collect(Collectors.groupingBy(EmployeeExt::getEmpGender))
+		 	.forEach((x,y)->{
+		 		System.out.println(x+" Department Emp Names: "
+		 			+ y.stream().map(i->"["+i.getfName()+" "+i.getlName()+"]").collect(Collectors.joining(", "))	
+		 				);
+		 	});
+		 
 	} //psvm
 
 }

@@ -37,6 +37,9 @@ https://www.geeksforgeeks.org/difference-between-countdownlatch-and-cyclicbarrie
 CountDownLatch is a thread waiting for multiple threads to finish or calling countDown(). 
 When all threads have called countDown(), the awaiting thread continues to execute.
 
+CountDownLatch is a synchronization aid that allows one or more threads to 
+wait until a set of operations being performed in other threads completes.
+
 https://github.com/kishanjavatrainer/CountDownLatchExample
 https://www.youtube.com/watch?v=59oQfkdn5mA&ab_channel=KKJavaTutorials
 
