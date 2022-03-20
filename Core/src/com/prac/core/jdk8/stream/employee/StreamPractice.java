@@ -2,8 +2,10 @@ package com.prac.core.jdk8.stream.employee;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import com.prac.core.jdk8.stream.employee.data.Employee;
@@ -112,6 +114,22 @@ public class StreamPractice {
 		 				);
 		 	});
 		 
+		 System.out.println();
+		 System.out.println("/******** Convert List to Map *********/");		 
+		 Map<Integer, EmployeeExt> eMap =
+				 empDet.stream()
+				 	.sorted((i1, i2)->i1.geteNumber()-i2.geteNumber())
+				 	.collect(Collectors.toMap(
+						 	EmployeeExt::geteNumber, 
+						 	Function.identity(), 
+						 	(e1, e2)->e1, 
+						 	LinkedHashMap::new)
+						 )
+				 	
+				 	;
+		 
+		 eMap.entrySet().stream().forEach(System.out::println);
+		 System.out.println("/******** Convert List to Map *********/");
 	} //psvm
 
 }

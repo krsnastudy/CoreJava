@@ -1,5 +1,6 @@
 package com.prac.core.jdk8.threads.completablefuture.async;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
@@ -10,52 +11,65 @@ import java.util.stream.Collectors;
 
 import com.prac.core.jdk8.stream.employee.data.Employee;
 
-public class ProcessEmployeeData {
+public class ApplyAsyncExample {
 	static final int noOfRec = 100;
 	static ExecutorService executor = Executors.newFixedThreadPool(10);
 
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
-		ProcessEmployeeData.process().get();
+		ApplyAsyncExample.process().get();
 		executor.shutdown();
 	}
 
 	public static CompletableFuture<Void> process() {
 
-		BiConsumer<String, String> biCon = (stage, threadName) -> System.out
-				.println("Stage: " + stage + " & ThreadName: " + threadName);
+		BiConsumer<String, String> biCon = (stage, threadName) -> 
+			System.out.println("Stage: " + stage + " & ThreadName: " + threadName);
 
-		CompletableFuture<Void> voidCompletableFuture = CompletableFuture.supplyAsync(() -> {
+	CompletableFuture<Void> voidCompletableFuture =	
+		CompletableFuture
+		.supplyAsync(() -> {
 			biCon.accept("In fetchEmployees: ", Thread.currentThread().getName());
 //			return EmployeeDB.fetchEmployees(noOfRec);
-
 			List<Employee> employeeList = EmployeeDB.fetchEmployees(noOfRec);
 //			employeeList.stream().forEach(i->System.out.println(i.toStringSpecific()));
 			return employeeList;
-		}, executor).thenApplyAsync((empList) -> {
+		}, executor)
+
+		.thenApplyAsync((empList) -> {
 			biCon.accept("In Salary: ", Thread.currentThread().getName());
 //			System.out.println(1/0);
 			return empList.stream().filter(emp -> emp.geteSal() > 25000).collect(Collectors.toList());
-		}, executor).exceptionallyAsync(exception -> {
+		}, executor)
+		
+		.exceptionallyAsync(exception -> {
             System.out.println("in Exceptionally Block");
             exception.printStackTrace();
 //            System.err.println(exception);
             return null;
-        }, executor).thenApplyAsync((empList) -> {
+        }, executor)
+		
+		.thenApplyAsync((empList) -> {
 			biCon.accept("In EmployeeNumber: ", Thread.currentThread().getName());
 			return empList.stream().filter(emp -> emp.geteNumber() > 1000).collect(Collectors.toList());
-		}, executor).thenApplyAsync((empList) -> {
+		}, executor)
+		
+		.thenApplyAsync((empList) -> {
 			biCon.accept("In Name Contains S : ", Thread.currentThread().getName());
 			return empList.stream().filter(i -> i.getfName().contains("s")).collect(Collectors.toList());
-		}, executor).thenApplyAsync((emp) -> {
+		}, executor)
+		
+		.thenApplyAsync((emp) -> {
 			biCon.accept("In PinCode : ", Thread.currentThread().getName());
 			return emp.stream().filter(i -> i.getePincode() > 500000).collect(Collectors.toList());
-		}, executor).thenAcceptAsync((nameList) -> {
-			biCon.accept("In Print: ", Thread.currentThread().getName());
-			System.out.println("Final Records "+nameList.size()+" out of "+noOfRec+" Records"+"\n");
-			nameList.stream().limit(10).forEach(ProcessEmployeeData::printName);
 		}, executor)
-
-		;
+		
+		.thenAcceptAsync((nameList) -> {
+			biCon.accept("In Print: ", Thread.currentThread().getName());
+			Comparator<Employee> salComparator = Comparator.comparing(Employee::geteSal).thenComparing(Employee::getDepartment).reversed();
+			System.out.println("Final Records "+nameList.size()+" out of "+noOfRec+" Records"+"\n");
+			nameList.stream().sorted(salComparator).limit(10).forEach(ApplyAsyncExample::printName);
+		}, executor);
+	
 //		executor.shutdown();
 		return voidCompletableFuture;
 	}// process()
