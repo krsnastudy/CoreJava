@@ -17,7 +17,7 @@ public class StreamPractice {
 
 	@SuppressWarnings({ "static-access", "unused" })
 	public static void main(String[] args) {
-		int noOfRecords = 200; // How many records you want
+		int noOfRecords = 20; // How many records you want
 		List<Employee> employeeList = new ArrayList<Employee>();
 		PopulateEmpData populate = new PopulateEmpData();
 		employeeList = populate.populateEmpData(noOfRecords);
@@ -30,7 +30,7 @@ public class StreamPractice {
 		
 		//Highest Salaray
 		Employee highestSal = employeeList.stream().collect(Collectors.maxBy(Comparator.comparing(Employee::geteSal))).get();
-		System.out.println("\nhighestSal: "+highestSal);
+		System.out.println("Highest Salaried Employee: "+highestSal);
 		
 		int rank=3;
 		
@@ -49,7 +49,7 @@ public class StreamPractice {
 		
 		/****** Extra Details *********/
 		List<EmployeeExt> empDet = new ArrayList<EmployeeExt>();
-		empDet = populate.populateEmployeeMoreDetails(30);
+		empDet = populate.populateEmployeeMoreDetails(150);
 		empDet.stream().forEach(i->System.out.print(i.geteNumber()+"["+i.geteSal()+"], "));
 		
 		/**** Sum of Salary *****/
@@ -125,11 +125,21 @@ public class StreamPractice {
 						 	(e1, e2)->e1, 
 						 	LinkedHashMap::new)
 						 )
-				 	
 				 	;
 		 
-		 eMap.entrySet().stream().forEach(System.out::println);
+		 //eMap.entrySet().stream().forEach(System.out::println);
 		 System.out.println("/******** Convert List to Map *********/");
+		 
+		 System.out.println("\n/******** Sum of Salary *********/");
+		 	
+		 	Double bySummingDouble = empDet.stream().collect(Collectors.summingDouble(EmployeeExt::geteSal));
+		 	Double byReduceFunc = empDet.stream().mapToDouble(EmployeeExt::geteSal).reduce(0, (s1, s2)->s1+s2);
+		 	Double bySummarizingDouble = empDet.stream().collect(Collectors.summarizingDouble(EmployeeExt::geteSal)).getSum();
+		 	
+		 System.out.println("     bySummingDouble: "+bySummingDouble+"\n\tbyReduceFunc: "+byReduceFunc+"\n bySummarizingDouble: "+bySummarizingDouble);	
+		 	
+		 System.out.println("/******** Sum of Salary *********/");
+		 
 	} //psvm
 
 }
