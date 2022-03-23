@@ -3,6 +3,7 @@ package com.prac.core.problem.empl_dept;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class EmployeeDepartment {
 
@@ -24,6 +25,16 @@ public class EmployeeDepartment {
 //		       .distinct()
 		       .forEach(System.out::println);
 		       ;
+		       
+		       
+		       String str = empList.stream()
+//		       	.filter(i->i.getCity().equalsIgnoreCase("Matara"))
+		       	.sorted(Comparator.comparing(Employee::getName))
+		       	.map(i->i.getName())
+		       	.collect(Collectors.joining(", "))
+		       	;
+		       
+		       System.out.println("\nCollectors.joining: "+str);
 	}//psvm
 
 	public static List<Employee> getEmployeeData() {

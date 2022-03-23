@@ -7,7 +7,7 @@ public class PrintOddEven {
 		Runnable oet = new OddEvenThread(limit);
 		
 		Thread even = new Thread(oet, "even");
-		Thread odd = new Thread(oet, "odd");
+		Thread odd = new Thread(oet, "odd"); 
 		
 		odd.start();
 		even.start();
