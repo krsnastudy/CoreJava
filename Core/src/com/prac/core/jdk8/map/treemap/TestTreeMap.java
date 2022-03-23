@@ -2,8 +2,11 @@ package com.prac.core.jdk8.map.treemap;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.TreeMap;
+import java.util.stream.Collectors;
 
 public class TestTreeMap {
 
@@ -46,6 +49,7 @@ public class TestTreeMap {
 		
 		t.entrySet().forEach(x->System.out.print(x.getKey()+" "));
 //		Collections.checkedSortedMap(t, ((a,b)->(a<b)?1:(a>b)?-1:0));
+		
 	}
 
 }
