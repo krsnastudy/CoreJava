@@ -6,21 +6,6 @@ public class LinkedList {
 
 	Node head; // head of list
 
-	// Linked list Node.
-	// Node is a static nested class
-	// so main() can access it
-	static class Node {
-
-		int data;
-		Node next;
-
-		// Constructor
-		Node(int d) {
-			data = d;
-			next = null;
-		}
-	}
-
 	// **************INSERTION**************
 
 	// Method to insert a new node
