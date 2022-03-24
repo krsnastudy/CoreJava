@@ -21,7 +21,9 @@ public class DuplicateIntegers {
 	public static void findDupByFilter(List<Integer> list) {
 		Set<Integer> items = new HashSet<>();
 		System.out.print("findDupByFilter   : ");
-		list.stream().filter(n -> !items.add(n)).collect(Collectors.toSet()).forEach(i->System.out.print(i+" "));
+		list.stream().filter(n -> !items.add(n))
+			.collect(Collectors.toSet())
+			.forEach(i->System.out.print(i+" "));
 
 		System.out.println();
 	}
@@ -29,10 +31,10 @@ public class DuplicateIntegers {
 	public static void findDupByGroupBy(List<Integer> list) {
 		System.out.print("findDupByGroupBy  : ");
 		list.stream()
-		.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
-		.entrySet().stream()
-		.filter(i->i.getValue()>1)
-		.forEach(j->System.out.print(j.getKey()+" "));
+			.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+			.entrySet().stream()
+			.filter(i->i.getValue()>1)
+			.forEach(j->System.out.print(j.getKey()+" "));
 		
 		System.out.println();
 	}

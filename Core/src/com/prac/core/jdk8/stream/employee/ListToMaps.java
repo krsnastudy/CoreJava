@@ -13,12 +13,13 @@ import com.prac.core.jdk8.stream.employee.data.Employee;
 
 public class ListToMaps {
 
+	@SuppressWarnings("static-access")
 	public static void main(String[] args) {
 
 		int noOfRecords = 5; // How many records you want
 		List<Employee> eList = new ArrayList<Employee>();
 		PopulateEmpData populate = new PopulateEmpData();
-		eList = populate.populateEmpData(noOfRecords);
+		eList = populate.populateEmpData(noOfRecords).stream().distinct().collect(Collectors.toList());
 		
 		System.out.println("HashMap:");
 		Map<Integer, Employee> hMap = eList.stream()
