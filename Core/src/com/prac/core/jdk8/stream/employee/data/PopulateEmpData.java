@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class PopulateEmpData {
 
@@ -22,8 +24,10 @@ public class PopulateEmpData {
 		int minPin = 500000;
 		int maxPin = 999999;
 
-		List<Employee> eList = new ArrayList<Employee>();
-
+/*	
+	List<Employee> eList = new ArrayList<Employee>();
+	
+// Traditional Way
 		for (int i = 0; i < recordsCount; i++) {
 			Employee e = new Employee(
 					randomString(10), 
@@ -44,10 +48,26 @@ public class PopulateEmpData {
 			}
 		}//for Loop
 
+		return (ArrayList<Employee>) eList;
+ 
+*/		
+		// Using Functional Programming		
+		return (ArrayList<Employee>) IntStream.rangeClosed(1, recordsCount)
+				.mapToObj(i->
+						new Employee(randomString(10), 
+							randomString(5),
+							rEno.ints(minEno, maxEno).findFirst().getAsInt(), 
+							(rSal.nextFloat() * 100000),
+							rPC.ints(minPin, maxPin).findFirst().getAsInt(), 
+							Department.getRandomDepartment())
+						)
+				.collect(Collectors.toList())
+				;
+
 		// System.out.println("Raw Data :"+eList.size());
 //		 eList.stream().forEach(x->System.out.println(x.toString()));
 
-		return (ArrayList<Employee>) eList;
+
 	}
 
 	public static String randomString(int length) {
