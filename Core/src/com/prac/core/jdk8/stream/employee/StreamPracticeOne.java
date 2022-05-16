@@ -1,0 +1,101 @@
+package com.prac.core.jdk8.stream.employee;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import com.prac.core.jdk8.stream.employee.data.Employee;
+import com.prac.core.jdk8.stream.employee.data.PopulateEmpData;
+
+public class StreamPracticeOne {
+
+	public static void main(String[] args) {
+		
+		int noOfRecords = 20; // How many records you want
+		
+		List<Employee> empData = new ArrayList<Employee>();
+		PopulateEmpData populate = new PopulateEmpData();
+		empData = populate.populateEmpData(noOfRecords);
+		
+		/* GroupBy Dept */
+		empData.stream().collect(Collectors.groupingBy(Employee::getDepartment)).forEach((x,y)->System.out.println(
+				x+" Department --> "+ y.stream().map(z->z.geteNumber()+" - "+z.getfName()).collect(Collectors.joining(", "))
+				));
+		
+		System.out.println();
+		
+		/* Deptwise salary summation */
+		empData.stream()
+			.collect(Collectors.groupingBy(Employee::getDepartment))
+			.forEach((x,y)->System.out.println(
+					x+" Department Total Salary is " 
+			+ y.stream()
+			.collect(Collectors.summarizingDouble(Employee::geteSal))
+			.getSum()
+					));
+		
+		System.out.println();
+		
+		/* Deptwise highest salary */
+		empData.stream()
+			.collect(Collectors.groupingBy(Employee::getDepartment))
+			.forEach((x,y)->System.out.println(
+					x+" Department Highest Salary is " 
+			+ y.stream()
+			.collect(Collectors.maxBy(Comparator.comparing(Employee::geteSal)))
+			.map(z->"[EmpID: "+z.geteNumber()+"]: "+z.geteSal())
+			.get()
+			
+					));
+		
+		System.out.println();
+		
+		/* Comparator */
+		
+		Comparator<Employee> comparator = 
+				Comparator.comparing(Employee::getfName)
+				.thenComparing(Employee::getlName)
+				.reversed()
+				;
+
+		empData.stream().distinct()
+		.sorted(comparator)
+		.forEach(p->System.out.println("EmpId: "+p.geteNumber()+" == FirstName: "+p.getfName()+", LastName: "+p.getlName()));
+		
+		System.out.println();
+		
+		/*Emp Age<30 Salary Sum */
+		Double d = empData.stream()
+		.filter(f->f.geteNumber()>100000)
+		.collect(Collectors.summarizingDouble(Employee::geteSal))
+		.getSum()
+		;
+		System.out.println("Sum : "+d);
+		
+		System.out.println();
+		System.out.println("Min: "+empData.stream().min((a,b)-> a.geteNumber()-b.geteNumber()));
+		
+		
+		String str = new String("RadhaKrishna");
+		
+		Map<Character, Integer> frequencies = str.chars().boxed()
+		        .collect(Collectors.toMap(
+		                // key = char
+		                k -> Character.valueOf((char) k.intValue()),
+		                v -> 1,         // 1 occurence
+		                Integer::sum)); // counting
+		System.out.println("\nFrequencies: "+frequencies);
+		
+		
+		frequencies =  new HashMap<>();
+		for(Character c : str.toLowerCase().toCharArray()) {
+			frequencies.merge(c, 1, Integer::sum);
+		}
+		
+		System.out.println("\nFrequencies: "+frequencies);
+	}
+
+}
