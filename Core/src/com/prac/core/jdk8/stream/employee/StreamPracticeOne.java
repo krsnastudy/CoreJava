@@ -96,6 +96,11 @@ public class StreamPracticeOne {
 		}
 		
 		System.out.println("\nFrequencies: "+frequencies);
+		
+		System.out.println();
+		
+		/*sum of salary using reduce*/
+		float s = empData.stream().map(m->m.geteSal()).reduce((float) 0, (a,b)->a+b);
 	}
 
 }

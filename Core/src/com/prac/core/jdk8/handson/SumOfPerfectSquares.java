@@ -1,6 +1,5 @@
 package com.prac.core.jdk8.handson;
 
-import java.util.Random;
 import java.util.function.Predicate;
 import java.util.stream.IntStream;
 
