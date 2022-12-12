@@ -22,8 +22,8 @@ public class StringIntern {
  * strings will ensure that all strings having the same contents share the same
  * memory
  * 
- * For example, if a name ‘Amy’ appears 100 times, by interning you ensure only
- * one ‘Amy’ is actually allocated memory.
+ * For example, if a name ï¿½Amyï¿½ appears 100 times, by interning you ensure only
+ * one ï¿½Amyï¿½ is actually allocated memory.
  * 
  * intern() method : In Java, when we perform any operation using intern()
  * method, it returns a canonical representation for the string object. A pool

@@ -1,5 +1,7 @@
 package com.prac.core.jdk5.design.singleton;
 
+import org.apache.tomcat.jni.OS;
+
 public class SingleTonTest {
 
 	public static void main(String[] args) {
@@ -10,5 +12,11 @@ public class SingleTonTest {
 		System.out.println("SingleTon s1: " + s1.hashCode());
 		System.out.println("SingleTon s2: " + s2.hashCode());
 		System.out.println("SingleTon s3: " + s3.hashCode());
+		
+		Singleton oSingleton = Singleton.getInstance();
+		Singleton oSingleton1 = Singleton.getInstance();
+		System.out.println(oSingleton.hashCode());
+		System.out.println(oSingleton1.hashCode());
+			
 	}
 }

@@ -78,6 +78,7 @@ public class TextProcessing {
 		return Integer.parseInt(str);
 	}
 
+	@SuppressWarnings("rawtypes")
 	private static HashMap getData() {
 
 		HashMap<String, String> map = new HashMap<String, String>();
@@ -129,6 +130,7 @@ public class TextProcessing {
 
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static LinkedHashMap process(HashMap map, HashMap<Integer, String> filteredMap) {
 		LinkedHashMap<String, String> processedMap = new LinkedHashMap<String, String>();
 		ArrayList<String> valueList = new ArrayList<>(filteredMap.values());
@@ -140,6 +142,7 @@ public class TextProcessing {
 		return processedMap;
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static LinkedHashMap getValue(String pair, String key, LinkedHashMap processedMap) {
 		processedMap.put(key, pair != null ? pair.split(",")[0] : null);
 		return processedMap;
