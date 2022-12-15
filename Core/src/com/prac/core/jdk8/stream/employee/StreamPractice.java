@@ -17,32 +17,31 @@ public class StreamPractice {
 
 	@SuppressWarnings({ "static-access", "unused" })
 	public static void main(String[] args) {
-		int noOfRecords = 20; // How many records you want
+		int noOfRecords = 50; // How many records you want
 		List<Employee> employeeList = new ArrayList<Employee>();
 		PopulateEmpData populate = new PopulateEmpData();
 		employeeList = populate.populateEmpData(noOfRecords);
 //		System.out.println("Given Data"+employeeList);
+		Comparator<Employee> salaryDesc = Comparator.comparing(Employee::geteSal).reversed();
 		
-		employeeList.stream().sorted(Comparator.comparing(Employee::geteSal).reversed()).forEach(i->System.out.print(i.geteNumber()+"["+i.geteSal()+"], "));
-		
+//		employeeList.stream().sorted(Comparator.comparing(Employee::geteSal).reversed()).forEach(i->System.out.print(i.geteNumber()+"["+i.geteSal()+"], "));
 //		employeeList.stream().sorted((i1, i2)->i2.geteSal()-i1.geteSal()).forEach(i->System.out.print(i.geteNumber()+"["+i.geteSal()+"], "));
 //		Type mismatch: cannot convert from float to int
 		
-		//Highest Salaray
-		Employee highestSal = employeeList.stream().collect(Collectors.maxBy(Comparator.comparing(Employee::geteSal))).get();
+		//Highest Salary
+		Employee highestSal = employeeList.stream().collect(Collectors.maxBy(salaryDesc)).get();
 		System.out.println("Highest Salaried Employee: "+highestSal);
 		
-		int rank=3;
-		
-		Employee nthhighSal = employeeList.stream().sorted(Comparator.comparing(Employee::geteSal).reversed()).collect(Collectors.toList()).get(rank-1);
-		System.out.println(rank+" Highest Salary: : "+nthhighSal+"\n");
+		int rank=2;
+		Employee nthHighestSal = employeeList.stream().sorted(Comparator.comparing(Employee::geteSal).reversed()).collect(Collectors.toList()).get(rank-1);
+		System.out.println("["+rank+"] Highest Salary: "+nthHighestSal+"\n");
 		
 		System.out.println("/**************** "+rank+" Highest Salary Each Departmentwise *************/");
 		employeeList.stream()
 			.collect(Collectors.groupingBy(Employee::getDepartment))
 			.forEach((x,y)->{
-				System.out.println("Department: "+x);
-				System.out.println(y.stream().sorted(Comparator.comparing(Employee::geteSal).reversed()).collect(Collectors.toList()).get(rank-1).toString());
+				System.out.print("Department: "+x);
+				System.out.print(y.stream().sorted(salaryDesc).collect(Collectors.toList()).get(rank-1).toString()+"\n");
 			});
 		System.out.println();
 		
@@ -87,8 +86,8 @@ public class StreamPractice {
 		System.out.println();
 		
 		//find the employee in each branch who‘s is salary greater than 10000
-		String deptWiseSalGrt10K = "Employees in each branch who‘s is salary greater than 10000";
-		int salary = 50000;
+		int salary = 75000;
+		String deptWiseSalGrt10K = "Employees in each branch who‘s is salary greater than "+salary;
 		System.out.println("/******** "+deptWiseSalGrt10K+" *********/");
 		 empDet.stream()
 		 	.collect(Collectors.groupingBy(Employee::getDepartment))

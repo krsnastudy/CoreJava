@@ -36,13 +36,11 @@ public class EmployeeStream {
 				.collect(Collectors.toMap(Employee::geteNumber, Function.identity(), (x, y) -> x, HashMap::new));
 //		System.out.println(hMap);
 
-		System.out.println("Orig Data Size: " + emp.size() + " && HashSet Size: " + hSet.size() + " && TreeMap Size: ");
-
 		/* Adding List to TreeMap */
 		Map<Integer, Employee> tMap = emp.stream()// .distinct()
 				.collect(Collectors.toMap(Employee::geteNumber, Function.identity(), (e1, e2) -> e1, TreeMap::new));
 
-		System.out.println(tMap);
+		System.out.println("Original Data Size: " + emp.size() + " && HashSet Size: " + hSet.size() + " && TreeMap Size: "+tMap.size());
 
 		/* Adding List to LinkedHashMap */
 		Map<Integer, Object> linkedHashMap = emp.stream().collect(
