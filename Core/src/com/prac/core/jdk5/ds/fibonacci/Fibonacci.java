@@ -68,4 +68,15 @@ public class Fibonacci {
                 .reduce((a, b) -> a + b);
         System.out.println("Fibonacci Series(" + series + ") Sum is " + i.get());
     }
+
+    public static void printFibonacciSeries(int series){
+        String fibonacci = Stream.iterate(new int[]{0, 1}, n -> new int[]{n[1], n[0] + n[1]})
+                .limit(series)
+                .map(n->n[0])
+                .map(String::valueOf)
+                .collect(Collectors.joining(", "))
+                ;
+
+        System.out.println("Fibonacci Series(" + series + ") is " + fibonacci);
+    }
 }
