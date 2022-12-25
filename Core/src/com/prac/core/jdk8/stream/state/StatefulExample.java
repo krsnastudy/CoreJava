@@ -29,3 +29,7 @@ public class StatefulExample {
         }
     }
 }
+
+/*
+https://www.logicbig.com/tutorials/core-java-tutorial/java-util-stream/stateful-vs-stateless.html
+ */
