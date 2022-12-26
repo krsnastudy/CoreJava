@@ -62,4 +62,24 @@ public class CoreUtil {
 		return list;
 	}
 
+	public static int getRandomNumberUsingInts(int min, int max) {
+		Random random = new Random();
+		return random.ints(min, max)
+				.findFirst()
+				.getAsInt();
+	}
+
+	public static int getRandomNumberUsingNextInt(int min, int max) {
+		Random random = new Random();
+		return random.nextInt(max - min) + min;
+	}
+
+	public static int getRandomNumber(int min, int max) {
+		return (int) ((Math.random() * (max - min)) + min);
+	}
+
+	public static int getRandomNumber() {
+		return (int) ((Math.random() * (15 - 5)) + 5);
+	}
+
 }// CoreUtil

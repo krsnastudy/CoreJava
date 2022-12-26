@@ -3,6 +3,7 @@ package com.prac.core.jdk5.threads.executor.ftp;
 import java.time.LocalDateTime;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class FixedThreadPoolExecutor {
 
@@ -29,6 +30,7 @@ public class FixedThreadPoolExecutor {
 		System.out.println("FixedThreadPoolExecutor Finished");
 		
 		service.shutdown();
+		service.awaitTermination(20, TimeUnit.SECONDS);
 		
 	/*** Active Threads ****/
 		Thread.sleep(10000);

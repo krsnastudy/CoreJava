@@ -2,8 +2,10 @@ package com.prac.core.jdk8.handson;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import com.prac.core.jdk8.util.CoreUtil;
 
@@ -15,6 +17,8 @@ public class MapAndFlatMap {
 		
 		System.out.print("Map Example: ");
 		namesMapUpper.forEach(i -> System.out.print(i + " "));
+		System.out.println();
+		System.out.println(namesMapUpper.stream().map(String::valueOf).collect(Collectors.joining(", ")));
 
 		List<List<String>> namesFlat = Arrays.asList(
 											Arrays.asList("Saket", "Trevor", "Zian"), 
@@ -39,7 +43,7 @@ public class MapAndFlatMap {
 			namesFlat1.add(CoreUtil.getRandomNames(12, 6));
 			namesFlat1.add(CoreUtil.getRandomNames(14, 3));
 			namesFlat1.add(CoreUtil.getRandomNames(9, 7));
-		
+
 		List<String> namesFlatMap1 = namesFlat1.stream()
 				.flatMap(fMap -> fMap.stream())
 				.sorted() //Alphabetical Order Sorting
@@ -47,5 +51,23 @@ public class MapAndFlatMap {
 				.collect(Collectors.toList())
 				;
 		System.out.println("\nFlatMap Example: " + namesFlatMap1);
+
+
+		List<List<String>> namesFlat2 = new ArrayList<List<String>>();
+		IntStream.range(1 , 100)
+				.mapToObj(x -> namesFlat2.add(CoreUtil.getRandomNames(CoreUtil.getRandomNumber(), CoreUtil.getRandomNumber())))
+				.collect(Collectors.toList());
+
+		System.out.println("namesFlat2: "+namesFlat2);
+
+		List<String> namesFlatMap2 = namesFlat2.stream()
+				.flatMap(f->f.stream())
+//				.sorted()
+				.sorted(Comparator.reverseOrder())
+				.filter(s->s.startsWith("K"))
+				.collect(Collectors.toList())
+				;
+
+		System.out.println("FlatMap2: "+namesFlatMap2);
 	}
 }
