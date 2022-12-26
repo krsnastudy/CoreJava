@@ -1,10 +1,6 @@
 package com.prac.core.jdk8.stream.employee;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import com.prac.core.jdk8.stream.employee.data.Employee;
@@ -14,7 +10,7 @@ public class StreamPracticeOne {
 
 	public static void main(String[] args) {
 		
-		int noOfRecords = 20; // How many records you want
+		int noOfRecords = 54; // How many records you want
 		
 		List<Employee> empData = new ArrayList<Employee>();
 		PopulateEmpData populate = new PopulateEmpData();
@@ -24,8 +20,16 @@ public class StreamPracticeOne {
 		empData.stream().collect(Collectors.groupingBy(Employee::getDepartment)).forEach((x,y)->System.out.println(
 				x+" Department --> "+ y.stream().map(z->z.geteNumber()+" - "+z.getfName()).collect(Collectors.joining(", "))
 				));
-		
 		System.out.println();
+
+		/* Deptwise Count */
+		empData.stream()
+				.collect(Collectors.groupingBy(Employee::getDepartment))
+				.forEach((k,v)-> System.out.println(
+						"Dept: " + k + " -- " +
+						v.stream().count()
+				))
+		;
 		
 		/* Deptwise salary summation */
 		empData.stream()
@@ -46,10 +50,8 @@ public class StreamPracticeOne {
 					x+" Department Highest Salary is " 
 			+ y.stream()
 			.collect(Collectors.maxBy(Comparator.comparing(Employee::geteSal)))
-			.map(z->"[EmpID: "+z.geteNumber()+"]: "+z.geteSal())
-			.get()
-			
-					));
+			.map(z->"[EmpID: "+z.geteNumber()+"]: "+z.geteSal()).get()
+			));
 		
 		System.out.println();
 		
@@ -63,7 +65,8 @@ public class StreamPracticeOne {
 
 		empData.stream().distinct()
 		.sorted(comparator)
-		.forEach(p->System.out.println("EmpId: "+p.geteNumber()+" == FirstName: "+p.getfName()+", LastName: "+p.getlName()));
+//		.forEach(p->System.out.println("EmpId: "+p.geteNumber()+" == FirstName: "+p.getfName()+", LastName: "+p.getlName()))
+		;
 		
 		System.out.println();
 		
@@ -94,11 +97,16 @@ public class StreamPracticeOne {
 		for(Character c : str.toLowerCase().toCharArray()) {
 			frequencies.merge(c, 1, Integer::sum);
 		}
-		
+
 		System.out.println("\nFrequencies: "+frequencies);
-		
+
+		TreeMap<Character, Integer> freqTree = new TreeMap<>();
+		for(Character c : "GeneratingRandomNumbersinaRange".toLowerCase().toCharArray()){
+			freqTree.merge(c, 1, Integer::sum);
+		}
+		System.out.println("\nFrequencies: "+freqTree);
 		System.out.println();
-		
+
 		/*sum of salary using reduce*/
 		float s = empData.stream().map(m->m.geteSal()).reduce((float) 0, (a,b)->a+b);
 	}

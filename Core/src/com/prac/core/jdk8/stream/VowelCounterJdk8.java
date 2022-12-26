@@ -32,8 +32,14 @@ public class VowelCounterJdk8 {
 
 //		Arrays.asList(sArr).stream().collect(Collectors.joining(",","[","]"));
 
-		Map<Character, Long> cMap = str.chars().mapToObj(item -> (char) item).filter(x -> ((x + "").equals("a")
-				|| (x + "").equals("e") || (x + "").equals("i") || (x + "").equals("o") || (x + "").equals("u")))
+		Map<Character, Long> cMap = str.chars()
+				.mapToObj(item -> (char) item)
+				.filter(x -> (
+						 (x + "").equals("a") || (x + "").equals("e") ||
+						 (x + "").equals("i") || (x + "").equals("o") ||
+						 (x + "").equals("u")
+						)
+					)
 //		      .collect(Collectors.toList())
 //		      .stream()
 				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
