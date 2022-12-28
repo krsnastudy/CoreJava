@@ -47,8 +47,20 @@ public class FirstNonRepeatedCharacter {
 		}
 		Character c = lMap.entrySet().stream().filter(x -> x.getValue() == 1).findFirst().get().getKey();
 		System.out.println("Java8 Non-Repeating Character: " + c);
-	}
 
+		/* Way 4 */
+		String str1 = "Karnataka Chief Minister Basavaraj Bommai has strongly condemned a resolution moved in the assembly x of neighbouring Maharashtra resolving to protect the states interests amid a border row between the two states where the BJP is in power z";
+		str1 = str1.replace(" ", "").toLowerCase();
+
+		Map<Character, Integer> linkedHashMap = new LinkedHashMap<>();
+		for(Character c1 : str1.toCharArray()) {
+			linkedHashMap.merge(c1, 1, Integer::sum);
+		}
+
+//		System.out.println(linkedHashMap);
+		Character character = linkedHashMap.entrySet().stream().filter(x -> x.getValue() == 1).findFirst().get().getKey();
+		System.out.println("Java8 Non-Repeating Character: " + character);
+	}
 }
 
 // https://javahungry.blogspot.com/2013/12/first-non-repeated-character-in-string-java-program-code-example.html
