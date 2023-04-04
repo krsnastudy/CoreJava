@@ -24,7 +24,9 @@ public class VowelCounterJdk8 {
 		Map<String, Long> vMap = Stream.of(sArr)
 //		.filter(x->(x.equals("a")||x.equals("e")||x.equals("i")||x.equals("o")||x.equals("u")))
 //		.peek(System.out::print)
-				.filter(x -> isVowel(x)).collect(Collectors.toList()).stream()
+				.filter(x -> isVowel(x))
+				.collect(Collectors.toList())
+				.stream()
 				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 		// .forEach((k,v)->System.out.println("Vowel["+k+"]: "+v));
 

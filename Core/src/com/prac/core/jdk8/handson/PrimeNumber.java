@@ -8,7 +8,7 @@ public class PrimeNumber {
 	public static void main(String[] args) {
 
 		long count = Stream.iterate(0, n -> n + 1)
-				.limit(100)
+				.limit(50)
 				.filter(PrimeNumber::isPrimeNumber_Java8)
 //				.filter(PrimeNumber::isPrimeNumber_Java5)
 				.peek(x -> System.out.format("%s ", x))
@@ -30,8 +30,9 @@ public class PrimeNumber {
 	public static boolean isPrimeNumber_Java8(int number) {
 		boolean isPrime = false;
 
-		if (number < 2 && number > 0)
-			return isPrime;
+		if (number < 2 && number >= 0)
+//		if (number <= 1)
+		return isPrime;
 
 		return !IntStream.rangeClosed(2, number / 2).anyMatch(i -> number % i == 0);
 	}

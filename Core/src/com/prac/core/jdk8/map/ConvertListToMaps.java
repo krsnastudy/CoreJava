@@ -32,26 +32,30 @@ public class ConvertListToMaps {
 				.collect(Collectors.toMap(Employee::geteNumber, Function.identity(), (x, y) -> x, HashMap::new));
 
 		System.out.println("\nHashMap: ");
-		hMap.forEach((x,y)->System.out.println(y.toStringSpecific()));
+		hMap.forEach((x,y)->System.out.println(x + "--" + y.toStringSpecific()));
+//		System.out.println(hMap);
 		
 		/* Adding List to TreeMap */
 		Map<Integer, Employee> tMap = emp.stream()// .distinct()
 				.collect(Collectors.toMap(Employee::geteNumber, Function.identity(), (e1, e2) -> e1, TreeMap::new));
 
 		System.out.println("\nTreeMap: ");
-		tMap.forEach((x,y)->System.out.println(y.toStringSpecific()));
+		tMap.forEach((x,y)->System.out.println(x + "--" + y.toStringSpecific()));
+//		System.out.println(tMap);
 		
 		/* Adding List to LinkedHashMap */
 		Map<Integer, Employee> lMap = emp.stream().collect(
 				Collectors.toMap(Employee::geteNumber, Function.identity(), (e1, e2) -> e1, LinkedHashMap::new));
 		
 		System.out.println("\nLinkedHashMap: ");
-		lMap.forEach((x,y)->System.out.println(y.toStringSpecific()));
+		lMap.forEach((x,y)->System.out.println(x + "--" + y.toStringSpecific()));
+//		System.out.println(lMap);
 		
 		ConcurrentHashMap<Integer, Employee> cMap = emp.stream().distinct().collect(
 				Collectors.toMap(Employee::geteNumber, Function.identity(), (a, b) -> a, ConcurrentHashMap::new));		
 		
 		System.out.println("\nConcurrentHashMap: ");
-		cMap.forEach((x,y)->System.out.println(y.toStringSpecific()));
+		cMap.forEach((x,y)->System.out.println(x + "--" + y.toStringSpecific()));
+//		System.out.println(cMap);
 	}
 }

@@ -20,22 +20,15 @@ public class SortTenMillion {
 		}
 
 		long start = System.currentTimeMillis();
-
 		// sort `arr1[]` using `Arrays.sort()`
 		Arrays.sort(arr1);
-
 		long end = System.currentTimeMillis();
-
 		System.out.println("Arrays.sort() took " + (end - start) + " ms");
 
 		start = System.currentTimeMillis();
-
 		// sort `arr2[]` using `Arrays.parallelSort()`
 		Arrays.parallelSort(arr2);
-
 		end = System.currentTimeMillis();
-
 		System.out.println("Arrays.parallelSort() took " + (end - start) + " ms");
 	}
-
 }

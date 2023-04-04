@@ -109,6 +109,8 @@ public class StreamPracticeOne {
 
 		/*sum of salary using reduce*/
 		float s = empData.stream().map(m->m.geteSal()).reduce((float) 0, (a,b)->a+b);
+
+		empData.stream().collect(Collectors.groupingBy(Employee::getDepartment)).forEach((x, y)-> System.out.println(x + y.toString()));
 	}
 
 }
