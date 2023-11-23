@@ -15,23 +15,12 @@ public class PrimeNumber {
 				.count();
 
 		System.out.println("\nTotal: " + count);
-		
-/*
-		int number=25;
-		IntStream.rangeClosed(2, number/2)
-			.peek(x -> System.out.print("[("+x+")-->"+(number % x)+" "+(number % x==0)+"] "))
-			.forEach(i -> System.out.print((number % i)+" "));
-		
-		System.out.println();
-*/	
-//		System.out.println(12%2==0);
 	}
 
 	public static boolean isPrimeNumber_Java8(int number) {
 		boolean isPrime = false;
 
 		if (number < 2 && number >= 0)
-//		if (number <= 1)
 		return isPrime;
 
 		return !IntStream.rangeClosed(2, number / 2).anyMatch(i -> number % i == 0);

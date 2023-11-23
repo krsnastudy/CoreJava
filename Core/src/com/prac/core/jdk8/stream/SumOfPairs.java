@@ -22,11 +22,13 @@ public class SumOfPairs {
 
 	public static void main(String[] args) {
 		int arr[] = { 2, 3, 4, -2, 6, 8, 9, 11 };
+		int checkSum = 6;
+		System.out.println("Check Sum : "+checkSum);
 		Arrays.sort(arr);
 		Arrays.stream(arr).forEach(x -> System.out.print(x + " "));
-
+		
 		System.out.println();
 		SumOfPairs sp = new SumOfPairs();
-		sp.pairedElements(arr, 6);
+		sp.pairedElements(arr, checkSum);
 	}
 }

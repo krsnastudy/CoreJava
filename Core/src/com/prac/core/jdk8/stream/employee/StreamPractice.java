@@ -49,7 +49,7 @@ public class StreamPractice {
 		/****** Extra Details *********/
 		List<EmployeeExt> empDet = new ArrayList<EmployeeExt>();
 		empDet = populate.populateEmployeeMoreDetails(150);
-		empDet.stream().forEach(i->System.out.print(i.geteNumber()+"["+i.geteSal()+"], "));
+		empDet.stream().sorted(Comparator.comparing(Employee::geteSal).reversed()).forEach(i->System.out.print(i.geteNumber()+"["+i.geteSal()+"], "));
 		
 		/**** Sum of Salary *****/
 		Double sal = empDet.stream().filter(i->i.getEmpAge()<30).collect(Collectors.summingDouble(EmployeeExt::geteSal));

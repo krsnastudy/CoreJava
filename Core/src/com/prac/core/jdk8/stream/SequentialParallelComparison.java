@@ -12,7 +12,7 @@ public class SequentialParallelComparison {
         System.out.println("-------\nRunning sequential\n-------");
         run(Arrays.stream(strings).sequential());
 
-        System.out.println("-------\nRunning parallel\n-------");
+        System.out.println("\n-------\nRunning parallel\n-------");
         run(Arrays.stream(strings).parallel());
     }
 

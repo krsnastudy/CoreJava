@@ -1,9 +1,6 @@
 package com.prac.core.jdk8.string;
 
-import java.util.Arrays;
 import java.util.LinkedHashMap;
-import java.util.Map.Entry;
-import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Collectors;

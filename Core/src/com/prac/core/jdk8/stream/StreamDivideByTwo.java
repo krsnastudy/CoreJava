@@ -1,7 +1,5 @@
 package com.prac.core.jdk8.stream;
 
-import com.prac.core.jdk8.util.CoreUtil;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;

@@ -1,7 +1,5 @@
 package com.prac.core.jdk5.design.singleton;
 
-import org.apache.tomcat.jni.OS;
-
 public class SingleTonTest {
 
 	public static void main(String[] args) {
