@@ -5,11 +5,9 @@ import java.util.Arrays;
 public class StringReverseWithOutSpecialChar {
 
 	public static void main(String[] args) {
-
 		String str = "Ab,c,de!$";
 		char[] charArray = str.toCharArray();
 		reverse(charArray);
-		
 	}
 
 	public static void rev(char s[], int l, int r) {
