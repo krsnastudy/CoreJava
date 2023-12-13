@@ -30,10 +30,12 @@ public class StringReverseWithOutSpecialChar {
 				x++;
 			}
 		}
-System.out.println("W/O Special Chars: "+Arrays.toString(temp));
+		
+		System.out.println("W/O Special Chars: "+Arrays.toString(temp));
 		// reversing the character array
 		rev(temp, 0, x);
-System.out.println("Reverse Chars: "+Arrays.toString(temp));
+		System.out.println("Reverse Chars: "+Arrays.toString(temp));
+		
 		x = 0;
 		for (int i = 0; i < s.length; i++) {
 			if (s[i] >= 'a' && s[i] <= 'z' || s[i] >= 'A' && s[i] <= 'Z') {
