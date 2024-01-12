@@ -14,6 +14,10 @@ public class RegEx2 {
 		System.out.println("Json String: " + jsonString);
 		System.out.println("[" + searchString1 + "] Is Exists: " + isExists(searchString1, jsonString));
 		System.out.println("[" + searchString2 + "] Is Exists: " + isExists(searchString2, jsonString));
+		
+		String sampleString = "MARTENFUELPROX";
+		String regex = "([a-zA-Z0-9]+)\\-([a-zA-Z0-9]+)"; //"^[a-zA-Z0-9-]*$";
+		System.out.println(sampleString+" Contains (-) : "+sampleString.matches(regex));
 	}
 
 	public static boolean isExists(String searchString, String jsonString) {
