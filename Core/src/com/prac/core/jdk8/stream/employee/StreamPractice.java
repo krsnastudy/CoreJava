@@ -29,8 +29,12 @@ public class StreamPractice {
 //		Type mismatch: cannot convert from float to int
 		
 		//Highest Salary
-		Employee highestSal = employeeList.stream().collect(Collectors.maxBy(salaryDesc)).get();
+		Employee highestSal = employeeList.stream().collect(Collectors.maxBy(Comparator.comparing(Employee::geteSal))).get();
 		System.out.println("Highest Salaried Employee: "+highestSal);
+		
+		//Lowest Salary
+		Employee lowestSalary = employeeList.stream().collect(Collectors.minBy(Comparator.comparing(Employee::geteSal))).get();
+		System.out.println("Lowest Salaried Employee: "+lowestSalary);
 		
 		int rank=2;
 		Employee nthHighestSal = employeeList.stream().sorted(Comparator.comparing(Employee::geteSal).reversed()).collect(Collectors.toList()).get(rank-1);
