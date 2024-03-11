@@ -4,6 +4,11 @@
   <artifactId>Core</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   	<dependencies>
+    <!-- Spring Boot Starter -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter</artifactId>
+    </dependency>  	
   	<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
 		<dependency>
 		    <groupId>javax.mail</groupId>
