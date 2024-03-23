@@ -47,7 +47,7 @@ public class ArmstrongNumber {
 
 		return IntStream.iterate(num, i -> i / 10)
 				.peek(p -> System.out.println("Value --> " + p + " && (" + p + " % 10) --> " + (p % 10))).limit(pow)
-				.map(i -> (int) Math.pow(i % 10, pow)) // Mod is Remaining value
+				.map(m -> (int) Math.pow(m % 10, pow)) // Mod is Remaining value
 				.sum();
 	}
 

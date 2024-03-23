@@ -1,5 +1,6 @@
 package com.prac.core.practice;
 
+import java.util.concurrent.CompletableFuture;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -15,6 +16,9 @@ public class TestOne {
 //				.filter(PrimeNumber::isPrimeNumber_Java5)
 				.peek(x -> System.out.format("%s ", x))
 				.count();
+		
+		CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> "Hello");
+		
 		}
 	
 	public static boolean isPrime(int n) {
