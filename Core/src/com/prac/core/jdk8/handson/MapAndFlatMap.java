@@ -18,7 +18,7 @@ public class MapAndFlatMap {
 		System.out.print("Map Example: ");
 		namesMapUpper.forEach(i -> System.out.print(i + " "));
 		System.out.println();
-		System.out.println(namesMapUpper.stream().map(String::valueOf).collect(Collectors.joining(", ")));
+		System.out.println("Joining  Ex: "+namesMapUpper.stream().map(String::valueOf).collect(Collectors.joining(", ")));
 
 		List<List<String>> namesFlat = Arrays.asList(
 											Arrays.asList("Saket", "Trevor", "Zian"), 
@@ -50,15 +50,14 @@ public class MapAndFlatMap {
 //				.sorted(Collections.reverseOrder()) // Reverse Order Sorting
 				.collect(Collectors.toList())
 				;
-		System.out.println("\nFlatMap Example: " + namesFlatMap1);
-
+		System.out.println("\nFlatMap Example: " + namesFlatMap1+"\n");
 
 		List<List<String>> namesFlat2 = new ArrayList<List<String>>();
 		IntStream.range(1 , 100)
 				.mapToObj(x -> namesFlat2.add(CoreUtil.getRandomNames(CoreUtil.getRandomNumber(), CoreUtil.getRandomNumber())))
 				.collect(Collectors.toList());
 
-		System.out.println("namesFlat2: "+namesFlat2);
+		System.out.println("Original namesFlat2: "+namesFlat2);
 
 		List<String> namesFlatMap2 = namesFlat2.stream()
 				.flatMap(f->f.stream())

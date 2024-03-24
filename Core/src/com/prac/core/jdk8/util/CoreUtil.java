@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.function.IntPredicate;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class CoreUtil {
 
@@ -20,9 +21,11 @@ public class CoreUtil {
 	public static List<Integer> getRandomNumbers(int count) {
 		List<Integer> list = new ArrayList<>();
 
-		for (int i = 0; i < count; i++) {
-			list.add(getRandomInt());
-		}
+		Stream.iterate(0, n->n+1).limit(count).forEach(e->list.add(getRandomInt()));
+		
+		/*
+		 * for (int i = 0; i < count; i++) { list.add(getRandomInt()); }
+		 */
 
 		return list;
 	}
@@ -33,8 +36,11 @@ public class CoreUtil {
 		int targetStringLength = length;
 		Random random = new Random();
 
-		String generatedString = random.ints(leftLimit, rightLimit + 1).limit(targetStringLength)
-				.collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append).toString();
+		String generatedString = 
+				random.ints(leftLimit, rightLimit + 1)
+				 .limit(targetStringLength)
+				 .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+				 .toString();
 
 		// System.out.println(generatedString);
 
@@ -46,7 +52,7 @@ public class CoreUtil {
 		// convert the first letter of String to uppercase
 		firstLetStr = firstLetStr.toUpperCase();
 
-		// concantenate the first letter and remaining string
+		// Concatenate the first letter and remaining string
 		generatedString = firstLetStr + remLetStr;
 
 		return generatedString;
@@ -55,10 +61,11 @@ public class CoreUtil {
 	public static List<String> getRandomNames(int strlength, int count) {
 		List<String> list = new ArrayList<>();
 
-		for (int i = 0; i < count; i++) {
-			list.add(getRandomString(strlength));
-		}
-
+		IntStream.rangeClosed(1, count).forEach(e->list.add(getRandomString(strlength)));
+		
+		/*
+		 * for (int i = 0; i < count; i++) { list.add(getRandomString(strlength)); }
+		 */
 		return list;
 	}
 

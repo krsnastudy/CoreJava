@@ -60,8 +60,7 @@ public class NonRepeatingLetter {
 				   .filter(entry -> (entry.getValue()==1L))
 				   .findFirst()
 				   .map(k -> k.getKey())
-				   .get()
-				   ;
+				   .get();
 		
 		System.out.println(c);
 	}

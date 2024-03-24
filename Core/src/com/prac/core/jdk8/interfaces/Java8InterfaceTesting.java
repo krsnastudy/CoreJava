@@ -49,13 +49,13 @@ class InterfaceTest1 implements I1 {
 
 	@Override
 	public void m1() {
-		// TODO Auto-generated method stub
+		System.out.println("Override m1() in InterfaceTest1");
 
 	}
 
 	@Override
 	public void m2() {
-		// TODO Auto-generated method stub
+		System.out.println("Override m2() in InterfaceTest1");
 
 	}
 
@@ -70,13 +70,13 @@ class InterfaceTest2 implements I1 {
 
 	@Override
 	public void m1() {
-		// TODO Auto-generated method stub
+		System.out.println("Override m1() in InterfaceTest2");
 
 	}
 
 	@Override
 	public void m2() {
-		// TODO Auto-generated method stub
+		System.out.println("Override m2() in InterfaceTest2");
 
 	}
 
