@@ -16,9 +16,9 @@ public class MergeTwoArrays {
 		System.out.println("Given Array b: " + Arrays.toString(b));
 
 		Object[] streamConcat = StreamConcat(a, b);
-		Object[] systemArraycopy = StreamConcat(a, b);
+		Object[] systemArraycopy = systemArraycopy(a, b);
 		Object[] javaCollections = StreamConcat(a, b);
-		Object[] collectionsAddAll = StreamConcat(a, b);
+		Object[] collectionsAddAll = collectionsAddAll(a, b);
 
 		System.out.println("Using Stream.concat(): " + Arrays.toString(streamConcat));
 		System.out.println("Using System.arraycopy(): " + Arrays.toString(systemArraycopy));
@@ -61,7 +61,7 @@ public class MergeTwoArrays {
 		return n.toArray();
 	}
 
-	public static <T> List<Object> collectionsAddAll(T[] a, T[] b) {
+	public static <T> Object[] collectionsAddAll(T[] a, T[] b) {
 		// Create an empty List of type Object
 		List<Object> n = new ArrayList<>();
 
@@ -72,7 +72,7 @@ public class MergeTwoArrays {
 		// Add the array b into n
 		Collections.addAll(n, b);
 
-		return n;
+		return n.toArray();
 	}
 }
 

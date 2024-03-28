@@ -11,7 +11,7 @@ public class FunctionExample {
 
 		String str = "In the JDK's Object class source code, the method annotated by @HotSpotIntrinsicCandidate has a set of efficient implementations in HotSpot. This efficient implementation is based on CPU instructions.";
 		Function<String, Integer> fS = st -> st.length() - st.replaceAll(" ", "").length();
-		System.out.println("How many spaces Contains : " + fS.apply(str));
+		System.out.println("Spaces Count : " + fS.apply(str));
 
 		/* andThen & compose are Default function */
 		Function<Integer, Integer> f1 = i -> i + i;
@@ -35,9 +35,9 @@ public class FunctionExample {
  * been introduced since Java 8, to implement functional programming in Java. It
  * represents a function which takes in one argument and produces a result.
  * 
- * apply(T t) – Applies this function to the given argument.
+ * apply(T t) ï¿½ Applies this function to the given argument.
  * 
- * default Function<T,V> andThen(Function<? super R,? extends V> after) –->
+ * default Function<T,V> andThen(Function<? super R,? extends V> after) ï¿½->
  * Returns a composed function that first applies this function to its input,
  * and then applies the after function to the result.
  * 
@@ -45,7 +45,7 @@ public class FunctionExample {
  * Returns a composed function that first applies the before function to its
  * input, and then applies this function to the result.
  * 
- * static Function<T,T> identity() –-> Returns a function that always returns
+ * static Function<T,T> identity() ï¿½-> Returns a function that always returns
  * its input argument.
  * 
  */
