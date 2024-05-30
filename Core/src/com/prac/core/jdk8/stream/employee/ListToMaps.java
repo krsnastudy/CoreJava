@@ -1,11 +1,13 @@
 package com.prac.core.jdk8.stream.employee;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import com.prac.core.jdk8.stream.employee.data.PopulateEmpData;
@@ -41,6 +43,10 @@ public class ListToMaps {
 					.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (o,n)->n, TreeMap::new))
 					;
 		tMap.forEach((x,y)->System.out.println(y));
+		
+		eList.stream()
+			.sorted(Comparator.comparing(Employee::geteNumber))
+			.collect(Collectors.toMap(Employee::geteNumber, Function.identity(), (o,n)->o, LinkedHashMap::new));
 	}
 
 }

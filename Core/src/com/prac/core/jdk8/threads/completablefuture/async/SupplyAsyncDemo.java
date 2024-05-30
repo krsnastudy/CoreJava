@@ -21,7 +21,7 @@ public class SupplyAsyncDemo {
 	
 	public List<Employee> saveEmployeesWithExecutor(int noOfRecords) throws InterruptedException, ExecutionException {
 //		System.out.println("saveEmployees");
-		ExecutorService executor = Executors.newFixedThreadPool(10);
+		ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 		CompletableFuture<List<Employee>> supplyAsyncFuture = CompletableFuture.supplyAsync(() -> {
 			System.out.println(Thread.currentThread().getName());
 			return EmployeeDB.fetchEmployees(noOfRecords);

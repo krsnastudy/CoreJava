@@ -3,6 +3,7 @@ package com.prac.core.jdk8.optional;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 public class OptionalExample {
 
@@ -25,11 +26,26 @@ public class OptionalExample {
 		// setting default value using lambda function inside orElseGet
 		Optional<String> optOrElseGet = Optional.of(Optional.ofNullable(mayBeNull).orElseGet(() -> "orElseGet"));
 		System.out.println("orElseGet() : " + optOrElseGet.get());
+		
+		/********* orElse() *******/
+		System.out.println("/***** orElse() **********/");
+		String name = Optional.of("baeldung")
+				  .orElse(getRandomName());
 	}
 
 	public static String iAmStillExecuted() {
 		System.out.println("nonEmptyOptional is not NULL, still I am being executed");
 		return "I got executed";
+	}
+	
+	public static String getRandomName() {
+		System.out.println("getRandomName() method - start");
+	    
+	    Random random = new Random();
+	    int index = random.nextInt(5);
+	    
+	    System.out.println("getRandomName() method - end");
+	    return index+"";
 	}
 
 }

@@ -13,7 +13,7 @@ import com.prac.core.jdk8.stream.employee.data.Employee;
 
 public class ApplyAsyncExample {
 	static final int noOfRec = 100;
-	static ExecutorService executor = Executors.newFixedThreadPool(10);
+	static ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
 		ApplyAsyncExample.process().get();
