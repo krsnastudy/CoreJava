@@ -64,7 +64,7 @@ public class MergeTwoArrays {
 	public static <T> Object[] collectionsAddAll(T[] a, T[] b) {
 		// Create an empty List of type Object
 		List<Object> n = new ArrayList<>();
-
+ 
 		// Add the array a into n
 		// Collections.addAll(Collection<? super T> c, T... elements)
 		Collections.addAll(n, a);

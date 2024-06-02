@@ -7,8 +7,8 @@ public class StringAnagram {
 	public static void main(String[] args) {
 		String str1 = "peek";
 		String str2 = "keep";
-		
-		System.out.println("IsAnagram("+str1+", "+str2+"): "+(isAnagramSort(str1, str2)));
+
+		System.out.println("IsAnagram(" + str1 + ", " + str2 + "): " + (isAnagramSort(str1, str2)));
 	}
 
 	public static boolean isAnagramSort(String string1, String string2) {
@@ -19,6 +19,8 @@ public class StringAnagram {
 		char[] a2 = string2.toCharArray();
 		Arrays.sort(a1);
 		Arrays.sort(a2);
+
+//		return String.valueOf(a1).equals(String.valueOf(a2));
 		return Arrays.equals(a1, a2);
 	}
 }

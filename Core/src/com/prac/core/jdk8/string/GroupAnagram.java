@@ -53,7 +53,39 @@ public class GroupAnagram {
 
 		return anagrams;
 	}
+	
+	public static String sortString(String str) {
+		char[] charArr = str.toCharArray();
+		Arrays.sort(charArr);
+		return String.valueOf(charArr);
+	}
 
+	public static Map<String, List<String>> groupAnagrams_JDK5(List<String> words){
+		Map<String, List<String>> hMap = new HashMap<>();
+		
+		for(int i=0; i<words.size(); i++) {
+			List<String> keyList = new ArrayList<>();
+			String keyString = sortString(words.get(i));
+			String valueString = words.get(i);
+			
+			if(!hMap.containsKey(keyString)) {
+				keyList = new ArrayList<>();
+				keyList.add(valueString);
+				hMap.put(keyString, keyList);
+			}else {
+				keyList = hMap.get(keyString);
+				keyList.add(valueString);
+				hMap.put(keyString, keyList);
+			}
+		}
+		
+		return hMap;
+	}
+	
+	public static Map<String, List<String>> groupAnagrams_JDK8(List<String> words){
+		return words.stream().collect(Collectors.groupingBy(w -> sortString(w)));
+	}
+	
 	public static void main(String[] args) {
 		// list of words
 		List<String> words = Arrays.asList("CARS", "REPAID", "DUES", "NOSE", "SIGNED", "LANE", "PAIRED", "ARCS", "GRAB",
@@ -62,11 +94,30 @@ public class GroupAnagram {
 		System.out.println("Given List: "+words);
 		
 		Set<Set<String>> anagrams = groupAnagrams(words);
-		for (Set<String> anagram : anagrams) {
-			System.out.println(anagram);
-		}
-	}
-}
+		System.out.println("Anagrams Using Set: "+anagrams);
+//		for (Set<String> anagram : anagrams) {
+//			System.out.println(anagram);
+//		}
+//		
+		
+		/***************************/
+		 List<String> words2 = Arrays.asList("pool", "loop", "stream", "arc",
+			        "odor", "car", "rood", "meats", "fires", "fries",
+			        "night", "thing", "mates", "teams");
+		
+		/***** JDK5 Logic *******/
+		 Map<String, List<String>> jdk5Map = new HashMap<>();
+		 jdk5Map = groupAnagrams_JDK5(words2);
+		 System.out.println("\nGroup Anagrams JDK5\n"+jdk5Map);
+		 
+		 /***** JDK8 Logic *******/
+		 Map<String, List<String>> jdk8Map = new HashMap<>();
+		 jdk8Map = groupAnagrams_JDK8(words2);
+		 System.out.println("\nGroup Anagrams JDK8\n"+jdk8Map);
+		 
+		
+	}//main
+}//GroupAnagram
 
 /*
 https://www.techiedelight.com/group-anagrams-together-given-list-words/

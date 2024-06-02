@@ -1,33 +1,16 @@
 package com.prac.core.practice;
 
-import java.util.concurrent.CompletableFuture;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
-
-import com.prac.core.jdk8.handson.PrimeNumber;
 
 public class TestOne {
 
 	public static void main(String[] args) {
-
-		long count = Stream.iterate(0, n -> n + 1)
-				.limit(50)
-				.filter(PrimeNumber::isPrimeNumber_Java8)
-//				.filter(PrimeNumber::isPrimeNumber_Java5)
-				.peek(x -> System.out.format("%s ", x))
-				.count();
+		Stream.iterate(new int[] {1,1}, n -> new int[]{n[1], n[0] + n[1]})
+			.limit(10).map(n->n[0]).forEach(System.out::println);
 		
-		CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> "Hello");
-		
-		}
-	
-	public static boolean isPrime(int n) {
-		boolean isPrime = false;
-
-		if (n < 2 && n >= 0)
-		return isPrime;
-		
-		return !IntStream.rangeClosed(2, n / 2).anyMatch(i -> n % i == 0);
+		/*
+		 * Stream.iterate(new int[]{0, 1}, n -> new int[]{n[1], n[0] + n[1]}) .limit(15)
+		 * .map(n -> n[0]) .collect(Collectors.toList());
+		 */
 	}
-
 }
