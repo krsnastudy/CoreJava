@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 import com.prac.core.jdk8.stream.employee.data.Employee;
 
 public class ApplyAsyncExample {
-	static final int noOfRec = 100;
+	static final int noOfRec = 1000;
 	static ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
@@ -66,7 +66,7 @@ public class ApplyAsyncExample {
 		.thenAcceptAsync((nameList) -> {
 			biCon.accept("In Print: ", Thread.currentThread().getName());
 			Comparator<Employee> salComparator = Comparator.comparing(Employee::geteSal).thenComparing(Employee::getDepartment).reversed();
-			System.out.println("Final Records "+nameList.size()+" out of "+noOfRec+" Records"+"\n");
+			System.out.println("\nFinal Records "+nameList.size()+" out of "+noOfRec+" Records [OUTPUT display restricted to 10 Records Only]");
 			nameList.stream().sorted(salComparator).limit(10).forEach(ApplyAsyncExample::printName);
 		}, executor);
 	
