@@ -2,6 +2,8 @@ package com.prac.core.practice.stream.employee;
 
 import com.prac.core.practice.stream.employee.Employee;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -68,7 +70,7 @@ public class EmployeeStreamPractice {
                 .collect(Collectors.groupingBy(Employee::getDeptCode))
                 .entrySet().stream()
                 .forEach(e->{
-                    System.out.println("/*************************  Department "+e.getKey()+"  ********************/\n"+
+                    System.out.println("\n/*************************  Department "+e.getKey()+"  ********************/\n"+
                         e.getValue().stream().sorted(Comparator.comparing(Employee::getESal)).toList()
                     );
                 });
@@ -115,14 +117,16 @@ public class EmployeeStreamPractice {
         System.out.println(idx+" Highest Salary Paid Employee : "+idxSal);
 
         // Department Wise Indexed Base highest Salary
-        int dIdx = 2;
-        System.out.println("\n"+dIdx+" Highest Salary Department Wise");
+        int dIdx = new Random().nextInt(2, (noOfRecords/10));
+        String rankPrefix = dIdx<2 ? ("st") : ((dIdx>2 && dIdx<3)?"nd":(dIdx>2 && dIdx<4)?"rd":"th");
+        
+        System.out.println("\n"+dIdx+rankPrefix+" Highest Salary Department Wise");
                 empList.stream()
                         .collect(Collectors.groupingBy(Employee::getDeptCode))
                         .entrySet().stream()
                         .filter(f->(dIdx-1)<f.getValue().size())
                         .forEach(e->{
-                            System.out.println(e.getKey() +" Department "+dIdx+" Highest Salary --> " +
+                            System.out.println(e.getKey() +" Department "+dIdx+rankPrefix+" Highest Salary --> " +
                                 e.getValue().stream().sorted(Comparator.comparing(Employee::getESal)).toList().get(dIdx-1)
                             );
                         });
@@ -149,10 +153,10 @@ public class EmployeeStreamPractice {
 //                .entrySet().stream()
 //                .forEach(e-> System.out.println("\n/********** Gender: "+e.getKey()+" ***********/\n"+e.getValue()));
 
-        // Fetch Employees Salary Sum By Gender Base
+        // Fetch Employees By Gender Base
         empList.stream()
                .collect(Collectors.groupingBy(Employee::getGender))
-               .entrySet().stream()
+               .entrySet().stream().sorted(Map.Entry.comparingByKey())
                .forEach(e-> System.out.println("\n"+e.getKey()+" Gender "+"\n"+e.getValue()));
 
         // Fetch Employees of DOJ in Year 2022
@@ -170,9 +174,10 @@ public class EmployeeStreamPractice {
         System.out.println("\n/****** Employees Salary Summation By Yearwise *****/");
         empList.stream()
                 .collect(Collectors.groupingBy(g->CommonUtil.getYear(g.getDateOfJoin())))
-                .entrySet().stream()
+                .entrySet().stream().sorted(Map.Entry.comparingByKey())
                 .forEach(e-> System.out.println(e.getKey()+" Year Employees Count "+e.getValue().size()+", Salary Total: "+
-                        e.getValue().stream().collect(Collectors.summarizingDouble(Employee::getESal)).getSum()
+//                        e.getValue().stream().collect(Collectors.summarizingDouble(Employee::getESal)).getSum()
+						BigDecimal.valueOf(e.getValue().stream().collect(Collectors.summarizingDouble(Employee::getESal)).getSum()).setScale(2, RoundingMode.HALF_UP)
                         ));
 
         System.out.println("\n/****** Employees Salary Summation By Gender *****/");
@@ -181,10 +186,12 @@ public class EmployeeStreamPractice {
                 .entrySet().stream()
                 .forEach(x-> System.out.println(x.getKey()+" Total Salary: "+
 //                        x.getValue().stream().map(m->m.getESal()).reduce((float)0, (a,b)->a+b)
-                        x.getValue().stream().collect(Collectors.summarizingDouble(Employee::getESal)).getSum()
+//                        x.getValue().stream().collect(Collectors.summarizingDouble(Employee::getESal)).getSum()
+						BigDecimal.valueOf(x.getValue().stream().collect(Collectors.summarizingDouble(Employee::getESal)).getSum()).setScale(2, RoundingMode.HALF_UP)	
                     )
                 );
 
+        
         
         /************** Total Count ****************/
         System.out.println("\nTotal Records Processing: "+noOfRecords);
