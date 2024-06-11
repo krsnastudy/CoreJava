@@ -33,7 +33,7 @@ public class ApplyAsyncExample {
 			List<Employee> employeeList = EmployeeDB.fetchEmployees(noOfRec);
 //			employeeList.stream().forEach(i->System.out.println(i.toStringSpecific()));
 			return employeeList;
-		}, executor)
+		})
 
 		.thenApplyAsync((empList) -> {
 			biCon.accept("In Salary: ", Thread.currentThread().getName());
@@ -61,7 +61,7 @@ public class ApplyAsyncExample {
 		.thenApplyAsync((emp) -> {
 			biCon.accept("In PinCode : ", Thread.currentThread().getName());
 			return emp.stream().filter(i -> i.getePincode() > 500000).collect(Collectors.toList());
-		}, executor)
+		})
 		
 		.thenAcceptAsync((nameList) -> {
 			biCon.accept("In Print: ", Thread.currentThread().getName());
