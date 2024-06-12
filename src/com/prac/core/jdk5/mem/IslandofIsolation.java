@@ -25,7 +25,7 @@ public class IslandofIsolation {
  * 
  * https://data-flair.training/blogs/island-of-isolation-in-java/ The Island of
  * Isolation in Java In Java, object destruction is taken care by the Garbage
- * Collector module and the objects which don’t have any references to them are
+ * Collector module and the objects which dont have any references to them are
  * qualified for garbage gathering. Java garbage collector is a specialist,
  * proficient to distinguish this sort of objects.
  * 

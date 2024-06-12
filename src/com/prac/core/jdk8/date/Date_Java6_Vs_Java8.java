@@ -191,28 +191,28 @@ public class Date_Java6_Vs_Java8 {
  * https://www.baeldung.com/migrating-to-java-8-date-time-api
  * 
  * 1.2. API Flexibility
- * 
- * Another advantage is flexibility – working with multiple representations of
- * time. The old date library included only a single time representation class –
+ *
+ * Another advantage is flexibility working with multiple representations of
+ * time. The old date library included only a single time representation class
  * java.util.Date, which despite its name, is actually a timestamp. It only
  * stores the number of milliseconds elapsed since the Unix epoch.
- * 
+ *
  * The new API has many different time representations, each suitable for
  * different use cases:
- * 
- * 
- * Instant – represents a point in time (timestamp) LocalDate – represents a
- * date (year, month, day) LocalDateTime – same as LocalDate, but includes time
- * with nanosecond precision OffsetDateTime – same as LocalDateTime, but with
- * time zone offset LocalTime – time with nanosecond precision and without date
- * information ZonedDateTime – same as OffsetDateTime, but includes a time zone
- * ID OffsetLocalTime – same as LocalTime, but with time zone offset MonthDay –
- * month and day, without year or time YearMonth – month and year, without day
- * or time Duration – amount of time represented in seconds, minutes and hours.
- * Has nanosecond precision Period – amount of time represented in days, months
+ *
+ *
+ * Instant  represents a point in time (timestamp) LocalDate  represents a
+ * date (year, month, day) LocalDateTime  same as LocalDate, but includes time
+ * with nanosecond precision OffsetDateTime  same as LocalDateTime, but with
+ * time zone offset LocalTime  time with nanosecond precision and without date
+ * information ZonedDateTime  same as OffsetDateTime, but includes a time zone
+ * ID OffsetLocalTime  same as LocalTime, but with time zone offset MonthDay
+ * month and day, without year or time YearMonth  month and year, without day
+ * or time Duration  amount of time represented in seconds, minutes and hours.
+ * Has nanosecond precision Period  amount of time represented in days, months
  * and years
- * 
- * 
+ *
+ *
  * https://mkyong.com/java8/java-8-difference-between-two-localdate-or-
  * localdatetime/
  */

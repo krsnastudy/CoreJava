@@ -4,7 +4,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import lombok.var;
+import lombok.*;
 
 public class GroupAnagram {
 

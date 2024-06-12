@@ -1,9 +1,0 @@
-/target/
-.project
-.factorypath
-.classpath
-.idea
-.settings
-Core/.settings
-idea
-CoreJava.iml

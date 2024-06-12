@@ -20,7 +20,7 @@ public class SystemExit {
 
 /*
  * exit(0) : Generally used to indicate successful termination. exit(1) or
- * exit(-1) or any other non-zero value – Generally indicates unsuccessful
+ * exit(-1) or any other non-zero value Generally indicates unsuccessful
  * termination.
  * 
  * Terminates the currently running Java Virtual Machine. The argument serves as
