@@ -13,7 +13,7 @@ public class AsynExample {
     static final int noOfRec = 999;
     static final int cpuCores = Runtime.getRuntime().availableProcessors();
     static ExecutorService executor = Executors.newFixedThreadPool(cpuCores);
-    static BiConsumer<String, String> biConsumer = (a,b)-> System.out.println("Step: "+a+" -- Thread Name: "+b);
+    static BiConsumer<String, String> biConsumer = (a,b)-> System.out.println("\nStep: "+a+" -- Thread Name: "+b);
     PopulateEmpData data = new PopulateEmpData();
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
@@ -37,13 +37,13 @@ public class AsynExample {
             }, executor)
 
             .thenApplyAsync((list2)->{
-                biConsumer.accept("fName/lName Starts with K ", Thread.currentThread().getName());
+                biConsumer.accept("First Name/Last Name Starts with K ", Thread.currentThread().getName());
                 return list2.stream().filter(f->f.getFName().startsWith("K") || f.getLName().startsWith("K")).toList();
             }, executor)
 
             .thenApplyAsync((list3)->{
                 biConsumer.accept("Fetch Department ID -- Infra & IT", Thread.currentThread().getName());
-                return list3.stream().filter(f->f.getDeptCode().equals("IT") || f.getDeptCode().equals("Infra")).toList();
+                return list3.stream().filter(f->f.getDeptCode().equals("IT") || f.getDeptCode().equals("Admin") || f.getDeptCode().equals("Finance")).toList();
             })
 
             .exceptionallyAsync((exception)->{
@@ -61,8 +61,7 @@ public class AsynExample {
             .thenRunAsync(()->{
                 System.out.println();
                 biConsumer.accept("Completed the Async Programming ", Thread.currentThread().getName());
-            })
-        ;
+            });
 
         return empDetCF;
     }//psvm

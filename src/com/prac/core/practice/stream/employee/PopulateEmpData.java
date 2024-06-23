@@ -1,7 +1,5 @@
 package com.prac.core.practice.stream.employee;
 
-import com.prac.core.practice.stream.employee.Employee;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
