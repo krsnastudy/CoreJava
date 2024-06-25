@@ -1,7 +1,5 @@
 package com.prac.core.practice.stream.employee;
 
-import com.prac.core.practice.stream.employee.Employee;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.*;
@@ -14,11 +12,10 @@ public class EmployeeStreamPractice {
 	public static void main(String[] args) {
         PopulateEmpData exec = new PopulateEmpData();
         int noOfRecords = new Random().nextInt(5, 999);
-        List<Employee> empList = new ArrayList<>();
         int salRandom = new Random().nextInt(1, 9);
-        int salFilter = salRandom * 10000;        
-        
-        empList = exec.populateEmployeeData(noOfRecords);
+        int salFilter = salRandom * 10000;
+
+        List<Employee> empList = exec.populateEmployeeData(noOfRecords);
 
 /*        System.out.println("Printing "+noOfRecords+" Employees Information By Department Wise");
         empList.stream()

@@ -1,6 +1,7 @@
 package com.prac.core.practice.stream.employee;
 
 import java.util.Comparator;
+import java.util.Random;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -10,14 +11,12 @@ import java.util.function.BiConsumer;
 import static com.prac.core.practice.stream.employee.PopulateEmpData.populateEmployeeData;
 
 public class AsynExample {
-    static final int noOfRec = 999;
+    static final int noOfRec = new Random().nextInt(5, 999);;
     static final int cpuCores = Runtime.getRuntime().availableProcessors();
     static ExecutorService executor = Executors.newFixedThreadPool(cpuCores);
     static BiConsumer<String, String> biConsumer = (a,b)-> System.out.println("\nStep: "+a+" -- Thread Name: "+b);
-    PopulateEmpData data = new PopulateEmpData();
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-
         AsynExample asynExample = new AsynExample();
         asynExample.process().get();
         executor.shutdown();
@@ -27,7 +26,7 @@ public class AsynExample {
         // Fetch employees data
         CompletableFuture<Void> empDetCF = CompletableFuture
             .supplyAsync(()->{
-                biConsumer.accept("Fetching Employee Records", Thread.currentThread().getName());
+                biConsumer.accept("Fetching "+noOfRec+" Employee Records", Thread.currentThread().getName());
                 return populateEmployeeData(noOfRec);
             }, executor)
 
