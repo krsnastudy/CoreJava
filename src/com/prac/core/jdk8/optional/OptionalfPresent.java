@@ -1,6 +1,7 @@
 package com.prac.core.jdk8.optional;
 
 import java.util.OptionalInt;
+import java.util.Random;
 
 public class OptionalfPresent {
 
@@ -8,16 +9,18 @@ public class OptionalfPresent {
 
 		// create a OptionalInt
 //        OptionalInt opint = OptionalInt.empty();
-		 OptionalInt opint = OptionalInt.of(2234);
+		 OptionalInt opint = OptionalInt.of(new Random().nextInt(10, 9999));
  
         // apply ifPresent(IntConsumer)
         opint.ifPresent((value) -> {
-            value = value * 2;
-            System.out.println("Value after modification:=> " + value);        
-            
+            int multiplier = new Random().nextInt(2, 9);
+            System.out.println("Value Before, Multiplier:=> " + value+", "+multiplier);
+
+            value = value * multiplier;
+            System.out.println("Value After Modification:=> " + value);
         });
  
-        System.out.println("As OptionalInt is empty value"+ " is not modified");		
+//        System.out.println("As OptionalInt is empty value"+ " is not modified");
 
 	}
 
