@@ -22,7 +22,8 @@ public class LinkedHashMapHCL {
 		map.put("First", lhm);
 		map.put("First", lhm);
 		map.put("First", lhm);
-		
+
+		System.out.println("Map Size: "+map.size());
 		map.entrySet().stream().forEach(x->System.out.println(x.getKey()+" "+x.getValue()));
 		
 	}

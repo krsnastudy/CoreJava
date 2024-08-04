@@ -22,7 +22,5 @@ public class ReentrantLockExample1 {
 		l.unlock();
 		System.out.println("isLocked(): " + l.isLocked());
 		System.out.println("isFair(): " + l.isFair());
-
 	}
-
 }

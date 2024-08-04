@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class CharsCount {
@@ -45,7 +46,7 @@ public class CharsCount {
 		                1,                  // value to merge
 		                Integer::sum);      // counting
 		}
-		
+
 		System.out.println("Map.merge() : "+freqs);
 		
 		Map<Character, Integer> frequencies = str.chars().boxed()
@@ -55,6 +56,17 @@ public class CharsCount {
 		                v -> 1,         // 1 occurence
 		                Integer::sum)); // counting
 		System.out.println("\nFrequencies: ");
+
+		System.out.println("\nCollectors.groupingBy");
+				str.chars()
+						.mapToObj(c->(char)c)
+					    .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+						.entrySet().stream()
+						.forEach(e->
+								{
+									System.out.println(e.getKey()+" Character count: "+e.getValue());
+								}
+						);
 		
 		//Print Alphabetically
 //		frequencies.entrySet().stream().sorted((i1, i2)->i1.getKey().compareTo(i2.getKey())).forEach(i->System.out.print(i+" "));

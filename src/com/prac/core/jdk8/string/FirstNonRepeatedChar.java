@@ -27,7 +27,8 @@ public class FirstNonRepeatedChar {
 		System.out.println("First Non-Repeated Char: "+nChar);
 		
 		Character result =  str.chars()      //string stream
-	             .mapToObj(i -> Character.toLowerCase(Character.valueOf((char) i))) //convert to lowercase & then to Character object
+//	             .mapToObj(i -> Character.toLowerCase(Character.valueOf((char) i))) //convert to lowercase & then to Character object
+				 .mapToObj(c->(char)Character.toLowerCase(c))
 	             .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting())) //store in a map with the count
 	             .entrySet().stream()
 	             .filter(entry -> entry.getValue() == 1L)
