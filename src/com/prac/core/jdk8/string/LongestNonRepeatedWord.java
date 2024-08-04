@@ -1,10 +1,6 @@
 package com.prac.core.jdk8.string;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class LongestNonRepeatedWord {
 
@@ -37,7 +33,7 @@ public class LongestNonRepeatedWord {
 									.max((a, b) -> a.getKey() > b.getKey() ? 1 : -1)
 									.get()
 									.getValue();
-
+		System.out.println(hashmap.entrySet().stream().sorted(Comparator.comparing(String::valueOf).reversed()).findFirst().get());
 		System.out.println("nonRepeated: " + nonRepeated + " -- Length: " + maxKey);
 
 	}// psvm
