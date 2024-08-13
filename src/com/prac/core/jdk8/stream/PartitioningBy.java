@@ -15,11 +15,13 @@ public class PartitioningBy {
        Map<Boolean, List<Integer>> map = list.stream()
                                              .collect(Collectors.partitioningBy(i->i%2==0));
 
+       map.entrySet().stream().forEach(System.out::println);
+/*
        map.entrySet().stream().forEach(e->{
            if(e.getKey())
                System.out.println("Even: "+e.getValue());
            else
                System.out.println("Odd: "+e.getValue());
-       });
+       });*/
     }
 }

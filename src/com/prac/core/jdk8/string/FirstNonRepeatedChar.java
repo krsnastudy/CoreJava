@@ -1,5 +1,6 @@
 package com.prac.core.jdk8.string;
 
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.Function;
@@ -36,6 +37,13 @@ public class FirstNonRepeatedChar {
 	             .findFirst().get();
 		
 		System.out.println("First Non-Repeated Char: "+result);
+
+		String tempStr = "lohitaaksha";
+		System.out.println ("First Non-Repeated Char Using Filter: "+
+				Arrays.stream (tempStr.split (""))
+					  .filter (strng -> tempStr.indexOf (strng) == tempStr.lastIndexOf (strng))
+					  .findFirst ()
+					  .orElse (""));
 	}
 
 }
