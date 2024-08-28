@@ -7,7 +7,7 @@ import java.util.stream.IntStream;
 public class PrintCharacterSequences {
     public static Map<Character, Integer> seqMap = new HashMap<>();
     public static void main(String[] args) {
-        String input = "b3c6d15"; //"a1b2c3d4e5f11";
+        String input = "a1b2c3d4e5f11"; //"a1b2c3d4e5f11","b3c6d15";
 //        convert("a1b10");
         printCharSequence_jdk8(input);
     }
