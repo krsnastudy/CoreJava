@@ -1,6 +1,7 @@
 package com.prac.core.jdk8.predefinedfunctions.consumer;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
@@ -14,6 +15,12 @@ public class ConsumerExample {
 //		Consumer<String> c = x->System.out.println(x);
 		Consumer<String> c = System.out::println;
 //		c.accept("RK");
+		Consumer<String> upperCase = x->System.out.println(x.toUpperCase());
+		upperCase.accept("india");
+
+		Consumer<String> c1 = x->x.toUpperCase();
+		Arrays.asList("ter", "adata").stream().forEach(y->c1.accept(y));
+
 
 		List<Employee> empData = new ArrayList<Employee>();
 		int noOfRecords = 10; // How many records you want
