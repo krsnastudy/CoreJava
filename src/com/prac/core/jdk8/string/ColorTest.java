@@ -20,7 +20,7 @@ public class ColorTest {
 		Integer arr[] = { 1, 2, 3, 4 };
 		Arrays.sort(arr, nc);
 		for (Integer i : arr) {
-			System.out.println(i + " ");
+			System.out.print(i + " ");
 		}
 	}
 

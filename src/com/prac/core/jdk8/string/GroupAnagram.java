@@ -103,8 +103,11 @@ public class GroupAnagram {
 		/***************************/
 		 List<String> words2 = Arrays.asList("pool", "loop", "stream", "arc",
 			        "odor", "car", "rood", "meats", "fires", "fries",
-			        "night", "thing", "mates", "teams");
-		
+			        "night", "thing", "mates", "teams", "rac", "polo");
+
+		System.out.println();
+		System.out.println("Words Given : "+words2.stream().collect(Collectors.joining(", ")));
+
 		/***** JDK5 Logic *******/
 		 Map<String, List<String>> jdk5Map = new HashMap<>();
 		 jdk5Map = groupAnagrams_JDK5(words2);
