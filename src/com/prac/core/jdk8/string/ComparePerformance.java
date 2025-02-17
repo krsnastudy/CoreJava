@@ -4,7 +4,7 @@ public class ComparePerformance {
 
 	public static void main(String args[]) {
 		long start1 = System.currentTimeMillis();
-			for (int i = 0; i < 10000; i++) {
+			for (int i = 0; i < 10000000; i++) {
 				String s1 = "Hello World";
 				String s2 = "Welcome";
 			}
@@ -13,7 +13,7 @@ public class ComparePerformance {
 		System.out.println("Time taken to execute String Literal = " + total_time);
 		
 		long start2 = System.currentTimeMillis();
-			for (int i = 0; i < 10000; i++) {
+			for (int i = 0; i < 10000000; i++) {
 				String s3 = new String("Hello World");
 				String s4 = new String("Welcome ");
 			}
