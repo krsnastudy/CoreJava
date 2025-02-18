@@ -34,7 +34,7 @@ public class FindMinMaxMultipleValue {
             maxValue=maxProd2;
             iMax1=iArr[arrLen-2]; iMax2=iArr[arrLen-1];
         }
-        System.out.println("Logic1: Max Multiplication Value ["+iMax1+", "+iMax2+"] "+"is : "+maxValue);
+        System.out.println("Logic2: Max Multiplication Value ["+iMax1+", "+iMax2+"] "+"is : "+maxValue);
 
         /** Finding Min Multiplication Value **/
         for(int i=0; i<iArr.length; i++){
