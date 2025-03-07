@@ -148,3 +148,9 @@ public class StreamPractice {
 	} //psvm
 
 }
+
+/**
+*
+https://medium.com/@veenaraofr/java8-stream-api-commonly-asked-questions-about-employee-highest-salary-99c21cec4d98
+*
+* */

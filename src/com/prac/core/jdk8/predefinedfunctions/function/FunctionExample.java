@@ -14,7 +14,7 @@ public class FunctionExample {
 		System.out.println("Spaces Count : " + fS.apply(str));
 
 		/* andThen & compose are Default function */
-		Function<Integer, Integer> f1 = i -> i + i;
+		Function<Integer, Integer> f1 = i -> i * i;
 		Function<Integer, Integer> f2 = i -> i * i * i;
 
 		System.out.println("Function Apply: Square: " + f1.apply(4));
@@ -23,6 +23,11 @@ public class FunctionExample {
 		System.out.println("Function Chaining (andThen): " + f1.andThen(f2).apply(4)); // f1 andThen f2
 		System.out.println("Function Chaining (Compose): " + f1.compose(f2).apply(4)); // f2 first andThen f1 -- Order
 																						// difference
+
+		Function<Double, Double> half = a -> a / 2.0;
+		Function<Double, Double> triple = a -> 3.0 * a;
+		System.out.println("andThen :: "+half.andThen(triple).apply(10.0));
+		System.out.println("compose :: "+half.compose(triple).apply(9.0));
 
 		/* Identity is a static function : return same object */
 		Function<String, String> f3 = Function.identity();

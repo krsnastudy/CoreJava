@@ -9,6 +9,7 @@ import java.time.LocalDate;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder(builderMethodName = "")
 public class Employee {
 	
 	@ToString.Include(name="First Name")
