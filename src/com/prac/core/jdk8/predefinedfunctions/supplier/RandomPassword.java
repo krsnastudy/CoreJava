@@ -8,11 +8,12 @@ public class RandomPassword {
 
 	public static void main(String[] args) {
 
-		int pwdLength = 11, noOfPwdCount=9;
+		int pwdLength = 14, noOfPwdCount=9;
 		final String passString = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&_+=)(&%~|-";
 		Supplier<Integer> digit = () -> (int) (Math.random() * 10);
 		/*Supplier<Integer> randomDigit = () -> (int) (Math.random() * passString.length()); //randomDigit.get()*/
 		IntSupplier randomDigit = () -> (int) (Math.random() * passString.length());  //randomDigit.getAsInt()
+		System.out.println("Generating Password of Length: "+pwdLength+" & Count: "+noOfPwdCount+" -- randomDigit: "+randomDigit.getAsInt());
 
 		Supplier<String> randomPassword = () -> {
 			String pwd = "";

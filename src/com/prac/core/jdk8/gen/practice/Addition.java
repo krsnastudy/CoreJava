@@ -11,7 +11,7 @@ public class Addition {
 		Random random = new Random();
 		int range = 100;
 
-		for (int i = 1; i < 1000000; i++) {
+		for (int i = 1; i < 20; i++) {
 			int i1 = random.nextInt(range);
 			int i2 = random.nextInt(range);
 
@@ -21,9 +21,7 @@ public class Addition {
 				str = i1 + " + " + i2 + " = ";
 				lhs.add(str);
 			}
-			
 		}
-		
 //		System.out.println("Size: "+lhs.size());
 
 		lhs.stream().forEach(x -> System.out.println(x));
