@@ -36,7 +36,7 @@ public class ArrayListDuplicates {
 		System.out.println("List with Only occurance Once: " + res);
 
 		res = org.stream().distinct().collect(Collectors.toList());
-		System.out.println("List without Duplicates: " + res);
+		System.out.println("List with unique values: " + res);
 
 		List<String> list1 = new ArrayList<>();
 		list1.add("M1");
