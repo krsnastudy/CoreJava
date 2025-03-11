@@ -12,3 +12,16 @@ public class BinaryOperatorEx {
 		System.out.println("BinaryOperator Power: " + p.apply(15, 6));
 	}
 }
+
+
+
+/*
+*
+*
+*
+Functional Interface	Input Type	Output Type	Use Case
+BinaryOperator<T>	T, T	T	Operations on two inputs of the same type
+Function<T, R>	T	R	Converts one type to another
+*
+*
+* */

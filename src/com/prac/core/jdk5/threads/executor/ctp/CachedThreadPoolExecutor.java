@@ -1,5 +1,6 @@
 package com.prac.core.jdk5.threads.executor.ctp;
 
+import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -36,5 +37,7 @@ public class CachedThreadPoolExecutor{
             System.out.println("Thread: "+threadList[i].getName());
         }
         System.out.println();
-	}
+        Arrays.stream(threadList).forEach(System.out::println);
+        System.out.println();
+    }
 }
