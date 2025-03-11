@@ -1,4 +1,4 @@
-package com.prac.core.jdk5.concurrency.locks;
+package com.prac.core.jdk5.concurrency.locks.reentrant;
 
 import java.util.concurrent.locks.ReentrantLock;
 

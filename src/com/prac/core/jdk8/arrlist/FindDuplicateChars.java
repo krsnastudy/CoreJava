@@ -1,16 +1,14 @@
 package com.prac.core.jdk8.arrlist;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 
 public class FindDuplicateChars {
     public static void main(String[] args) {
-        String input="vivek kadiyan";
+        String input="When we write a java program then all the variables, methods, etc are stored in the stack memory.";
         List<String> duplicateCharacter = findDuplicateChracter(input);
         System.out.println("Duplicate character::::"+duplicateCharacter);
     }
