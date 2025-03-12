@@ -18,7 +18,7 @@ public class FixedThreadPoolExecutor {
 		
 		for(int i=0; i<30; i++) {
 			service.execute(new Task());
-			
+
 			service.execute(new Runnable() {
 				@Override
 				public void run() {
@@ -31,25 +31,29 @@ public class FixedThreadPoolExecutor {
 		
 		service.shutdown();
 		service.awaitTermination(20, TimeUnit.SECONDS);
-		
-	/*** Active Threads ****/
 		Thread.sleep(10000);
+		threadsActiveCount();
+	}
+
+	public static void threadsActiveCount(){
+		/*** Active Threads ****/
+//		Thread.sleep(10000);
 		// getting the group of the threads/
-        ThreadGroup threadGroup = Thread.currentThread().getThreadGroup();
-        
-        // getting the total active count of the threads
-        int threadCount = threadGroup.activeCount();
-        System.out.println("\nThreads Count: "+threadCount+", their names as below");
-        
-        Thread threadList[] = new Thread[threadCount];
-        // enumerating over the thread list
-        threadGroup.enumerate(threadList);
-        
-        // iterating over the for loop to get the names of
-        // all the active threads.
-        for (int i = 0; i < threadCount; i++) {
-            System.out.println("threadGroup: "+threadList[i].getName());
-        }
-        System.out.println();
+		ThreadGroup threadGroup = Thread.currentThread().getThreadGroup();
+
+		// getting the total active count of the threads
+		int threadCount = threadGroup.activeCount();
+		System.out.println("\nThreads Count: "+threadCount+", their names as below");
+
+		Thread threadList[] = new Thread[threadCount];
+		// enumerating over the thread list
+		threadGroup.enumerate(threadList);
+
+		// iterating over the for loop to get the names of
+		// all the active threads.
+		for (int i = 0; i < threadCount; i++) {
+			System.out.println("threadGroup: "+threadList[i].getName());
+		}
+		System.out.println();
 	}
 }
