@@ -4,6 +4,9 @@ public class StringPractice1 {
 
 	public static void main(String[] args) {
 		bar();
+
+		String str = "HelloWorld";
+		System.out.println(str.substring(5));
 	}
 
 	public static int foo(int a, String s) {

@@ -31,7 +31,7 @@ public class LongestSubstring {
 				charPosMap.put(ch, i);
 			}
 
-			// If ch is already present in charPosMap, reposioning the cursor i to the
+			// If ch is already present in charPosMap, repositioning the cursor i to the
 			// position of ch and clearing the charPosMap
 
 			else {
