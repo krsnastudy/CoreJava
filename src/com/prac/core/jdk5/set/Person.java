@@ -1,24 +1,23 @@
 package com.prac.core.jdk5.set;
 
-import java.util.Objects;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 import lombok.*;
+
+import java.util.Objects;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Builder(builderMethodName = "")
+@Builder(builderMethodName = "Person")
 public class Person {
 
 	private String name;
 	private int age;
+
+	public Person(String xyz, int i) {
+		this.name=xyz;
+		this.age = i;
+	}
 
 	@Override
 	public int hashCode() {
