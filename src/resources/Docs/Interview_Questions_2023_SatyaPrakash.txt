@@ -1,0 +1,297 @@
+ddos attacks
+
+service mesh in k8s , ingress
+
+hacking scenario
+
+hashmap value sorting
+
+list and map sorting
+
+service mesh - still internal micro service security ?
+
+Adapter pattern
+
+load on database - replica, sharding, partitioning, vertical scaling, caching techniques
+
+low latency and high availability applicaitons
+
+bulkhead patterns
+
+ratelimiting implementation
+
+/*****/
+Containter or pod autoscaling
+
+Ans: 
+Auto Scaling of a Container or Pod in Kubernetes & Docker
+Types of Auto Scaling
+1. Horizontal Scaling (Scale-Out & Scale-In)
+Increases or decreases the number of pods or containers based on CPU, memory, or custom metrics.
+Used when multiple instances are required for handling increased traffic.
+
+2️. Vertical Scaling (Scale-Up & Scale-Down)
+Increases or decreases the CPU and memory resources allocated to a single pod or container.
+Used when a single instance needs more resources instead of adding more pods.
+
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: my-spring-app-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: my-spring-app
+  minReplicas: 1
+  maxReplicas: 10
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 50  # Scale up when CPU usage exceeds 50%
+
+
+
+/*****/
+nodes or workernodes autoscaling -- this to be checked
+
+sping oauth2 framework -
+
+/**************/
+jwt - transactions - during if it expires how to handle
+Handling Expired JWT in API Calls
+Ans: When a JWT (JSON Web Token) expires during an API call, you need to implement token refresh logic to handle authentication seamlessly.
+
+How to Handle Expired JWT?
+There are two common solutions:
+
+1. Refresh Token Mechanism (Recommended)
+Use a short-lived access token (e.g., 15 minutes).
+
+Issue a long-lived refresh token (e.g., 7 days).
+
+When the access token expires, the client requests a new access token using the refresh token.
+
+2. Graceful Expiry Handling
+If a JWT expires mid-transaction, return a 401 Unauthorized response.
+
+The client can retry the request with a refreshed token.
+
+Summary
+Method	Approach
+1 Refresh Token (Recommended)	Issue a long-lived refresh token to get a new access token when expired.
+2 Graceful Handling	Detect JWT expiration, return 401 Unauthorized, and let the client retry.
+✅ Refresh Token is the best approach for handling expired JWTs without requiring frequent re-authentication.
+
+/**********
+
+jwt - any chance of hacking - what are the best practices for handling more security
+
+how to ensure singleton cannot break
+
+what are state, observer, template, strategy patterns
+
+what are ports and port translations - what is the role of adapters here
+
+
+multitenancy and how to handle different data formats
+
+two phase commit in sharding or partitioning - need to check
+
+pods autoscaling
+
+what is the use of serialversionid in serialization
+
+
+which  garbage collector is used for specific scenario
+
+which Database type is good for transaction management
+
+L1
+
+
+
+kafka best for push or pull ?
+
+microserives design patterns
+
+HPA pods autoscaling
+
+singleton 
+
+what is use of singleton classes
+
+what is singleton in terms of spring
+
+java 17 - how to handled
+
+how java compare to scala and python
+
+kafka back pressure
+
+
+L1 L2 caching in hibernate
+any caching techniques
+
+how to break singleton
+
+jwt structure
+
+refresh token
+
+
+
+
+
+protivit
+
+react with typescript 
+calling props from child to parent component - call back mechanisams
+axios
+redux model
+hooks
+userRef
+
+
+
+
+distributed tracing
+
+jenkins pipeline lifecycles
+
+
+
+
+
+
+
+
+
+
+wellsfargo
+
+dependency injection
+
+service mesh 
+
+why k8s - different from docker containter
+security concerns on microserives
+
+how to process huge volume of data via rest endpoint
+ multithreading parralel streams completablefuture async
+
+monlothic to microservices
+
+
+SSO implementation[LDAP] - what are the spring dependencies to consider
+
+where to store credentials in microservices
+
+interceptors and filters
+
+@configuration
+
+
+
+
+
+Lululemon
+
+any microservice templates using
+
+
+
+
+HP
+
+
+how to redirect new micro service functionality at production 
+without downtime where the changes to be taken place
+
+porting and adapters
+multitenancy 
+
+distributed tracing or logging
+
+code for circuit breaker - hystrix and resiliency
+
+
+
+ENCORA		   
+		   1.sort employee objects by id or sal
+		   2. how to break singleton
+		   3. what is locking
+		   4. why wait notify at objects
+		   5. why hashmap is not synchronized
+
+The reason is that the HashMap object referenced by the static variable cache is shared by all calls to isPrime() , and HashMap is not threadsafe.
+
+
+		   6. diff betwen hashmap and concurrenthashmap
+		   7. diff between map and flatmap
+ the flatMap() method applies operation as a mapper function and provides a stream of element values. It means that in each iteration of each element the map() 
+ method creates a separate new stream. By using the flattening mechanism, it merges all streams into a single resultant stream.
+ 
+ 
+ 
+ 
+ IBS
+ 
+ what is the diff of parrallel stream and normal stream
+
+completable future example runAsync and supplyAsync
+
+find 3rd max slaray from employee ****
+
+what happens if prototype object kept in singleton class
+
+solid design patterns
+
+meta space vs permgen
+
+restapi http methods = get post put patch 
+
+httpstatus 201 and 203 ****
+
+how auto configuration in springboot works
+
+how to write custom actuator in spring boot *****
+
+collections groupingby - what is the use and example
+
+jpa repo built in methods where it stored or defined
+
+microservice architecture
+saga
+circuit breaker
+
+securing the rest endpoint
+
+how to create thread pools
+
+classes in executor service
+
+JVM architecture
+how linkedhashmap works internally
+
+
+
+swissre
+
+kafka load on consumers how to handle
+multitenacy 
+
+kakfa message duplicaiton how to handle
+
+SOA and microservices differences
+
+kafka vs rabbit mq - faulttolerance
+
+
+
+
+
+
