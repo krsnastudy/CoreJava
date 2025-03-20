@@ -11,7 +11,7 @@ public class Fibonacci {
 		int series=15;
 		System.out.println("Fibonacci["+series+"]: "+generateFibonacci(series));
 		
-        List<Integer> list = Stream.iterate(new int[]{0, 1}, n -> new int[]{n[1], n[0] + n[1]})
+        List<Integer> list = Stream.iterate(new int[]{0,1}, n->new int[]{n[0], n[0]+n[1]})
 				.limit(series)
 				.map(n -> n[0])
 				.collect(Collectors.toList());
