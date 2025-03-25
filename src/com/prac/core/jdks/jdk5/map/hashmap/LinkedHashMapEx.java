@@ -5,7 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import com.prac.core.jdk8.util.CoreUtil;
+import com.prac.core.jdks.jdk8.util.CoreUtil;
 
 public class LinkedHashMapEx {
 

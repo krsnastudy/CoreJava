@@ -8,7 +8,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import com.prac.core.jdk8.handson.CharsToMaps;
+import com.prac.core.jdks.jdk8.handson.CharsToMaps;
 
 public class CharsToMapsTest {
 	static Map<Character, Integer> map;
