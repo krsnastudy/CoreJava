@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import com.prac.core.jdk8.stream.employee.data.Employee;
-import com.prac.core.jdk8.stream.employee.data.EmployeeExt;
-import com.prac.core.jdk8.stream.employee.data.PopulateEmpData;
+import com.prac.core.jdks.jdk8.stream.employee.data.Employee;
+import com.prac.core.jdks.jdk8.stream.employee.data.EmployeeExt;
+import com.prac.core.jdks.jdk8.stream.employee.data.PopulateEmpData;
 
 public class StreamHandsOn {
 

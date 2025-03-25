@@ -7,7 +7,7 @@ import java.lang.reflect.Method;
 
 import org.junit.jupiter.api.Test;
 
-import com.prac.core.jdk5.gen.Adding;
+import com.prac.core.jdks.jdk5.gen.Adding;
 
 class AddingTest {
 
