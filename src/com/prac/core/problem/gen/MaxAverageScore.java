@@ -1,6 +1,6 @@
 package com.prac.core.problem.gen;
 
-import com.prac.core.jdk5.arrays.Array;
+import com.prac.core.jdks.jdk5.arrays.Array;
 
 import java.util.List;
 

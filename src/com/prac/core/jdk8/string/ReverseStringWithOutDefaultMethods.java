@@ -1,6 +1,6 @@
 package com.prac.core.jdk8.string;
 
-import com.prac.core.jdk5.arrays.Array;
+import com.prac.core.jdks.jdk5.arrays.Array;
 
 import java.util.Arrays;
 
