@@ -1,4 +1,4 @@
-package com.prac.core.jdk11.string;
+package com.prac.core.jdks.jdk11.string;
 
 public class StringClassEx {
 
