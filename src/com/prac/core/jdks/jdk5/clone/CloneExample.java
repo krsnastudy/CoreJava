@@ -5,18 +5,7 @@ package com.prac.core.jdks.jdk5.clone;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-//Class of Car
-class Car {
-	public String name;
-	public ArrayList<String> colors;
-
-	public Car(String name, ArrayList<String> colors) {
-		this.name = name;
-		this.colors = colors;
-	}
-}
-
-public class ConeExample {
+public class CloneExample {
 	public static void main(String[] args) {
 		// Create a Honda car object
 		ArrayList<String> hondaColors = new ArrayList<>();
