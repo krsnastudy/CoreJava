@@ -43,7 +43,7 @@ public class ArrayListEx {
 		System.out.println(arr.size());
 		arr.add(0, "Zero");
 		arr.add(1, "One");
-		arr.add(3, "Three");
+		arr.add(3, "Three"); // Exception in thread "main" java.lang.IndexOutOfBoundsException: Index: 3, Size: 2
 		System.out.println("List: " + arr);
 	}
 

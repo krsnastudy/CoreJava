@@ -2,7 +2,7 @@ package com.prac.core.jdks.jdk8.staticclass;
 
 public class StaticParent {
 	
-	public static void methodOne() {
+	static void display() {
 		System.out.println("Parent Class");
 	}
 
