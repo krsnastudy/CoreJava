@@ -1,9 +1,18 @@
 package com.prac.core.jdks.jdk8.threads.completablefuture.async;
 
+import com.prac.core.jdks.jdk11.files.FileChanges;
 import com.prac.core.jdks.jdk8.stream.employee.data.Employee;
+import com.prac.core.jdks.jdk8.stream.employee.data.EmployeeExt;
+import com.prac.core.jdks.jdk8.stream.employee.data.PopulateEmpData;
+import lombok.SneakyThrows;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -13,12 +22,13 @@ import java.util.stream.Collectors;
 
 public class ApplyAsyncChainOfTasksExample {
 	static final int noOfRec = 1000;
-	static MyThreadFactory cacheThreadFactory = new MyThreadFactory("CachedThreadPool-");
-	static MyThreadFactory scheduledThreadFactory = new MyThreadFactory("ScheduledThreadPool-");
-	static MyThreadFactory singleThreadFactory = new MyThreadFactory("SingleThreadExecutor-");
+	static MyThreadFactory cacheThreadFactory = new MyThreadFactory("CachedThreadPool-Thread");
+	static MyThreadFactory scheduledThreadFactory = new MyThreadFactory("ScheduledThreadPool-Thread");
+	static MyThreadFactory singleThreadFactory = new MyThreadFactory("SingleThreadExecutor-Thread");
+	static MyThreadFactory fixedThreadFactory = new MyThreadFactory("FixedThreadPool-Thread");
 
 	static ExecutorService fixedThreadPoolExecutor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
-	static ExecutorService fixedThreadPoolExecutor1 = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+	static ExecutorService fixedThreadPoolExecutor1 = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors(), fixedThreadFactory);
 	static ExecutorService cacheExecutor = Executors.newCachedThreadPool(cacheThreadFactory);
 	static ExecutorService scheduledExecutor = Executors.newScheduledThreadPool(Runtime.getRuntime().availableProcessors(), scheduledThreadFactory);
 	static ExecutorService singleThreadExecutor = Executors.newSingleThreadExecutor(singleThreadFactory);
@@ -28,6 +38,7 @@ public class ApplyAsyncChainOfTasksExample {
 		shutdownExecutors();
 	}
 
+	@SneakyThrows
 	public static CompletableFuture<Void> process() {
 
 		BiConsumer<String, String> biCon = (stage, threadName) ->
@@ -86,7 +97,14 @@ public class ApplyAsyncChainOfTasksExample {
 			Comparator<Employee> salComparator = Comparator.comparing(Employee::geteSal).thenComparing(Employee::getDepartment).reversed();
 			System.out.println("\nFinal Records "+nameList.size()+" out of "+noOfRec+" Records [OUTPUT display restricted to "+printCount+" Records Only]");
 			nameList.stream().sorted(salComparator).limit(printCount).forEach(ApplyAsyncChainOfTasksExample::printName);
-		}, fixedThreadPoolExecutor1);
+		}, fixedThreadPoolExecutor1)
+
+		.thenAcceptAsync((empList)->{
+			System.out.println();
+			biCon.accept("FileWrite", Thread.currentThread().getName());
+			FileChanges.writeFile("empDetails.txt");
+		}, fixedThreadPoolExecutor1)
+	;
 
 		return voidCompletableFuture;
 	}// process()
