@@ -1,4 +1,4 @@
-package com.prac.core.jdks.jdk8.stream;
+package com.prac.core.jdks.jdk8.string;
 
 import java.util.Arrays;
 import java.util.List;
