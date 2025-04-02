@@ -17,6 +17,12 @@ public class ReverseIndividualWord {
 		System.out.println("Reverse String: "+revStr);
 //		System.out.println("Reverse Entire String: "+ new StringBuffer(revStr).reverse());
 
+
+		String revWords = Arrays.stream(str.split("\\s+"))
+				.reduce((a, b) -> b + " " + a)
+				.orElse(" ");
+
+		System.out.println(revWords);
 	}
 
 }
