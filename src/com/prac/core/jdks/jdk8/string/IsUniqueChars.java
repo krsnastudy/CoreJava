@@ -2,42 +2,54 @@ package com.prac.core.jdks.jdk8.string;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class IsUniqueChars {
 
-	public static void main(String[] args) {
-		String check = "car";
-		System.out.println(check + " is Unique String : " + isUnique("car"));
-		System.out.println(check + " is Unique String : " + checkForUnique("car"));
-		
-	}
+    public static void main(String[] args) {
+        String check = "car";
+        System.out.println(check + " is Unique String : " + isUnique("car"));
+        System.out.println(check + " is Unique String : " + checkForUnique("car"));
+        System.out.println(check + " is Unique String : " + checkUniqueCharacters("car"));
 
-	public static boolean isUnique(String input) {
+    }
 
-		Set<Character> hSet = new HashSet<>();
-		char[] cArray = input.toCharArray();
+    public static boolean isUnique(String input) {
 
-		for (Character c : cArray) {
-			if (!hSet.add(c)) {
-				return false;
-			}
-		}
-		return true;
-	}
+        Set<Character> hSet = new HashSet<>();
+        char[] cArray = input.toCharArray();
 
-	public static boolean checkForUnique(String str) {
-		boolean containsUnique = false;
+        for (Character c : cArray) {
+            if (!hSet.add(c)) {
+                return false;
+            }
+        }
+        return true;
+    }
 
-		for (char c : str.toCharArray()) {
-			if (str.indexOf(c) == str.lastIndexOf(c)) {
-				containsUnique = true;
-			} else {
-				containsUnique = false;
-			}
-		}
+    public static boolean checkForUnique(String str) {
+        boolean containsUnique = false;
 
-		return containsUnique;
-	}
+        for (char c : str.toCharArray()) {
+            if (str.indexOf(c) == str.lastIndexOf(c)) {
+                containsUnique = true;
+            } else {
+                containsUnique = false;
+            }
+        }
+
+        return containsUnique;
+    }
+
+    public static boolean checkUniqueCharacters(String str) {
+
+        Set<Character> characterSet =
+                str.chars()
+                   .mapToObj(m -> (char) m)
+                   .collect(Collectors.toSet());
+
+        return str.length() == characterSet.size();
+    }
 }
 
 /*
