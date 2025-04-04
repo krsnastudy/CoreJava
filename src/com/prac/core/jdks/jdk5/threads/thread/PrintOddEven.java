@@ -32,8 +32,10 @@ public class PrintOddEven {
         for (int i = 0; i < threadCount; i++)
             System.out.println(threadList[i].getName());
         
-        t1.stop();
-        t2.stop();
-        
+//        t1.stop(); //'stop()' is deprecated since version 1.2 and marked for removal
+//        t2.stop();
+
+        t1.interrupt();
+        t2.interrupt();
     } //psvm
 } // PrintOddEven
