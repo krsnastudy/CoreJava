@@ -1,7 +1,5 @@
 package com.prac.core.jdks.jdk8.threads.objectclassLock;
 
-import org.springframework.scheduling.annotation.Async;
-
 import java.util.stream.IntStream;
 
 public class MainObjectLock {
@@ -32,7 +30,6 @@ public class MainObjectLock {
         callAsync();
     }
 
-    @Async
     public static void callAsync(){
         CounterObjectLock c1 = new CounterObjectLock();
 
