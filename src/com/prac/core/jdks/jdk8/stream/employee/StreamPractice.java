@@ -61,9 +61,14 @@ public class StreamPractice {
 		
 		Map<GenderCode, List<EmployeeExt>> genderMap =
 				empDet.stream().collect(Collectors.groupingBy(EmployeeExt::getEmpGender));
-		
+
+		/**** Sum of Salary by Dept *****/
+		System.out.println("\n**** Sum of Salary by Dept *****");
+		empDet.stream().collect(Collectors.groupingBy(Employee::getDepartment, Collectors.summingDouble(Employee::geteSal)))
+				.entrySet().stream().forEach(e-> System.out.println("Deptartment: "+e.getKey()+" :: "+e.getValue()));
+
 		// Employees count by Gender 
-		String genderLabel = "Employees count by Gender";
+		String genderLabel = "\nEmployees count by Gender";
 		System.out.println("/******** "+genderLabel+" *********/");
 		empDet.stream()
 			.distinct()
@@ -144,7 +149,11 @@ public class StreamPractice {
 				 +"\n bySummarizingDouble: "+bySummarizingDouble);	
 		 	
 		 System.out.println("/******** Sum of Salary *********/");
-		 
+
+
+		 /****** partitioningBy **********/
+		empDet.stream().collect(Collectors.partitioningBy(p -> p.getEmpGender().equals("Male"))).entrySet().stream().forEach(e-> System.out.println(e.getKey()));
+
 	} //psvm
 
 }

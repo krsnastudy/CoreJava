@@ -38,11 +38,11 @@ public class NthRepeatedChar {
         System.out.println("First Repeating Character: " + firstRepeating.orElse(null));
 
         System.out.println();
-        System.out.println("First Repeating Character: " + getRepeatedChar(charMap, 1));
-        System.out.println("Second Repeating Character: " + getRepeatedChar(charMap, 2));
-        System.out.println("Third Repeating Character: " + getRepeatedChar(charMap, 3));
-        System.out.println("Fourth Repeating Character: " + getRepeatedChar(charMap, 4));
-        System.out.println("Fifth Repeating Character: " + getRepeatedChar(charMap, 5));
+        System.out.println("First Highest Repeating Character: " + getRepeatedChar(charMap, 1));
+        System.out.println("Second Highest Repeating Character: " + getRepeatedChar(charMap, 2));
+        System.out.println("Third Highest Repeating Character: " + getRepeatedChar(charMap, 3));
+        System.out.println("Fourth Highest Repeating Character: " + getRepeatedChar(charMap, 4));
+        System.out.println("Fifth Highest Repeating Character: " + getRepeatedChar(charMap, 5));
 
     }
 

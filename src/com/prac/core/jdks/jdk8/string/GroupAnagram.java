@@ -83,9 +83,18 @@ public class GroupAnagram {
 	}
 	
 	public static Map<String, List<String>> groupAnagrams_JDK8(List<String> words){
+//		return words.stream().collect(Collectors.groupingBy(GroupAnagram::sortString));
 		return words.stream().collect(Collectors.groupingBy(w -> sortString(w)));
 	}
-	
+
+	public static Map<String, List<String>> groupAnagrams_JDK8_(List<String> words){
+		return words.stream().collect(Collectors.groupingBy(word -> {
+			char[] cArr = word.toCharArray();
+			Arrays.sort(cArr);
+			return String.valueOf(cArr);
+		}));
+	}
+
 	public static void main(String[] args) {
 		// list of words
 		List<String> words = Arrays.asList("CARS", "REPAID", "DUES", "NOSE", "SIGNED", "LANE", "PAIRED", "ARCS", "GRAB",
