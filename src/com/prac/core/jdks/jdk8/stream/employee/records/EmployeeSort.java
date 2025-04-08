@@ -1,6 +1,5 @@
 package com.prac.core.jdks.jdk8.stream.employee.records;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.function.Function;
@@ -12,8 +11,7 @@ public class EmployeeSort {
         int noOfRecords = 1000; // How many records you want
 
         // Creating a list of employees
-        List<Employee> emp = new ArrayList<>();
-        emp=PopulateEmpData.populateEmpData(noOfRecords);
+        List<Employee> emp = PopulateEmpData.populateEmpData(noOfRecords);
 
         Function<Employee, String> deptFunc = Employee::employeeDepartment;
         Function<Employee, Integer> ageFunc = Employee::employeeAge;
@@ -25,10 +23,11 @@ public class EmployeeSort {
                 .forEach(e->{
                     System.out.println(
                             "Department: "+e.getKey()+" Highest Salary :: "
-                            + e.getValue().parallelStream().collect(Collectors.maxBy(Comparator.comparing(Employee::employeeSal))).map(m->"[ID ("+m.employeeNumber()+") - Name("+m.firstName()+") ] "+m.employeeSal()).get().toString()
+                            + e.getValue().parallelStream()
+                                    .collect(Collectors.maxBy(Comparator.comparing(Employee::employeeSal)))
+                                    .map(m->"[ID ("+m.employeeNumber()+") - Name("+m.firstName()+") ] "+m.employeeSal())
+                                    .get().toString()
                     );
                 });
-        ;
-
     }
 }

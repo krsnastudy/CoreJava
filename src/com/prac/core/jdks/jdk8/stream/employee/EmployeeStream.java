@@ -11,6 +11,7 @@ import java.util.Optional;
 import java.util.TreeMap;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import com.prac.core.jdks.jdk8.stream.employee.data.Department.DepartmentCode;
 import com.prac.core.jdks.jdk8.stream.employee.data.Employee;
@@ -19,7 +20,7 @@ import com.prac.core.jdks.jdk8.stream.employee.data.PopulateEmpData;
 public class EmployeeStream {
 
 	public static void main(String[] args) {
-		int noOfRecords = 20; // How many records you want
+		int noOfRecords = 5; // How many records you want
 		List<Employee> emp = new ArrayList<Employee>();
 		PopulateEmpData exec = new PopulateEmpData();
 		emp = exec.populateEmpData(noOfRecords);
@@ -140,7 +141,27 @@ public class EmployeeStream {
 			v.stream().collect(Collectors.maxBy(Comparator.comparing(Employee::geteSal))).get().toStringSpecific());
 		});
 
+/*
+		System.out.println("\n<<< 2nd Highest Salary Paid Persons >>>");
+		List<Employee> employeeList = new ArrayList<Employee>();
+		IntStream.rangeClosed(1,2)
+				.forEach(e->employeeList.addAll(exec.populateEmpData(noOfRecords)));
+		System.out.println(employeeList);
+
+
+		List<Employee> value = employeeList.stream()
+				.collect(Collectors.groupingBy(Employee::geteSal, Collectors.toList()))
+				.entrySet().stream()
+				.sorted(Map.Entry.comparingByValue(Comparator.comparing(Employee::geteSal)).reversed())
+				.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (a, b) -> b, LinkedHashMap::new))
+				.entrySet().stream()
+				.toList().get(2).getValue();
+
+		System.out.println(value);
+ */
+
 	}
+
 }
 
 /*
