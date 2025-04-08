@@ -1,7 +1,5 @@
 package com.prac.core.jdks.jdk8.stream.employee.records;
 
-import com.prac.core.jdks.jdk8.stream.employee.data.Department;
-
 record Employee(
 String firstName,
 String lastName,
