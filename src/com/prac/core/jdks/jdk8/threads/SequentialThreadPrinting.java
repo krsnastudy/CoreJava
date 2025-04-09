@@ -1,7 +1,7 @@
 package com.prac.core.jdks.jdk8.threads;
 
 class SequencePrinter {
-    private int number = 1;
+    private int number = 0;
     private final int max = 10; // Number of times each thread prints
     private final int numThreads = 3;
 

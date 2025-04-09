@@ -41,3 +41,28 @@ public class StampedLockExample {
         reader.start();
     }
 }
+
+/**
+ *
+ * lock.tryOptimisticRead() :
+ * Returns a stamp that can later be validated, or zero if exclusively locked.
+ * Returns: a valid optimistic read stamp, or zero if exclusively locked
+ *
+ *
+ * lock.validate(stamp) :
+ * Returns true if the lock has not been exclusively acquired since issuance of the given stamp. Always returns false if the stamp is zero.
+ * Always returns true if the stamp represents a currently held lock. Invoking this method with a value not obtained from tryOptimisticRead
+ * or a locking method for this lock has no defined effect or result.
+ * Params:
+ * stamp – a stamp
+ * Returns: true if the lock has not been exclusively acquired since issuance of the given stamp; else false
+ *
+ *
+ * lock.unlockRead(stamp):
+ * If the lock state matches the given stamp, releases the non-exclusive lock.
+ * Params:
+ * stamp – a stamp returned by a read-lock operation
+ * Throws:
+ * IllegalMonitorStateException – if the stamp does not match the current state of this lock
+ *
+ * */
