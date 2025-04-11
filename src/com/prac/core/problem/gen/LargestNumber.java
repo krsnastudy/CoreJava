@@ -6,20 +6,36 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class LargestNumber {
-    //function to construct the largest number
+
+    /**
+     * Constructs the largest number possible from a list of integers.
+     * Example: [54, 546, 548, 60] → "6054854654"
+     *
+     * @param nums List of integers
+     * @return The largest number formed by concatenating elements
+     */
     public static String findLargestNumber(List<Integer> nums) {
-//sort using a custom function object
-        Collections.sort(nums, (a, b) -> (String.valueOf(b) + a).compareTo(String.valueOf(a) + b));
-        return nums.stream().map(Object::toString).collect(Collectors.joining(""));
+
+        // Sort the list using a custom comparator:
+        // For two numbers a and b, compare (b+a) vs (a+b) as strings
+        // This ensures the combination producing a larger string goes first
+        Collections.sort(nums, (a, b) ->
+                (String.valueOf(b) + a).compareTo(String.valueOf(a) + b)
+        );
+
+        // Convert the sorted list to a string by joining each number
+        return nums.stream()
+                .map(Object::toString)                 // Convert each integer to string
+                .collect(Collectors.joining(""));     // Join without any separator
     }
 
-    //driver code
     public static void main(String args[]) {
-//defining an array from which we have to construct largest number
+
+        // Define a list of integers
         List<Integer> numbers = Arrays.asList(7, 58, 87, 2, 16, 34, 54, 0, 90);
-//stores the largest number
-        String largestNumber = findLargestNumber(numbers);
-//prints the largest number
-        System.out.println("The largest number is: " + largestNumber);
+//        List<Integer> numbers = Arrays.asList(1, 4, 2, 3);
+
+        // Call the function and print the largest number formed
+        System.out.println("The largest number is: " + findLargestNumber(numbers));
     }
 }
