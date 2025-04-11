@@ -1,5 +1,7 @@
 package com.prac.core.problem.strings;
 
+import java.util.Arrays;
+
 public class StringReversal {
 
     public static void main(String[] args) {
@@ -15,11 +17,14 @@ public class StringReversal {
             j--;
         }
 
-        System.out.println("        String: " + str);
-        System.out.println("Reverse String: " + String.valueOf(cArr));
+        System.out.println("              String: " + str);
+        System.out.println("Reverse String      : " + String.valueOf(cArr));
         StringBuffer sb = new StringBuffer(str);
         System.out.println("Reverse StringBuffer: " + sb.reverse());
+        System.out.println("Reverse Reducer()   : "+Arrays.stream(str.split("")).reduce("", (a,b)->b+a));
+        System.out.print("Reverse Recursive() : ");
         reverse(str);
+        System.out.println();
     }
 
     private static void swap(char[] cArr, int i, int j) {

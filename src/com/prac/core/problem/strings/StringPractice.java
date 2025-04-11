@@ -6,7 +6,7 @@ public class StringPractice {
 
 		String str = "Init";
 		System.out.println("Init Hashcode: "+str.hashCode());
-		
+
 		str = "Destroy";
 		System.out.println("Destroy Hashcode: "+str.hashCode());
 		
