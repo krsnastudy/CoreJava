@@ -36,6 +36,15 @@ public class AddElements {
         identityHashMap.put(s3, 1);
         identityHashMap.put(s4, 2);
         System.out.println("IdentityHashMap: " + identityHashMap);  // Output: IdentityHashMap: {JAVA=2, JAVA=1}
+
+        System.out.println();
+        System.out.println("s1 ref (toBinaryString): " + Integer.toBinaryString(System.identityHashCode(s1)));
+        System.out.println("s1 ref (toHexString): " + Integer.toHexString(System.identityHashCode(s1)));
+        System.out.println("s1 ref (toOctalString): " + Integer.toOctalString(System.identityHashCode(s1)));
+        System.out.println("s1 ref (toUnsignedString): " + Integer.toUnsignedString(System.identityHashCode(s1)));
+        System.out.println("s1 ref (toUnsignedLong): " + Integer.toUnsignedLong(System.identityHashCode(s1)));
+        System.out.println("s1 ref (highestOneBit): " + Integer.highestOneBit(System.identityHashCode(s1)));
+        System.out.println("s1 ref (lowestOneBit): " + Integer.lowestOneBit(System.identityHashCode(s1)));
     }
 }
 
