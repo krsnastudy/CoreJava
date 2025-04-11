@@ -23,6 +23,11 @@ public class LargestNumber {
                 (String.valueOf(b) + a).compareTo(String.valueOf(a) + b)
         );
 
+        // Edge case: if the largest number is "0", return "0" (instead of "000...")
+        if (nums.get(0) == 0) {
+            return "0";
+        }
+
         // Convert the sorted list to a string by joining each number
         return nums.stream()
                 .map(Object::toString)                 // Convert each integer to string
@@ -34,6 +39,7 @@ public class LargestNumber {
         // Define a list of integers
         List<Integer> numbers = Arrays.asList(7, 58, 87, 2, 16, 34, 54, 0, 90);
 //        List<Integer> numbers = Arrays.asList(1, 4, 2, 3);
+//                List<Integer> numbers = Arrays.asList(0, 0, 0);
 
         // Call the function and print the largest number formed
         System.out.println("The largest number is: " + findLargestNumber(numbers));
