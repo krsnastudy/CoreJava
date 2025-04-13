@@ -55,5 +55,15 @@ public class FirstNonRepeatedChar {
                         .findFirst()                           // Get first non-repeated
                         .orElse("")                            // Fallback if not found
         );
+
+        String firstNonRepeatChar = Arrays.stream(str.split(""))
+                .collect(Collectors.groupingBy(String::valueOf, LinkedHashMap::new, Collectors.counting()))
+                .entrySet().stream()
+                .filter(entry -> entry.getValue() == 1)
+                .findFirst()
+                .map(m -> m.getKey())
+                .get();
+
+        System.out.println("First Non-Repeated char string split : " + firstNonRepeatChar);
     }
 }
