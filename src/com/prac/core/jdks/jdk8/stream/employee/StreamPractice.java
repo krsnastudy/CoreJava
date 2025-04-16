@@ -6,6 +6,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import com.prac.core.jdks.jdk8.stream.employee.data.Employee;
@@ -144,16 +145,29 @@ public class StreamPractice {
 		 	Double byReduceFunc = empDet.stream().mapToDouble(EmployeeExt::geteSal).reduce(0, (s1, s2)->s1+s2);
 		 	Double bySummarizingDouble = empDet.stream().collect(Collectors.summarizingDouble(EmployeeExt::geteSal)).getSum();
 		 	
-		 System.out.println("     bySummingDouble: "+bySummingDouble
+		 System.out.println("\tbySummingDouble: "+bySummingDouble
 				 +"\n\tbyReduceFunc: " +byReduceFunc
-				 +"\n bySummarizingDouble: "+bySummarizingDouble);	
+				 +"\n\tbySummarizingDouble: "+bySummarizingDouble);
 		 	
 		 System.out.println("/******** Sum of Salary *********/");
-
 
 		 /****** partitioningBy **********/
 		empDet.stream().collect(Collectors.partitioningBy(p -> p.getEmpGender().equals("Male"))).entrySet().stream().forEach(e-> System.out.println(e.getKey()));
 
+		/*** Salary in Range ****/
+		System.out.println("\n/*** Salary in Range ****/");
+		Predicate<Employee> salaryInRange50K = e -> e.geteSal() >= 50000;
+		Predicate<Employee> salaryInRange100K = e -> e.geteSal() <= 100000;
+		Predicate<Employee> salaryInRange = salaryInRange50K.and(salaryInRange50K);
+
+		System.out.println("salaryInRange: ");
+		String collect = employeeList.stream().filter(salaryInRange)
+				.collect(Collectors.toList())
+				.stream().sorted(Comparator.comparing(Employee::geteSal).reversed())
+				.map(m -> m.geteNumber() + "--" + m.geteSal())
+				.collect(Collectors.joining(" "));
+
+		System.out.println(collect);
 	} //psvm
 
 }
