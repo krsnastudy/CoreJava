@@ -86,7 +86,7 @@ public class CoreUtil {
 	}
 
 	public static int getRandomNumber() {
-		return (int) ((Math.random() * (15 - 5)) + 5);
+		return (int) ((Math.random() * (new Random().nextInt(59, 99) - new Random().nextInt(1, 58))) + new Random().nextInt(100, 999));
 	}
 
 }// CoreUtil

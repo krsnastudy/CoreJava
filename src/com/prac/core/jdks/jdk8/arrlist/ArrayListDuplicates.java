@@ -1,11 +1,6 @@
 package com.prac.core.jdks.jdk8.arrlist;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.OptionalInt;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -25,7 +20,8 @@ public class ArrayListDuplicates {
 		org.add("D");
 		org.add("E");
 
-		Collections.unmodifiableList(org);
+		List<String> strings = Collections.unmodifiableList(org);
+//		strings.add("E"); //Exception in thread "main" java.lang.UnsupportedOperationException
 
 		System.out.print("Original List: " + org);
 
@@ -82,5 +78,9 @@ public class ArrayListDuplicates {
 
 		int max = aList.stream().mapToInt(Integer::intValue).max().getAsInt();
 		System.out.println(max);
+
+		System.out.println("-----"+aList.stream().max(Comparator.comparing(Integer::intValue)).get().intValue());
+
+		strings.stream().distinct().filter(f->Collections.frequency(org, f)>1).toList().stream().forEach(e-> System.out.print(e+" "));
 	}
 }
