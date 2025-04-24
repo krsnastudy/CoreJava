@@ -40,6 +40,9 @@ public class Callable_Runnable_Ex {
 		System.out.println("F2 : " + f2.get());
 		System.out.println("F3 : " + f3.get());
 
+		Thread[] threads = new Thread[50];
+
+
 		executor.shutdown();
 	}
 
