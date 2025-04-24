@@ -23,9 +23,11 @@ public class StringPredicate {
 		Arrays.stream(sArr).forEach(x -> s.add(x));
 		int len = 9;
 
-		System.out.println("\nPrinting words length>" + len + " :");
+		System.out.println("\nPrinting words length>" + len + " & Starts with i :");
 //		s.stream()
-		Arrays.stream(sArr).distinct().filter(x -> !x.isEmpty()).filter(y -> y.charAt(0) == 'i')
+		Arrays.stream(sArr).distinct()
+				.filter(x -> !x.isEmpty())
+				.filter(y -> y.charAt(0) == 'i')
 				.filter(l -> l.length() > len)
 //				.filter(n->n!=null)
 				// .sorted() // Natural Sorting
