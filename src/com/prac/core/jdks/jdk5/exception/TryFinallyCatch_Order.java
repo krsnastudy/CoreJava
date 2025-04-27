@@ -1,6 +1,6 @@
-package test.java;
+package com.prac.core.jdks.jdk5.exception;
 
-public class Test1 {
+public class TryFinallyCatch_Order {
     public static void main(String[] args) {
         try {
             System.out.println("Inside try block");

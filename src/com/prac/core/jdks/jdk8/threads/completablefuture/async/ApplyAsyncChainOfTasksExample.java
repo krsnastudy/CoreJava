@@ -5,6 +5,7 @@ import com.prac.core.jdks.jdk8.stream.employee.data.Employee;
 import com.prac.core.jdks.jdk8.stream.employee.data.EmployeeExt;
 import com.prac.core.jdks.jdk8.stream.employee.data.PopulateEmpData;
 import lombok.SneakyThrows;
+import org.springframework.scheduling.annotation.Async;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -33,12 +34,14 @@ public class ApplyAsyncChainOfTasksExample {
 	static ExecutorService scheduledExecutor = Executors.newScheduledThreadPool(Runtime.getRuntime().availableProcessors(), scheduledThreadFactory);
 	static ExecutorService singleThreadExecutor = Executors.newSingleThreadExecutor(singleThreadFactory);
 
+	@Async("asyncExecutor")
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
 		process().get();
 		shutdownExecutors();
 	}
 
 	@SneakyThrows
+	@Async("asyncExecutor")
 	public static CompletableFuture<Void> process() {
 
 		BiConsumer<String, String> biCon = (stage, threadName) ->

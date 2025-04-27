@@ -106,3 +106,94 @@ class MyClass implements A, B {
 - 🤝 Java resolves it with clear **rules**, and if ambiguity remains, **you must override**.
 
 ---
+
+Great question, Krishna! The **Diamond Problem** is a well-known issue in object-oriented programming, particularly in languages that support **multiple inheritance**, like **C++**. But **Java** doesn't support multiple inheritance for **classes**, so it avoids the classic **diamond problem** in that context.
+
+However, Java **does support multiple inheritance for interfaces**, which can lead to a form of the **diamond problem** in the context of interfaces. Let's break this down clearly and also look at how Java resolves it.
+
+---
+
+# ✅ The Diamond Problem in Java (with Interfaces)
+
+### Scenario:
+Imagine you have two interfaces, both defining a method with the same signature, and a class implements both interfaces. If the class doesn't implement the method, the compiler would not know which method to call, leading to ambiguity — the **diamond problem**.
+
+---
+
+### Example Code:
+
+```java
+interface A {
+    default void print() {
+        System.out.println("A");
+    }
+}
+
+interface B {
+    default void print() {
+        System.out.println("B");
+    }
+}
+
+class C implements A, B {
+    // Does not override print()
+}
+```
+
+Here, **C** implements both **A** and **B**, which both have the `print()` method. If **C** does not override the method, Java doesn't know which version of `print()` to use, resulting in a **compilation error**.
+
+---
+
+# ✅ Java's Resolution for the Diamond Problem
+
+Java **solves** this problem with the **default methods** in interfaces introduced in **Java 8**. When you have **multiple default methods** in interfaces, Java provides a way to explicitly resolve the ambiguity.
+
+You can **override** the method in your class, or if you need to explicitly specify which interface method to call, you can use the `super` keyword in the method definition.
+
+### Solution 1: **Override the method in the class**:
+If a class implements two interfaces with the same default method, the class should **override the method** to resolve the ambiguity.
+
+```java
+class C implements A, B {
+    @Override
+    public void print() {
+        // You can choose which method to call
+        A.super.print();  // Calls A's print
+        // OR
+        B.super.print();  // Calls B's print
+    }
+}
+```
+
+This resolves the **diamond problem** by allowing you to explicitly choose which default method to use, or you can override the method completely.
+
+### Solution 2: **Explicitly use `super` keyword**:
+If you need to call a method from a specific interface within the class:
+
+```java
+class C implements A, B {
+    @Override
+    public void print() {
+        A.super.print();  // Calls A's version of print()
+        B.super.print();  // Calls B's version of print()
+    }
+}
+```
+
+This way, Java gives you the control to explicitly choose which method from the interface to invoke.
+
+---
+
+# ✅ Key Points:
+- **Java does not allow multiple inheritance for classes** — this avoids the classic diamond problem.
+- **Java allows multiple inheritance for interfaces**, but **with default methods** in Java 8, you may encounter a form of the diamond problem when different interfaces provide the same default method.
+- **Java resolves it** by allowing you to override the method in the implementing class and use the `super` keyword to choose the method from a specific interface.
+
+---
+
+# ✅ TL;DR:
+> **Diamond Problem in Java** occurs when an interface implements **multiple default methods** with the same signature.  
+> Java resolves this by requiring **explicit overrides** in the implementing class and allows the use of `super` to call the method from specific interfaces.
+
+---
+
