@@ -1,4 +1,4 @@
-Great question, Krishna! Let's break down the key differences between **Spring** (the Spring Framework) and **Spring Boot**. While both are part of the **Spring ecosystem**, they serve different purposes and have different focuses.
+Let's break down the key differences between **Spring** (the Spring Framework) and **Spring Boot**. While both are part of the **Spring ecosystem**, they serve different purposes and have different focuses.
 
 ---
 

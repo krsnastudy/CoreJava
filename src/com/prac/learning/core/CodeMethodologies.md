@@ -1,4 +1,4 @@
-Great question, Krishna! When you’re asked **"How do you code methodologies?"** in an interview, they’re essentially asking:
+When you’re asked **"How do you code methodologies?"** in an interview, they’re essentially asking:
 
 > “What development practices, principles, or methodologies do you follow when writing code in a professional project?”
 

@@ -1,4 +1,4 @@
-Great question, Krishna! Let's explore the **internal working of `ArrayList.get(index)`** from an **interview-experienced perspective**, including its **source code internals**, **performance**, and how **memory and array access** work behind the scenes.
+Let's explore the **internal working of `ArrayList.get(index)`** from an **interview-experienced perspective**, including its **source code internals**, **performance**, and how **memory and array access** work behind the scenes.
 
 ---
 
