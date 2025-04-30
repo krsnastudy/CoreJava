@@ -1,4 +1,4 @@
-Good direct question, Krishna! Here's the **clear and crisp** answer:
+Here's the **clear and crisp** answer:
 
 ---
 

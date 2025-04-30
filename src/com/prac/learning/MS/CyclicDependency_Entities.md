@@ -1,4 +1,3 @@
-Alright Krishna,  
 **Cyclic dependency in Entities** is a *common problem* especially when entities reference each other bi-directionally (for example, `Employee` → `Department` → `Employee`).  
 If not handled properly, it can cause issues like:
 - Infinite loops in serialization (like JSON infinite recursion),

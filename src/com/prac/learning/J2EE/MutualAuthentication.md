@@ -1,4 +1,3 @@
-Good one, Krishna! 🔥  
 This is a **highly asked** concept in **security-related** discussions in interviews.
 
 Let’s break it down clearly:
