@@ -35,3 +35,63 @@ LIMIT 1 OFFSET 1;
 ✅ This gives **Raj** with the second-highest total marks (70).
 
 ---
+
+In SQL, the clause:
+
+```sql
+LIMIT 1 OFFSET 1
+```
+
+means:
+
+* **`OFFSET 1`**: Skip the **first row** of the result set.
+* **`LIMIT 1`**: Return **only 1 row** after skipping.
+
+---
+
+### 📌 Breakdown
+
+If a query (e.g., `SELECT * FROM users`) normally returns:
+
+| id | name  |
+| -- | ----- |
+| 1  | Alice |
+| 2  | Bob   |
+| 3  | Carol |
+
+Then this query:
+
+```sql
+SELECT * FROM users LIMIT 1 OFFSET 1;
+```
+
+will return:
+
+| id | name |
+| -- | ---- |
+| 2  | Bob  |
+
+---
+
+### ✅ Use Case
+
+This pattern is commonly used in:
+
+* **Pagination**: Skip rows and fetch the next batch.
+* **Getting the 2nd row**, 3rd row, etc. from a result set.
+
+### 🔁 Equivalent Alternative (in MySQL/PostgreSQL):
+
+```sql
+SELECT * FROM users ORDER BY id LIMIT 1 OFFSET 1;
+```
+
+> Always pair `LIMIT/OFFSET` with `ORDER BY` for deterministic results.
+
+---
+
+### TL;DR:
+
+`LIMIT 1 OFFSET 1` → Skip the first row and return the **second row** in the result.
+
+Would you like a pagination-ready query example with page size and number too?
