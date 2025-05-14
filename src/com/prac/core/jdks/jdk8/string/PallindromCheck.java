@@ -18,8 +18,8 @@ public class PallindromCheck {
 
 		isPallindrome = IntStream.range(0, checkString.length() / 2)
 //				.peek(j->System.out.println(checkString.charAt(j)))
-//				.allMatch(i->str.charAt(i)==(str.charAt(str.length()-i-1)))
-				.noneMatch(i -> checkString.charAt(i) != checkString.charAt(checkString.length() - i - 1));
+				.allMatch(i -> checkString.charAt(i) == checkString.charAt(checkString.length() - i - 1));
+//				.noneMatch(i -> checkString.charAt(i) != checkString.charAt(checkString.length() - i - 1));
 
 		return isPallindrome;
 	}
