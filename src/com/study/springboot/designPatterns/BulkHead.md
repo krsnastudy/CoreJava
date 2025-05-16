@@ -112,5 +112,3 @@ String result = Try.ofSupplier(decoratedCall)
 > The **Bulkhead Pattern** improves microservice resilience by **isolating components** via dedicated resources (e.g., thread pools). It ensures a failure in one service doesn't take down others — just like ship bulkheads contain flooding. Use tools like **Resilience4j** for implementation in Java.
 
 ---
-
-Would you like similar breakdowns for **Circuit Breaker**, **Retry**, or other microservice patterns?
