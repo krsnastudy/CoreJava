@@ -1,7 +1,3 @@
-Sure Krishna! Here's a detailed guide and code snippet on how to implement **JPA pagination** in a Spring Boot project using **Spring Data JPA**.
-
----
-
 ## 📘 What is JPA Pagination?
 
 Pagination allows you to **retrieve a subset of records** from a large dataset using:

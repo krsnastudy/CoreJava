@@ -19,6 +19,8 @@ public class SortTenMillion {
 			arr2[i] = arr1[i];
 		}
 
+		System.out.println("Both the Arrays Length: "+arr1.length +" <--> "+ arr2.length);
+
 		long start = System.currentTimeMillis();
 		// sort `arr1[]` using `Arrays.sort()`
 		Arrays.sort(arr1);
