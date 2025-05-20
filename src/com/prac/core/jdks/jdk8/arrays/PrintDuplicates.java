@@ -24,14 +24,20 @@ public class PrintDuplicates {
         System.out.println("Characters sortByKeyValue   :: " + sortByKeyValue + "\n");
 
         Set<Character> set = new HashSet<>();
-        Set<Character> collect =
+        Set<Character> duplicateChars =
                 str.chars()
                         .mapToObj(c -> (char) c)
 //                   .peek(p->System.out.println("Character: "+p+" ---> SET"+set))
                         .filter(f -> !set.add(f))
                         .collect(Collectors.toSet());
 
-        System.out.println("Duplicate Elements :: " + " --> " + collect);
-        System.out.println("Unique    Elements :: " + " --> " + countMap.entrySet().stream().filter(f -> f.getValue() == 1L).map(m -> m.getKey()).collect(Collectors.toSet()));
+        Set<Character> uniqueChars =
+                countMap.entrySet().stream()
+                        .filter(f -> f.getValue() == 1L)
+                        .map(m->m.getKey())
+                        .collect(Collectors.toSet());
+
+        System.out.println("Duplicate Elements :: " + " --> " + duplicateChars);
+        System.out.println("Unique    Elements :: " + " --> " + uniqueChars);
     }
 }
