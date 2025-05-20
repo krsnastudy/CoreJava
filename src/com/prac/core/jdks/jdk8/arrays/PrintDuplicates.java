@@ -32,10 +32,6 @@ public class PrintDuplicates {
                         .collect(Collectors.toSet());
 
         System.out.println("Duplicate Elements :: " + " --> " + collect);
-
-        set.clear();
-        str.chars().mapToObj(c -> (char) c).collect(Collectors.toSet());
-
         System.out.println("Unique    Elements :: " + " --> " + countMap.entrySet().stream().filter(f -> f.getValue() == 1L).map(m -> m.getKey()).collect(Collectors.toSet()));
     }
 }
