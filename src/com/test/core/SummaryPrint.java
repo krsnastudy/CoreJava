@@ -1,4 +1,4 @@
-package com.test.prac.core;
+package com.test.core;
 
 import java.util.Comparator;
 import java.util.IntSummaryStatistics;

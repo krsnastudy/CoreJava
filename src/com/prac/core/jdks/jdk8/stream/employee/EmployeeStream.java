@@ -125,11 +125,17 @@ public class EmployeeStream {
 //		System.out.println(empHighSal.isPresent()? (empHighSal.get().geteNumber()+" "+empHighSal.get().geteSal()):"Not Available");
 		System.out.println(empHighSal.isPresent() ? empHighSal.get() : "Not Available");
 
+		System.out.println("<<< Highest Salary Paid stream().max >>>");
+		System.out.println(empDistinct.stream().max(Comparator.comparing(Employee::geteSal)).get());
+
 		System.out.println("\n<<< Lowest Salary Paid >>>");
 		Optional<Employee> empMinSal = empDistinct.stream()
 				.collect(Collectors.minBy(Comparator.comparing(Employee::geteSal)));
 
 		System.out.println(empMinSal.isPresent() ? empMinSal.get() : "Not Available");
+
+		System.out.println("<<< Lowest Salary Paid stream().min >>>");
+		System.out.println(empDistinct.stream().min(Comparator.comparing(Employee::geteSal)).get());
 
 		Map<DepartmentCode, List<Employee>> deptSal = empDistinct.stream()
 				.collect(Collectors.groupingBy(Employee::getDepartment));
@@ -140,6 +146,7 @@ public class EmployeeStream {
 			// v
 			v.stream().collect(Collectors.maxBy(Comparator.comparing(Employee::geteSal))).get().toStringSpecific());
 		});
+
 
 /*
 		System.out.println("\n<<< 2nd Highest Salary Paid Persons >>>");
