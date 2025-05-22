@@ -2,6 +2,7 @@ package com.prac.core.jdks.jdk8.stream;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.IntStream;
 
 public class SumOfOddNumberSquare {
@@ -21,7 +22,18 @@ public class SumOfOddNumberSquare {
                 .reduce(0, Integer::sum);
 
         System.out.println("Square: " + res);
-        check(aList, k);
+//        check(aList, k);
+
+        Function<Integer, Integer> square = x -> x*x;
+        Function<Integer, Integer> cube = x -> x*x*x;
+
+        Integer reduce = IntStream.rangeClosed(1, 1500).boxed().filter(i -> i % 2 != 0).map(x -> x * x).reduce(0, Integer::sum);
+        Integer reduceSquare = IntStream.rangeClosed(1, 1500).boxed().filter(i -> i % 2 != 0).map(square).reduce(0, Integer::sum);
+        Integer reduceCube = IntStream.rangeClosed(1, 1500).boxed().filter(i -> i % 2 != 0).map(cube).reduce(0, Integer::sum);
+
+        System.out.println(reduce);
+        System.out.println(reduceSquare);
+        System.out.println(reduceCube);
     }
 
     public static void check(List<Integer> aList, int diff) {
