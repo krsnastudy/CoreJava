@@ -5,26 +5,39 @@ import java.util.stream.IntStream;
 import java.util.HashSet;
 import java.util.Set;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class StringPermutations {
     public static void main(String[] args) {
-        String input = "ABC";
-        Set<String> permutations = generatePermutations(input);
-
-        System.out.println("Permutations: " + permutations);
+        String input = "KRSNA";
+        Set<String> permutations = getPermutations(input);
+        permutations.forEach(System.out::println);
     }
 
-    public static Set<String> generatePermutations(String str) {
+    public static Set<String> getPermutations(String str) {
+        Set<String> result = new HashSet<>();
+
         if (str == null || str.length() == 0) {
-            return new HashSet<>();
+            result.add("");
+            return result;
         }
 
-        return IntStream.range(0, str.length()) // Iterate through each character
-                .boxed()
-                .flatMap(i -> {
-                    String remaining = str.substring(0, i) + str.substring(i + 1);
-                    return generatePermutations(remaining).stream()
-                            .map(s -> str.charAt(i) + s);
-                })
-                .collect(Collectors.toSet());
+        char first = str.charAt(0);
+        String remaining = str.substring(1);
+
+        Set<String> words = getPermutations(remaining);
+
+        words.forEach(word -> {
+            for (int i = 0; i <= word.length(); i++) {
+                result.add(insertCharAt(word, first, i));
+            }
+        });
+
+        return result;
+    }
+
+    private static String insertCharAt(String word, char c, int i) {
+        return word.substring(0, i) + c + word.substring(i);
     }
 }
