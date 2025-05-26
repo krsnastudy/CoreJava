@@ -29,7 +29,29 @@ public class OddEvenExample implements Runnable {
                 }
             }
         }
+/*
+        for (int i=1; i<=20; i++){
+            synchronized (this){
+                if(i%2==0 && Thread.currentThread().getName().equals("t2")){
+                    printValue(i);
+                }if(i%2!=0 && Thread.currentThread().getName().equals("t1")) {
+                    printValue(i);
+                }
+            }
+        }
+*/
+    }
 
+
+    private void printValue(int i){
+        try {
+            notifyAll();
+//            System.out.println("Even Thread : " + i);
+            System.out.println(i);
+            wait();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
@@ -39,5 +61,6 @@ public class OddEvenExample implements Runnable {
         Thread t2 = new Thread(obj, "t2");
         t1.start();
         t2.start();
+
     }
 }

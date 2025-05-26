@@ -39,5 +39,11 @@ public class PrintDuplicates {
 
         System.out.println("Duplicate Elements :: " + " --> " + duplicateChars);
         System.out.println("Unique    Elements :: " + " --> " + uniqueChars);
+
+        str.chars().mapToObj(c -> (char) c)
+                .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+                .entrySet().stream()
+                .filter(f->f.getValue()==1L)
+                .collect(Collectors.toSet());
     }
 }

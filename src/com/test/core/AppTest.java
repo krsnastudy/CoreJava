@@ -1,4 +1,4 @@
-package com.test.prac.core;
+package com.test.core;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
