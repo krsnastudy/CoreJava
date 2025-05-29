@@ -59,4 +59,9 @@ public class ExtractNumbers {
  * Print the maximum number from the given string String abc = "a12x56789w23456";
  * OP :: 56789
  *
+Quantifier Description
+    *       Matches zero or more occurrences.
+    +       Matches one or more occurrences.
+    ?       Matches zero or one occurrence.
  * */
+
