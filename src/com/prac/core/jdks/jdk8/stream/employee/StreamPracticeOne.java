@@ -1,6 +1,7 @@
 package com.prac.core.jdks.jdk8.stream.employee;
 
 import java.util.*;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import com.prac.core.jdks.jdk8.stream.employee.data.Employee;
@@ -9,13 +10,15 @@ import com.prac.core.jdks.jdk8.stream.employee.data.PopulateEmpData;
 public class StreamPracticeOne {
 
 	public static void main(String[] args) {
-		
-		int noOfRecords = 54; // How many records you want
+		Consumer<List<Employee>> printEmployee = System.out::println;
+		int noOfRecords = 5; // How many records you want
 		
 		List<Employee> empData = new ArrayList<Employee>();
 		PopulateEmpData populate = new PopulateEmpData();
 		empData = populate.populateEmpData(noOfRecords);
-		
+
+		printEmployee.accept(empData);
+
 		/* GroupBy Dept */
 		empData.stream().collect(Collectors.groupingBy(Employee::getDepartment)).forEach((x,y)->System.out.println(
 				x+" Department --> "+ y.stream().map(z->z.geteNumber()+" - "+z.getfName()).collect(Collectors.joining(", "))
