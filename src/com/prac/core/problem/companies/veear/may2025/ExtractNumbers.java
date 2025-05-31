@@ -9,7 +9,8 @@ public class ExtractNumbers {
     public static void main(String[] args) {
         String abc = "a12x56789w23456z9k6598t325";
 
-        String[] numbers = abc.split("[^0-9]+"); // Split by non-digit characters
+//        String[] numbers = abc.split("[^0-9]+"); // Split by non-digit characters
+        String[] numbers = abc.split("[\\D]+"); // Split by non-digit characters
 
         for (String num : numbers) {
             if (!num.isEmpty()) {
@@ -30,26 +31,27 @@ public class ExtractNumbers {
                 .mapToInt(Integer::parseInt)
                 .boxed()
                 .collect(Collectors.toList());
-        System.out.println("Method 1 :: "+collect1);
+        System.out.println("Method 1 :: " + collect1);
 
         List<Integer> collect = Arrays.stream(abc.split("[^0-9]+"))
                 .filter(s -> !s.isEmpty())
                 .map(Integer::parseInt)
                 .collect(Collectors.toList());
-        System.out.println("Method 2 :: "+collect);
+        System.out.println("Method 2 :: " + collect);
 
         Integer max = collect.stream().max(Comparator.comparing(Integer::intValue)).get();
         System.out.println("Max: " + max);
 
         int maxValue = Arrays.stream(numbers)
-                .filter(f->!f.isEmpty())
+                .filter(f -> !f.isEmpty())
                 .map(Integer::parseInt)
                 .collect(Collectors.toList())
                 .stream().sorted(Comparator.comparing(Integer::intValue).reversed())
                 .collect(Collectors.toList())
-                .get(0).intValue();
+                .stream().findFirst().get();
+//                .get(0).intValue();
 
-        System.out.println("Max Value:: "+maxValue);
+        System.out.println("Max Value:: " + maxValue);
 
     }
 }
