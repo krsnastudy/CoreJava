@@ -1,6 +1,8 @@
 package com.prac.core.jdks.jdk8.string;
 
+import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class LongestSubstring {
 
@@ -52,6 +54,28 @@ public class LongestSubstring {
 		System.out.println("Input String : " + inputString);
 		System.out.println("The longest substring : " + longestSubstring);
 		System.out.println("The longest Substring Length : " + longestSubstringLength);
+
+	}
+
+
+	public static int lengthOfLongestSubstring(String s) {
+		Map<Character, Integer> charIndexMap = new HashMap<>();
+		int maxLen = 0;
+		int start = 0;
+
+		for (int end = 0; end < s.length(); end++) {
+			char currentChar = s.charAt(end);
+
+			if (charIndexMap.containsKey(currentChar)) {
+				// move the start only forward
+				start = Math.max(start, charIndexMap.get(currentChar) + 1);
+			}
+
+			charIndexMap.put(currentChar, end);
+			maxLen = Math.max(maxLen, end - start + 1);
+		}
+
+		return maxLen;
 	}
 
 	public static void main(String[] args) {
@@ -60,6 +84,8 @@ public class LongestSubstring {
 		System.out.println("==========================");
 
 		longestSubstring("thelongestsubstring");
+
+//		System.out.println(LongestSubstring.lengthOfLongestSubstring("javaconceptoftheday"));
 	}
 }
 
