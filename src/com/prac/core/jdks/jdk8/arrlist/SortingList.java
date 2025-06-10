@@ -25,6 +25,12 @@ public class SortingList {
 		list2.forEach(i -> System.out.print(i + " "));
 		System.out.println();
 		Collections.sort(list3);
+
+		/* Sort the list after skipping 2 what will be the output */
+
+		List<Integer> collect = list.stream().skip(2).sorted().collect(Collectors.toList());
+		System.out.println("Given List :: "+list);
+		System.out.println("Sort  List :: "+collect);
 	}
 
 }
