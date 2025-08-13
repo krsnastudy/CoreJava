@@ -1,6 +1,7 @@
 package com.prac.core.jdks.jdk8.handson;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.stream.Collectors;
 
 public class SortBySecondName {
@@ -9,6 +10,7 @@ public class SortBySecondName {
         String[] sArray = {"Venkata, Saatvik", "Ratan, Tata", "Radha, Krishna", "Kalam, Abdul", "Mishra, Gokul", "Mohit, Bansal", "Kapil, Baarat"};
         System.out.println(Arrays.toString(sArray));
 
+        System.out.println("Stream Sort");
         String collect = Arrays.asList(sArray).stream()
                 .sorted((x, y) -> {
                     String[] fs = x.split(",");
@@ -19,6 +21,11 @@ public class SortBySecondName {
                 .collect(Collectors.joining(", "));
 
         System.out.println(collect);
+
+        System.out.println("Arrays Sort");
+        Arrays.sort(sArray, Comparator.comparing(s-> s.split(" ")[1]));
+        System.out.println(Arrays.toString(sArray));
+
     }
 
 }

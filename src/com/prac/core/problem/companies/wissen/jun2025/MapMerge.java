@@ -29,7 +29,30 @@ public class MapMerge {
         System.out.println("Given Map1 :: " + (map1 != null ? map1 : "{}"));
         System.out.println("Given Map2 :: " + (map2 != null ? map2 : "{}"));
 
-        if (map1 != null && map3 != null) {
+        if (map1 != null) {
+            map1.entrySet().stream().forEach(e->map3.merge(e.getKey(), e.getValue(), Integer::sum));
+            System.out.println("Iteration1 Map3 :: " + map3);
+        }
+
+        if (map2 != null) {
+            map2.entrySet().stream().forEach(e->map3.merge(e.getKey(), e.getValue(), Integer::sum));
+            System.out.println("Iteration2 Map3 :: " + map3);
+        }
+
+        /**
+         * //        map3.putAll(map1);
+         *         map1.entrySet().stream().forEach(e->map3.merge(e.getKey(), e.getValue(), Integer::sum));
+         *         System.out.println("Iteration1 Map3 :: "+map3);
+         *
+         *         map2.entrySet().stream().forEach(e->map3.merge(e.getKey(), e.getValue(), Integer::sum));
+         *         System.out.println("Iteration2 Map3 :: "+map3);
+         * */
+    }
+}
+
+
+/*
+*         if (map1 != null && map3 != null) {
             for (Map.Entry<Integer, Integer> entry : map1.entrySet()) {
                 map3.merge(entry.getKey(), entry.getValue(), Integer::sum);
             }
@@ -42,5 +65,5 @@ public class MapMerge {
             }
             System.out.println("Iteration2 Map3 :: " + map3);
         }
-    }
-}
+
+* */

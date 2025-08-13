@@ -19,6 +19,8 @@ public class Test2 {
         int[] iResArray = new int[iArray.length];
         int counter = 0;
 
+        System.out.println("Default :: "+Arrays.toString(iResArray));
+
         for (int i = 0; i < iArray.length; i++) {
             if (iArray[i] != 0) {
                 iResArray[counter] = iArray[i];

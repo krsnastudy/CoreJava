@@ -1,11 +1,12 @@
 package com.prac.core.problem.companies.thermofisher;
 
+import java.util.Arrays;
 import java.util.stream.IntStream;
 
 public class CurrencyDenominations {
 
 	public static void main(String[] args) {
-		int amount = 54321;
+		int amount = 1001;
 		countCurrency(amount);
 	}
 
@@ -20,7 +21,7 @@ public class CurrencyDenominations {
 //				System.out.println("Iteration " + i + " --> Count of " + notes[i] + " Note/Coin is " + noteCounter[i]+ ", Remaining Amount is " + amount);
 			}
 		}
-
+		System.out.println(Arrays.toString(noteCounter));
 		/*
 		 * // Print notes System.out.println("\nCurrency Count ->"); for (int i = 0; i <
 		 * 9; i++) { if (noteCounter[i] != 0) { System.out.println(notes[i] + " : " +
