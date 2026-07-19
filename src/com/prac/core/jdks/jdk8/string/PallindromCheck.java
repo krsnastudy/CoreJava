@@ -1,5 +1,7 @@
 package com.prac.core.jdks.jdk8.string;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class PallindromCheck {
@@ -9,14 +11,12 @@ public class PallindromCheck {
 
 		System.out.println(str + " Is Pallindrome : " + isPallindrome(str));
 		System.out.println(str + " Is Pallindrome : " + isPallindrome_jdk5(str));
+		System.out.println(str + " Is Pallindrome : " + isPallindrome_reduce(str));
 	}
 
 	public static boolean isPallindrome(String origString) {
-
 		String checkString = origString;
-		boolean isPallindrome = false;
-
-		isPallindrome = IntStream.range(0, checkString.length() / 2)
+		boolean isPallindrome = IntStream.range(0, checkString.length() / 2)
 //				.peek(j->System.out.println(checkString.charAt(j)))
 				.allMatch(i -> checkString.charAt(i) == checkString.charAt(checkString.length() - i - 1));
 //				.noneMatch(i -> checkString.charAt(i) != checkString.charAt(checkString.length() - i - 1));
@@ -36,4 +36,7 @@ public class PallindromCheck {
 
 	}
 
+	public static boolean isPallindrome_reduce(String origString) {
+		return origString.equals(Arrays.stream(origString.split("")).reduce("", (a,b)->b+a));
+	}
 }

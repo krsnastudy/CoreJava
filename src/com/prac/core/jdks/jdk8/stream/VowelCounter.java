@@ -73,7 +73,7 @@ public class VowelCounter {
 	public static void printVowel(String str) {
 		List<String> vowels = Arrays.asList("a", "e", "i", "o", "u");
 		str = str.replace(" ", "").toLowerCase();
-		System.out.println("printVowel");
+		System.out.println("Input :: "+str);
 		String[] sArr = str.split("");
 
 		List<String> vList = Stream.of(sArr)
@@ -85,7 +85,7 @@ public class VowelCounter {
 //		.collect(((HashMap<String,Integer>) Collectors.groupingBy(Function.identity(), Collectors.counting())));
 		// .forEach((k,v)->System.out.println(k+"-"+v)));
 
-		System.out.println(vList);
+		System.out.println("printVowel :: "+vList);
 
 		vList.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
 				.forEach((k, v) -> System.out.println("Vowel[" + k + "]: " + v));

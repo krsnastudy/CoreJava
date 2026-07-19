@@ -142,7 +142,7 @@ public class StreamPractice {
 		 System.out.println("\n/******** Sum of Salary *********/");
 		 	
 		 	Double bySummingDouble = empDet.stream().collect(Collectors.summingDouble(EmployeeExt::geteSal));
-		 	Double byReduceFunc = empDet.stream().mapToDouble(EmployeeExt::geteSal).reduce(0, (s1, s2)->s1+s2);
+		 	Double byReduceFunc = empDet.stream().mapToDouble(EmployeeExt::geteSal).reduce(0, Double::sum);
 		 	Double bySummarizingDouble = empDet.stream().collect(Collectors.summarizingDouble(EmployeeExt::geteSal)).getSum();
 		 	
 		 System.out.println("\tbySummingDouble: "+bySummingDouble
