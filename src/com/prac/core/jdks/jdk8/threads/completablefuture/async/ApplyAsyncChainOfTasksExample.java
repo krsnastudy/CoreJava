@@ -2,15 +2,9 @@ package com.prac.core.jdks.jdk8.threads.completablefuture.async;
 
 import com.prac.core.jdks.jdk11.files.FileChanges;
 import com.prac.core.jdks.jdk8.stream.employee.data.Employee;
-import com.prac.core.jdks.jdk8.stream.employee.data.EmployeeExt;
-import com.prac.core.jdks.jdk8.stream.employee.data.PopulateEmpData;
 import lombok.SneakyThrows;
 import org.springframework.scheduling.annotation.Async;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
@@ -22,14 +16,14 @@ import java.util.function.BiConsumer;
 import java.util.stream.Collectors;
 
 public class ApplyAsyncChainOfTasksExample {
-	static final int noOfRec = 1000;
+	static final int noOfRec = new Random().ints(100, 1000).findFirst().getAsInt();
 	static MyThreadFactory cacheThreadFactory = new MyThreadFactory("CachedThreadPool-Thread");
 	static MyThreadFactory scheduledThreadFactory = new MyThreadFactory("ScheduledThreadPool-Thread");
 	static MyThreadFactory singleThreadFactory = new MyThreadFactory("SingleThreadExecutor-Thread");
 	static MyThreadFactory fixedThreadFactory = new MyThreadFactory("FixedThreadPool-Thread");
 
 	static ExecutorService fixedThreadPoolExecutor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
-	static ExecutorService fixedThreadPoolExecutor1 = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors(), fixedThreadFactory);
+	static ExecutorService fixedThreadPoolCustomExecutor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors(), fixedThreadFactory);
 	static ExecutorService cacheExecutor = Executors.newCachedThreadPool(cacheThreadFactory);
 	static ExecutorService scheduledExecutor = Executors.newScheduledThreadPool(Runtime.getRuntime().availableProcessors(), scheduledThreadFactory);
 	static ExecutorService singleThreadExecutor = Executors.newSingleThreadExecutor(singleThreadFactory);
@@ -46,6 +40,8 @@ public class ApplyAsyncChainOfTasksExample {
 
 		BiConsumer<String, String> biCon = (stage, threadName) ->
 			System.out.println("Stage :: "+stage.replace(":", "") +" & ThreadName: " + threadName);
+
+		biCon.accept("Employees Count :: "+noOfRec, Thread.currentThread().getName());
 
 	CompletableFuture<Void> voidCompletableFuture =
 		CompletableFuture
@@ -69,7 +65,7 @@ public class ApplyAsyncChainOfTasksExample {
             exception.printStackTrace();
 //            System.err.println(exception);
             return null;
-        }, fixedThreadPoolExecutor1)
+        }, fixedThreadPoolCustomExecutor)
 
 		.thenApplyAsync((empList) -> {
 			biCon.accept("EmployeeNumber", Thread.currentThread().getName());
@@ -100,13 +96,13 @@ public class ApplyAsyncChainOfTasksExample {
 			Comparator<Employee> salComparator = Comparator.comparing(Employee::geteSal).thenComparing(Employee::getDepartment).reversed();
 			System.out.println("\nFinal Records "+nameList.size()+" out of "+noOfRec+" Records [OUTPUT display restricted to "+printCount+" Records Only]");
 			nameList.stream().sorted(salComparator).limit(printCount).forEach(ApplyAsyncChainOfTasksExample::printName);
-		}, fixedThreadPoolExecutor1)
+		}, fixedThreadPoolCustomExecutor)
 
 		.thenAcceptAsync((empList)->{
 			System.out.println();
 			biCon.accept("FileWrite", Thread.currentThread().getName());
 			FileChanges.writeFile("empDetails.txt");
-		}, fixedThreadPoolExecutor1)
+		}, fixedThreadPoolCustomExecutor)
 	;
 
 		return voidCompletableFuture;
@@ -119,7 +115,7 @@ public class ApplyAsyncChainOfTasksExample {
 	public static void shutdownExecutors() {
 		System.out.println("shutting down all Executors");
 		fixedThreadPoolExecutor.shutdown();
-		fixedThreadPoolExecutor1.shutdown();
+		fixedThreadPoolCustomExecutor.shutdown();
 		cacheExecutor.shutdown();
 		scheduledExecutor.shutdown();
 		singleThreadExecutor.shutdown();
