@@ -102,9 +102,21 @@ public class StreamPractice {
                     );
                 });
 
-        System.out.println(employeeData.stream()
+/*        System.out.println(employeeData.stream()
                 .filter(f->f.getDateOfJoin().isBefore(LocalDate.now().minusYears(10)))
-                .toList());
+                .toList());*/
+
+        //sum of sal for each dept
+        employeeData.stream()
+                .collect(Collectors.groupingBy(Employee::getDeptCode))
+                .entrySet().stream()
+                .forEach(e->{
+                    System.out.println(
+                            "Dept :: "+e.getKey()+" Salary Total :: "+
+                            e.getValue().stream().mapToDouble(Employee::getESal)
+                                    .sum()
+                    );
+                });
 
     }
 }
