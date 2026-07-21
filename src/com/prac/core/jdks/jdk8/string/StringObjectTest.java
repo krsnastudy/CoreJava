@@ -40,4 +40,23 @@ public class StringObjectTest {
  * If "Krishna" was not in SCP, two new objects are created:
  * One in the String Constant Pool (SCP).
  * One in the heap memory (due to new keyword).
+ *
+ * Stack
+ *
+ * s1 ---> Heap Object 1
+ *
+ * s2 ---> Pool Object
+ *
+ * s3 ---> Heap Object 2
+ *
+ *                     STACK
+ *
+ *         s1      s2       s3
+ *          |       |        |
+ *          |       |        |
+ *          ▼       ▼        ▼
+ *
+ *      Heap      String     Heap
+ *    ---------     Pool    ---------
+ *    Object1  --->"RadhaKrishna"<--- Object2
  */

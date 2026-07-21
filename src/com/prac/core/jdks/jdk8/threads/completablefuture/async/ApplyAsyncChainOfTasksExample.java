@@ -135,6 +135,7 @@ Stage :: Name Contains 'S' & ThreadName: SingleThreadExecutor-1
 Stage :: PinCode & ThreadName: ForkJoinPool.commonPool-worker-1
 Stage :: Sorting & ThreadName: SingleThreadExecutor-1
 Stage :: Print & ThreadName: pool-2-thread-2
+Stage :: FileWrite & ThreadName: FixedThreadPool-Thread3
 
 Final Records 212 out of 1000 Records [OUTPUT display restricted to 5 Records Only]
 

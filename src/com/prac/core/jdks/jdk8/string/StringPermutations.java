@@ -27,6 +27,7 @@ public class StringPermutations {
         String remaining = str.substring(1);
 
         Set<String> words = getPermutations(remaining);
+//        System.out.println("getPermutations :: "+words);
 
         words.forEach(word -> {
             for (int i = 0; i <= word.length(); i++) {
