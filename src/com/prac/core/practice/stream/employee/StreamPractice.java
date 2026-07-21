@@ -1,5 +1,6 @@
 package com.prac.core.practice.stream.employee;
 
+import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -10,7 +11,7 @@ import java.util.stream.Stream;
 
 public class StreamPractice {
     public static void main(String[] args) {
-        List<Employee> employeeData = EmployeeData.getEmployeeData(15);
+        List<Employee> employeeData = EmployeeData.getEmployeeData(100);
         System.out.println("employeeData :: " + employeeData.size());
         Comparator<Employee> fNameSort = Comparator.comparing(Employee::getFName);
         Comparator<Employee> lNameSort = Comparator.comparing(Employee::getLName);
@@ -74,9 +75,36 @@ public class StreamPractice {
             employeeData.stream().collect(Collectors.partitioningBy(p->p.getGender().equals("MALE")));
 
 //        22. Salary Statistics dept wise
-        deptMap.entrySet().stream().forEach(e->{
+/*        deptMap.entrySet().stream().forEach(e->{
             System.out.println("Dept: "+e.getKey() + " -- Summary:: "+e.getValue().stream().collect(Collectors.summarizingDouble(Employee::getESal)));
-        });
+        });*/
+
+        //Nth highest Emp salary details
+        int idx = 5;
+        String emp = employeeData.stream()
+                .sorted(Comparator.comparing(Employee::getESal))
+                .collect(Collectors.toList()).get(idx-1).toString();
+
+//        System.out.println(idx+" Highest Salary Employee ::"+emp);
+
+        //Nth highest in each dept
+        int dIdx = 2;
+
+        employeeData.stream()
+                .collect(Collectors.groupingBy(Employee::getDeptCode))
+                .entrySet().stream()
+                .forEach(e->{
+                    System.out.println(
+                            "/************ "+e.getKey()+" Department "+dIdx+" Highest Salary ***************/\n" +
+//                            + e.getValue().stream().max(Comparator.comparing(Employee::getESal)).get().toString()
+                              e.getValue().stream().sorted(Comparator.comparing(Employee::getESal).reversed()).toList().get(dIdx-1).toString()
+                            +"\n"
+                    );
+                });
+
+        System.out.println(employeeData.stream()
+                .filter(f->f.getDateOfJoin().isBefore(LocalDate.now().minusYears(10)))
+                .toList());
 
     }
 }
