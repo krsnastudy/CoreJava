@@ -192,5 +192,21 @@ public class EmployeeStreamPractice {
         
         /************** Total Count ****************/
         System.out.println("\nTotal Records Processing: "+noOfRecords);
+
+        /************** Sort Employees by Dept, Gender, fName, lName ****************/
+        System.out.println("\n/************** Sort Employees by Dept, Gender, fName, lName ****************/");
+        Comparator<Employee> empComparator = Comparator.comparing(Employee::getGender).reversed()
+                        .thenComparing(Employee::getFName).thenComparing(Employee::getLName);
+
+        empList.stream()
+                .collect(Collectors.groupingBy(Employee::getDeptCode))
+                .entrySet().stream()
+                .limit(10)
+                .forEach(e->{
+                    System.out.println("/************ "+e.getKey()+" ****************/");
+                    System.out.println(e.getValue().stream().sorted(empComparator)
+                            .map(m->m.getGender()+" "+m.getENumber()+" "+m.getFName()+" "+m.getLName())
+                            .collect(Collectors.joining("\n")));
+                });
     }//psvm
 }//StreamPractice
