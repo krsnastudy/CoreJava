@@ -2,6 +2,7 @@ package com.prac.core.practice.stream.employee;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.time.LocalDate;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -208,5 +209,15 @@ public class EmployeeStreamPractice {
                             .map(m->m.getGender()+" "+m.getENumber()+" "+m.getFName()+" "+m.getLName())
                             .collect(Collectors.joining("\n")));
                 });
+
+        /************** Employees who joined this Year ****************/
+        int currYear = LocalDate.now().getYear();
+        System.out.println("Emp joined this year ");
+        String empJoined = empList.stream()
+                .filter(f -> f.getDateOfJoin() != null && f.getDateOfJoin().getYear() == currYear)
+                .map(m -> m.getENumber() + " " + m.getFName() + " " + m.getDateOfJoin())
+                .collect(Collectors.joining("\n"));
+
+        System.out.println(empJoined);
     }//psvm
 }//StreamPractice

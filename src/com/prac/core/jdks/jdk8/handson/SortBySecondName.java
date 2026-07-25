@@ -27,6 +27,8 @@ public class SortBySecondName {
         Arrays.sort(sArray, Comparator.comparing(s-> s.split(" ")[1]));
         System.out.println(Arrays.toString(sArray));
 
+        System.out.println("Arrays Sort Reverse");
+        Arrays.sort(sArray, Comparator.comparing((String s) -> s.split(" ")[1]).reversed());
+        System.out.println(Arrays.toString(sArray));
     }
-
 }
