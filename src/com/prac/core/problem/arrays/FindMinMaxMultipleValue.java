@@ -63,3 +63,12 @@ public class FindMinMaxMultipleValue {
         System.out.println("Logic2 Min Multiplication Value [" + Arrays.stream(iArr).min().getAsInt() + ", " + Arrays.stream(iArr).max().getAsInt() + "] " + "is : " + minMax);
     }
 }
+
+
+/*
+(a, b) -> (String.valueOf(a) + b)
+          .compareTo(String.valueOf(b) + a);
+
+That would produce ascending order according to the concatenation rule.
+By comparing (b+a) against (a+b), we effectively reverse the comparison, producing the descending order needed to build the largest number.
+*/
