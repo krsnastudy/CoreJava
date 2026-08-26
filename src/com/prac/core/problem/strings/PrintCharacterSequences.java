@@ -1,13 +1,13 @@
 package com.prac.core.problem.strings;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.IntStream;
 
 public class PrintCharacterSequences {
-    public static Map<Character, Integer> seqMap = new HashMap<>();
+    public static Map<Character, Integer> seqMap = new LinkedHashMap<>();
     public static void main(String[] args) {
-        String input = "a1b2c3d4e5f11"; //"a1b2c3d4e5f11","b3c6d15";
+        String input = "a@15b-27k&34c32*d4)0e1_9f11,,"; //"a1b2c3d4e5f11","b3c6d15";
 //        convert("a1b10");
         printCharSequence_jdk8(input);
     }
@@ -48,10 +48,12 @@ public class PrintCharacterSequences {
         }
     }
 
-    public static void printCharSequence_jdk8(String str){
+    public static void printCharSequence_jdk8(String input){
+        String str = input.toLowerCase().replaceAll("[^a-z0-9]", "");
         char[] charArray = str.toCharArray();
         Character character=null;
         StringBuffer sb = new StringBuffer();
+/*
         for(int i=0; i<str.length();i++){
 //            System.out.println(str.charAt(i)+"--"+Character.isAlphabetic(str.charAt(i)));
             if(Character.isAlphabetic(str.charAt(i))){
@@ -59,10 +61,23 @@ public class PrintCharacterSequences {
                 sb = new StringBuffer();
             }else{
                 sb.append(str.charAt(i));
+//                System.out.println("Else Part :: "+i+" iteration :: "+character+" -- "+sb.toString());
                 seqMap.put(character, Integer.parseInt(sb.toString()));
             }
         }
-        System.out.println("Given String: "+str);
+*/
+        for(Character ch : charArray){
+            if(Character.isAlphabetic(ch)){
+                character = ch;
+                sb = new StringBuffer();
+            }else{
+                sb.append(ch);
+                seqMap.put(character, Integer.parseInt(sb.toString()));
+            }
+        }
+
+        System.out.println("Given String: "+input);
+        System.out.println("Processed String: "+str);
         System.out.println("Input Char Sequence Map: "+seqMap+"\nOutput Sequence");
         seqMap.entrySet().stream()
                          .forEach(e->{
