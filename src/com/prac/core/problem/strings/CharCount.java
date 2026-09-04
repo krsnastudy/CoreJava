@@ -26,11 +26,16 @@ public class CharCount {
 				.collect(Collectors.toMap(k -> Character.valueOf((char) k.intValue()), v -> 1, Integer::sum))
 				.entrySet()
 				.forEach(e -> System.out.print(e.getKey() + "" + e.getValue()));
-		
+		System.out.println();
+
 		input.chars().boxed()
 			.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
 			.entrySet().stream()
-			.filter(f->f.getKey()==1).findFirst().get().getValue();
+			.filter(f->f.getValue()==1L)
+			.findFirst().ifPresentOrElse(
+						ch -> System.out.println(ch.getValue()),
+						() -> System.out.println("No non-repeating character was found")
+				);
+		;
 	}
-
 }
