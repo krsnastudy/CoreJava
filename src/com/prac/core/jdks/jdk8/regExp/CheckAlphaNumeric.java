@@ -14,7 +14,6 @@ public class CheckAlphaNumeric {
     }
 }
 
-
 /*
  * Java: Check whether a string contains only a certain set of characters (a-z, A-Z and 0-9)
  *

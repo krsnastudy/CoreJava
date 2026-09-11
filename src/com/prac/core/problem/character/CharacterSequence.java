@@ -8,9 +8,8 @@ public class CharacterSequence {
 		String res = "";
 		int addLen = 5;
 		for (int i = 0; i < str.length(); i++) {
-			// res = res +
-			// String.valueOf((char)(Character.getNumericValue(str.charAt(i))+addLen));
-
+//            System.out.println(Character.getNumericValue(str.charAt(i)));
+            res = res + (char)(Character.getNumericValue(str.charAt(i))+addLen);
 		}
 
 		System.out.println(" Given String: " + str);
