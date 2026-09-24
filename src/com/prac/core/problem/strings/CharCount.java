@@ -36,6 +36,5 @@ public class CharCount {
 						ch -> System.out.println(ch.getValue()),
 						() -> System.out.println("No non-repeating character was found")
 				);
-		;
 	}
 }
