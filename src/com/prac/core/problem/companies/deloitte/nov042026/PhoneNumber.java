@@ -15,8 +15,7 @@ public class PhoneNumber {
         Map<Boolean, List<Integer>> collect = IntStream.rangeClosed(1, sPno.length())
                 .mapToObj(Integer::valueOf)
                 .collect(Collectors.partitioningBy(p -> p % 2 == 0));
-
-        System.out.println("Map partitioningBy :: " + collect);
+//        System.out.println("Map partitioningBy :: " + collect);
 
         String oddNums = collect.get(false).stream().map(String::valueOf).collect(Collectors.joining(""));
         String evenNums = collect.get(true).stream().map(String::valueOf).collect(Collectors.joining(""));
