@@ -7,13 +7,7 @@ import java.util.stream.IntStream;
 
 public class GoldenNumber {
     public static void main(String[] args) {
-//        System.out.println(golden(11));
         int start = 10, end = 100;
-
-/*        List<Integer> goldenPriceList = IntStream.rangeClosed(start, end)
-                .boxed()
-                .collect(Collectors.partitioningBy(p -> golden(p)))
-                .get(true).stream().toList();*/
 
         List<Integer> goldenPriceList =
                 IntStream.rangeClosed(start, end)
@@ -21,9 +15,8 @@ public class GoldenNumber {
                         .filter(f -> golden(f))
                         .collect(Collectors.toList());
 
-        System.out.println("\nGolden Prices between " + start + " & " + end + " :: " + goldenPriceList.stream().map(String::valueOf).collect(Collectors.joining(" ")));
+        System.out.println("\nGolden Prices List between " + start + " & " + end + " :: " + goldenPriceList.stream().map(String::valueOf).collect(Collectors.joining(" ")));
         System.out.println("Golden Prices Summation " + goldenPriceList.stream().reduce((a, b) -> a + b).get());
-
     }
 
     public static boolean golden(int num) {
@@ -54,17 +47,12 @@ public class GoldenNumber {
 That rule explains the total of **495**:
 
 A price is “golden” when:
-
 sum of its digits − largest digit = largest digit
 
 For a two-digit number, this means the smaller digit must equal the larger digit—so the digits must match. From 10 to 100, the golden prices are:
-
-`11, 22, 33, 44, 55, 66, 77, 88, 99`
+11, 22, 33, 44, 55, 66, 77, 88, 99
 
 Their total is:
-
-`11 + 22 + 33 + 44 + 55 + 66 + 77 + 88 + 99 = 495`
-
-`100` does not qualify: `1 − 1 = 0`, which is not equal to the largest digit (`1`).
-
-* */
+11 + 22 + 33 + 44 + 55 + 66 + 77 + 88 + 99 = 495
+100 does not qualify: 1 − 1 = 0, which is not equal to the largest digit (1).
+**/
