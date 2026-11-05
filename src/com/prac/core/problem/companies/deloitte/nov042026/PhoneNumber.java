@@ -8,7 +8,7 @@ import java.util.stream.IntStream;
 
 public class PhoneNumber {
     public static void main(String[] args) {
-        String sPno = "9885341666";
+        String sPno = "1234567890";
 
         Function<List<Integer>, String> format = f -> f.stream().map(String::valueOf).collect(Collectors.joining());
 
@@ -22,7 +22,8 @@ public class PhoneNumber {
                         ));
         System.out.println("Map partitioningBy :: " + collect);
         String result = format.apply(collect.get(false)) + format.apply(collect.get(true));
-        System.out.println(result);
+        System.out.println("Given  :: "+sPno);
+        System.out.println("Result :: "+result);
 
     }
 }
