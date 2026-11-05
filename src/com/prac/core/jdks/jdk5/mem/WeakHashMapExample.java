@@ -11,7 +11,7 @@ public class WeakHashMapExample {
         weakMap.put(key1, "Java");
         weakMap.put(key2, "Spring");
 
-        System.out.println("Before GC: " + weakMap);
+        System.out.println("Before GC map and its size is  " + weakMap.size() + " -- " + weakMap);
 
         // Remove strong reference
         key1 = null;
@@ -20,8 +20,11 @@ public class WeakHashMapExample {
         System.gc();
 
         // Wait for GC to finish
-        try { Thread.sleep(1000); } catch (InterruptedException e) {}
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+        }
 
-        System.out.println("After GC: " + weakMap);
+        System.out.println("After  GC map and its size is  " + weakMap.size() + " -- " + weakMap);
     }
 }
