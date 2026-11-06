@@ -2,6 +2,7 @@ package com.prac.core.jdks.jdk5.threads.executor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.*;
 
 /**
@@ -11,8 +12,11 @@ import java.util.concurrent.*;
  */
 public class ExecutorFrameworkDemo {
     private static final int TASK_COUNT = 6;
+    private static final int CPU_CORES = Runtime.getRuntime().availableProcessors();
 
     public static void main(String[] args) throws Exception {
+        System.out.println("System Core Size :: "+CPU_CORES);
+        System.out.println("======================Staring Executor Framework Demo====================");
         fixedThreadPool();
         cachedThreadPool();
         singleThreadExecutor();
@@ -20,12 +24,13 @@ public class ExecutorFrameworkDemo {
         workStealingPool();
         boundedThreadPoolWithBackpressure();
         submitAndCollectResults();
+        System.out.println("\n======================Ending Executor Framework Demo====================");
     }
 
     // A bounded number of workers. The factory method uses an unbounded work queue.
     private static void fixedThreadPool() throws InterruptedException {
         System.out.println("\n=== Fixed thread pool ===");
-        ExecutorService executor = Executors.newFixedThreadPool(3);
+        ExecutorService executor = Executors.newFixedThreadPool(CPU_CORES);
         try {
             for (int i = 1; i <= TASK_COUNT; i++) {
                 int taskId = i;
